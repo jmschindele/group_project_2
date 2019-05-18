@@ -1,0 +1,22 @@
+.container {
+    width: 375px;
+    height: 812px;
+    border: solid 1px black;
+
+}
+
+#round-photo {
+    border-radius: 100%;
+    margin-left: 31px;
+}
+
+#logo-row{
+    padding: 0;
+    margin: 15% auto;
+}
+
+#form-row {
+    width: 90%;
+    border: solid 1px red;
+    margin: 0 auto;
+}
