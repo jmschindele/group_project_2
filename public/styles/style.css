@@ -2,7 +2,7 @@
     width: 375px;
     height: 812px;
     border: solid 1px black;
-
+    overflow: auto;
 }
 
 #round-photo {
@@ -19,4 +19,15 @@
     width: 90%;
     border: solid 1px red;
     margin: 0 auto;
+}
+
+#card-row {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.card-text {
+    height: 300px;
+    text-align: right;
+    bottom: 0;
 }
