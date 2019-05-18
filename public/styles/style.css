@@ -1,8 +1,13 @@
+body {
+    background: black;
+}
+
 .container {
     width: 375px;
     height: 812px;
     border: solid 1px black;
     overflow: auto;
+    background: white;
 }
 
 #round-photo {
@@ -35,8 +40,17 @@
     text-align: right;
     bottom: 0;
     font-size: 20pt;
+    padding-right: 20px;
 }
 
 .card-body {
     padding: 0px;
+}
+
+#card-row a {
+    color: black;
+}
+
+#card-row a:hover {
+    text-decoration: none;
 }
