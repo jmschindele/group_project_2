@@ -27,7 +27,16 @@
 }
 
 .card-text {
-    height: 300px;
+    background: grey;
+    height: 50px;
+    width: 100%;
+    margin: 0;
+    border: 0px solid transparent;
     text-align: right;
     bottom: 0;
+    font-size: 20pt;
+}
+
+.card-body {
+    padding: 0px;
 }
