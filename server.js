@@ -33,8 +33,12 @@ if (process.env.NODE_ENV === "test") {
   syncOptions.force = true;
 }
 
+
 // Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync(syncOptions).then(function() {
+
+
+// CHANGE FORCE BACK TO FALSE!!!!!!!!!!!!!!!!!!!!!!!
+db.sequelize.sync({ force: true }).then(function() {
   app.listen(PORT, function() {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
