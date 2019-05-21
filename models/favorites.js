@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
-  var Clothing = sequelize.define("Clothing", {
-    clothingArticle: {
+  var Favorites = sequelize.define("Favorites", {
+    Article: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -9,13 +9,13 @@ module.exports = function(sequelize, DataTypes) {
     note: DataTypes.STRING
   });
 
-  Clothing.associate = function(models) {
-    Clothing.belongsTo(models.Spouse, {
+  Favorites.associate = function(models) {
+    Favorites.belongsTo(models.Spouse, {
       foreignKey: {
         allowNull: false
       }
     });
   };
 
-  return Clothing;
+  return Favorites;
 };
