@@ -15,7 +15,7 @@ module.exports = function(sequelize, DataTypes) {
   };
 
   Spouse.associate = function(models) {
-    Spouse.hasMany(models.Clothing, {});
+    Spouse.hasMany(models.Favorites, {});
   };
 
   Spouse.associate = function(models) {
