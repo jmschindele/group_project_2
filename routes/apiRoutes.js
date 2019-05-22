@@ -1,5 +1,6 @@
 //
 // 20MAY2019 Robin edit to /api/user/:username to get it returning a record on http://localhost:3000/api/user/robin3
+// 21MAY2019 Robin added post route for user, added get and post for spouse
 //
 
 var db = require("../models");
@@ -13,7 +14,9 @@ var db = require("../models");
 
 module.exports = function (app) {
 
+  // -------------------------------
   // Get user with matching userName
+  // -------------------------------
   app.get("/api/user/:username", function (req, res) {
     db.User.findAll({
       where: {
@@ -25,7 +28,9 @@ module.exports = function (app) {
   });
 
 
-  // POST route for saving a new User
+  // --------------------------------------------------
+  // POST route for saving a new User - added 20MAY2019
+  // --------------------------------------------------
   app.post("/api/user", function (req, res) {
     // create takes an argument of an object describing 
     // the item we want to insert into our table. 
@@ -35,7 +40,7 @@ module.exports = function (app) {
       password: req.body.password,
       hint: req.body.hint
     }).then(function (dbUser) {
-      // We have access to the new todo as an argument inside of the callback function
+      // We have the new user as an argument 
       res.json(dbUser);
     });
   });
@@ -47,7 +52,9 @@ module.exports = function (app) {
   //   |___/ .__/ \___/ \__,_|___/\___|  |_|  \___/ \__,_|\__\___||___/  
   //       |_|                                                           
 
-  // Get user with matching userName
+  // -----------------------------
+  // Get spouse using users userid
+  // -----------------------------
   app.get("/api/spouse/:userid", function (req, res) {
     db.Spouse.findAll({
       where: {
@@ -56,35 +63,38 @@ module.exports = function (app) {
     }).then(function (dbSpouse) {
       res.json(dbSpouse);
     });
+
   });
 
-   // POST route for saving a new Spouse
-   app.post("/api/spouse/:userid", function (req, res) {
+  // ----------------------------------
+  // POST route for saving a new Spouse
+  // ----------------------------------
+  app.post("/api/spouse/", function (req, res) {
     // create takes an argument of an object describing 
     // the item we want to insert into our table. 
     // console.log("req.body is", req.body)
     db.Spouse.create({
-      spouseName: req.body.spousename,
-      UserId: req.params.userid
+      spouseName: req.body.spouseName,
+      UserId: req.body.UserId
     }).then(function (dbSpouse) {
-      // We have access to the new spouse as 
-      // an argument inside of the callback function
+      // We have the new spouse inside of the callback function
       res.json(dbSpouse);
     });
-  }); 
-
-
-
-
-
-  // Delete an example by id
-  app.delete("/api/examples/:id", function (req, res) {
-    db.Example.destroy({
-      where: {
-        id: req.params.id
-      }
-    }).then(function (dbExample) {
-      res.json(dbExample);
-    });
   });
+
 };
+
+
+
+
+//   // Delete an example by id
+//   app.delete("/api/examples/:id", function (req, res) {
+//     db.Example.destroy({
+//       where: {
+//         id: req.params.id
+//       }
+//     }).then(function (dbExample) {
+//       res.json(dbExample);
+//     });
+//   });
+// };
