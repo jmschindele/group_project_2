@@ -2,23 +2,46 @@ var db = require("../models");
 
 module.exports = function(app) {
   // Load index page
-  app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.render("index", {
-        msg: "Welcome!",
-        examples: dbExamples
-      });
+  // app.get("/", function(req, res) {
+  //   res.redirect("/api/user/:username")
+  // });
+
+  app.get("/", function(req, res){
+    db.User.findAll({}).then(function(dbUser) {
+      console.log(dbUser);
+      res.render("index", { User: dbUser }); //switch out text for real index
     });
   });
 
-  // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.render("example", {
-        example: dbExample
+   app.get("/lovelangs", function(req, res) {
+     db.Lovelang.findAll({}).then(function(dblove) {
+       console.log(dblove);
+       res.render("", { User: dblove }); //add in correct handlebars link for ll
+     });
+   });
+
+    app.get("/interests", function(req, res) {
+      db.Interests.findAll({}).then(function(dbInterests) {
+        console.log(dbInterests);
+        res.render("", { User: dbInterests }); //add in correct handlebars link for interests
       });
     });
-  });
+
+     app.get("/dates", function(req, res) {
+       db.Dates.findAll({}).then(function(dbDates) {
+         console.log(dbDates);
+         res.render("", { User: dbDates }); //add in correct handlebars link for dates
+       });
+     });
+
+      app.get("/favorites", function(req, res) {
+     db.Favorites.findAll({}).then(function(dbfavs) {
+       console.log(dbfavs);
+       res.render("", { User: dbfavs }); //add in correct handlebars link for favorites
+     });
+   });
+
+
 
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {

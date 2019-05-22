@@ -1,8 +1,9 @@
 module.exports = function(sequelize, DataTypes) {
   var Interests = sequelize.define("Interests", {
     type: {
-      type: DataTypes.STRING,
-      allowNull: false
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: true
     },
     note: DataTypes.STRING
   });
