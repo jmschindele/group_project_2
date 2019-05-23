@@ -1,4 +1,4 @@
-use duet_testdb;
+use duet_db;
 
 INSERT INTO users (userName,  `password`, hint, createdAt, updatedAt)
 SELECT "robin3" as userName, "three" as `password`, "How mnay blind mice?" as hint, now() as createdAt , now() as updatedAt 

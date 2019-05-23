@@ -1,32 +1,171 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Document</title>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles/style.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"></script>
+    <title>Duet</title>
 </head>
 <body>
-    <div class="container">
-        <div class="row" id="logo-row">
-            <div class="col-12 mx-auto">
-                <img src="https://www.place-hold.it/250x250" id="round-photo">
-            </div>
-        </div>
-        <div class="row" id="form-row">
-            <div class="col-12 text-center">
-            <form>
-                <br>
-                <input type="email" class="form-control" placeholder="Username"></input><br>
-                <input type="password" class="form-control" placeholder='Password'></input><br>
-                <input type="submit" class="form-control btn-primary" value='Log In'></input>
-            </form>
-            </div>
-        </div>
 
+
+
+<div class="container" id="log-in-screen">
+    <div class="row" id="logo-row">
+        <div class="col-12 mx-auto">
+            <img src="https://www.place-hold.it/250x250" id="round-photo">
+        </div>
     </div>
+    <div class="row" id="form-row">
+        <div class="col-12 text-center">
+        <form>
+            <br>
+            <input type="text" class="form-control" placeholder="Username" id='user-email'></input><br>
+            <input type="password" class="form-control" placeholder='Password' id='user-password'></input><br>
+            <button class='btn btn-primary' id="login-submit">submit</button>
+        </form>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container hidden" id="index">
+  <div class="row" id="logo-row">
+    <div class="col-12 mx-auto">
+      <img src="https://www.place-hold.it/250x250" id="round-photo" />
+    </div>
+  </div>
+  <div class="row" id="card-row">
+    <div class="col-12">
+        <a href="./dates">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://www.place-hold.it/250x150" alt="" />
+        <div class="card-body">
+          <p class="card-text">
+            Dates to Remember
+          </p>
+        </div>
+      </div>
+        </a>
+      <br />
+      <a href="./interests">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://www.place-hold.it/250x150" alt="" />
+        <div class="card-body">
+          <p class="card-text">
+            Interests
+          </p>
+        </div>
+      </div>
+      </a>
+      <br />
+      <a href="./favorites">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://www.place-hold.it/250x150" alt="" />
+        <div class="card-body">
+          <p class="card-text">
+            Favorites
+          </p>
+        </div>
+      </div>
+      </a>
+      <br />
+      <a href="./love-languages">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://www.place-hold.it/250x150" alt="" />
+        <div class="card-body">
+          <p class="card-text">
+            Love Languages
+          </p>
+        </div>
+      </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container" id="new1">
+  <div class="row">
+    <div class="col-12">
+      <form>
+        <input placeholder="Spouse Name"></input>
+        <button id='newsub1'> Next </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+    <div class="container hidden" id="new2">
+  <div class="row">
+    <div class="col-12">
+      <form>
+        <input value="Date">
+        <input>
+        <input>
+        <input>
+        <input type='submit' value='next' id="newsub2">
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+    <div class="container hidden" id="new3">
+  <div class="row">
+    <div class="col-12">
+      <form>
+        <input value='likes'>
+        <input>
+        <input>
+        <input>
+        <input type='submit' value='next' id='newsub3'>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+    <div class="container hidden" id="new4">
+  <div class="row">
+    <div class="col-12">
+      <form>
+        <input value='favorites'>
+        <input>
+        <input>
+        <input>
+        <input type='submit' value='Submit' id='newsub4'>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+    <div class="container hidden" id="new4">
+  <div class="row">
+    <div class="col-12">
+      <form>
+        <input value='love language'>
+        <input>
+        <input>
+        <input>
+        <input type='submit' value='Submit' id='newsub5'>
+      </form>
+    </div>
+  </div>
+</div>
 
 </body>
-</html>
+
+</html> -->
