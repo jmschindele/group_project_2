@@ -1,18 +1,84 @@
-.container {
-    width: 375px;
-    height: 812px;
-    border: solid 1px black;
+/* color pallette:
 
+#6F0765 purple
+#4C0045 dark purple
+#BD512F orange
+#FFB228 orange-yellow
+
+ */
+
+
+
+#phonetop {
+    border: solid 3px black;
+    border-top-right-radius: 40px;
+    border-top-left-radius: 40px;
+    width: 385px;
+    height: 60px;
+    margin: 40px auto 0px auto;
+    background: darkslategray;
 }
 
-#round-photo {
+#phonespeaker {
+    
+    border: solid 2px white;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    height: 15px;
+    width: 80px;
+    margin: auto;
+}
+
+#phonemid{
+    border: solid 3px black;
+    width: 385px;
+    overflow-x: hidden;
+    margin: 0 auto;
+    height: 600px;
+}
+#phonebottom {
+    border: solid 3px black;
+    border-bottom-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    margin: 0 auto;
+    width: 385px;
+    height: 60px;
+    background: darkslategray;
+}
+#phonebutton {
+    border: solid 2px white;
     border-radius: 100%;
-    margin-left: 31px;
+    height: 50px;
+    width: 50px;
+    margin: auto;
+}
+#phonebuttoninner {
+    border: solid 2px white;
+    margin: 8px auto;
+    height: 30px;
+    width: 30px;
 }
 
-#logo-row{
-    padding: 0;
-    margin: 15% auto;
+body {
+    background: black;
+    background-image: url('../images/grey_wash_wall.png');
+}
+
+#card-row {
+    border-top: solid 15px #4C0045;
+    border-bottom: solid 30px #4C0045;
+    margin: 0px auto;
+}
+
+
+#card-row a {
+    color: black;
+}
+
+#card-row a:hover {
+    text-decoration: none;
 }
 
 #form-row {
@@ -20,3 +86,96 @@
     border: solid 1px red;
     margin: 0 auto;
 }
+
+#round-photo {
+    border-radius: 100%;
+    margin-left: 31px;
+    border: 3px solid #FFB228;
+    box-shadow: 0px 0px 35px 25px #6F0765;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    height: 250px;
+    width: 250px;
+}
+
+.bg-1 {
+    background: #6F0765;
+}
+
+.bg-2 {
+   background: #4C0045;
+}
+
+.bg-3 {
+   background: #BD512F;
+}
+
+.bg-4{
+   background: #FFB228;
+}
+
+.card {
+    padding: 0px;
+    margin: 0px;
+}
+
+.card-body {
+    padding: 0px;
+}
+
+.card-border {
+
+    margin: 0 auto;
+    border: 3px solid #FFB228;
+}
+
+/* .card img {
+    width: 295px;
+    height: auto;
+} */
+.card-text {
+    height: 50px;
+    width: 100%;
+    margin: 0;
+    border-top: solid 3px #FFB228;
+    text-align: right;
+    bottom: 0;
+    font-size: 1.5em;
+    padding-right: 15px;
+    padding-top: 7px;
+    text-shadow: 0px 0px 5px black;
+    /* box-shadow: inset 0px 0px 10px 1px #6F0765; */
+    background-image: url('../images/zig-zag.png');
+}
+
+
+.container {
+    width: 375px;
+    border: solid 1px black;
+    overflow: auto;
+}
+
+.hidden {
+    display: none;
+}
+
+.text-1 {
+    color: #6F0765;
+    font-family: 'Marck Script', cursive;
+}
+
+.text-2 {
+    color: #4C0045;
+    font-family: 'Marck Script', cursive;
+}
+
+.text-3 {
+    color: #BD512F;
+    font-family: 'Marck Script', cursive;
+}
+
+.text-4 {
+    color: #FFB228;
+    font-family: 'Old Standard TT', serif;
+}
+
