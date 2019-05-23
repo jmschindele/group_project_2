@@ -7,96 +7,71 @@
 
  */
 
- .bg-1 {
-     background: #6F0765;
- }
 
-.bg-2 {
-    background: #4C0045;
+
+#phonetop {
+    border: solid 3px black;
+    border-top-right-radius: 40px;
+    border-top-left-radius: 40px;
+    width: 385px;
+    height: 60px;
+    margin: 40px auto 0px auto;
+    background: darkslategray;
 }
 
-.bg-3 {
-    background: #BD512F;
+#phonespeaker {
+    
+    border: solid 2px white;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    height: 15px;
+    width: 80px;
+    margin: auto;
 }
 
-.bg-4{
-    background: #FFB228
+#phonemid{
+    border: solid 3px black;
+    width: 385px;
+    overflow-x: hidden;
+    margin: 0 auto;
+    height: 600px;
 }
-
-
-.text-1 {
-    color: #6F0765;
+#phonebottom {
+    border: solid 3px black;
+    border-bottom-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    margin: 0 auto;
+    width: 385px;
+    height: 60px;
+    background: darkslategray;
 }
-
-.text-2 {
-    color: #4C0045;
+#phonebutton {
+    border: solid 2px white;
+    border-radius: 100%;
+    height: 50px;
+    width: 50px;
+    margin: auto;
 }
-
-.text-3 {
-    color: #BD512F;
+#phonebuttoninner {
+    border: solid 2px white;
+    margin: 8px auto;
+    height: 30px;
+    width: 30px;
 }
-
-.text-4 {
-    color: #FFB228
-}
-
-
-
 
 body {
     background: black;
-}
-
-.container {
-    width: 375px;
-    height: 812px;
-    border: solid 1px black;
-    overflow: auto;
-    background: white;
-}
-
-#round-photo {
-    border-radius: 100%;
-    margin-left: 31px;
-    box-shadow: 0px 0px 15px #4C0045;
-    margin-top: 50px;
-    margin-bottom: 50px;
-}
-
-#logo-row{
-    border-top: 50px solid transparent;
-    border-bottom: 50px solid transparent;
-    padding: 0px;
-    box-shadow: inset 15px 0px 15px #4C0045, inset -15px 0px 15px #4C0045;
-    
-}
-
-#form-row {
-    width: 90%;
-    border: solid 1px red;
-    margin: 0 auto;
+    background-image: url('../images/light-veneer.png');
 }
 
 #card-row {
-    width: 100%;
-    margin: 0 auto;
+    border-top: solid 15px #4C0045;
+    border-bottom: solid 30px #4C0045;
+    margin: 0px auto;
 }
 
-.card-text {
-    background: grey;
-    height: 50px;
-    width: 100%;
-    margin: 0;
-    border: 0px solid transparent;
-    text-align: right;
-    bottom: 0;
-    font-size: 20pt;
-    padding-right: 20px;
-}
-
-.card-body {
-    padding: 0px;
-}
 
 #card-row a {
     color: black;
@@ -106,7 +81,100 @@ body {
     text-decoration: none;
 }
 
+#form-row {
+    width: 90%;
+    border: solid 1px red;
+    margin: 0 auto;
+}
+
+#round-photo {
+    border-radius: 100%;
+    margin-left: 31px;
+    border: 3px solid #FFB228;
+    box-shadow: 0px 0px 35px 25px #6F0765;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    height: 250px;
+    width: 250px;
+}
+
+.bg-1 {
+    background: #6F0765;
+}
+
+.bg-2 {
+   background: #4C0045;
+}
+
+.bg-3 {
+   background: #BD512F;
+}
+
+.bg-4{
+   background: #FFB228;
+}
+
+.card {
+    padding: 0px;
+    margin: 0px;
+}
+
+.card-body {
+    padding: 0px;
+}
+
+.card-border {
+
+    margin: 0 auto;
+    border: 3px solid #FFB228;
+}
+
+/* .card img {
+    width: 295px;
+    height: auto;
+} */
+.card-text {
+    height: 50px;
+    width: 100%;
+    margin: 0;
+    border-top: solid 3px #FFB228;
+    text-align: right;
+    bottom: 0;
+    font-size: 1.5em;
+    padding-right: 15px;
+    padding-top: 7px;
+    text-shadow: 0px 0px 5px black;
+    box-shadow: inset 0px 0px 10px 1px #6F0765;
+}
+
+
+.container {
+    width: 375px;
+    border: solid 1px black;
+    overflow: auto;
+}
 
 .hidden {
-    display: hidden;
+    display: none;
 }
+
+.text-1 {
+    color: #6F0765;
+    font-family: 'Marck Script', cursive;
+}
+
+.text-2 {
+    color: #4C0045;
+    font-family: 'Marck Script', cursive;
+}
+
+.text-3 {
+    color: #BD512F;
+    font-family: 'Marck Script', cursive;
+}
+
+.text-4 {
+    color: #FFB228;
+    font-family: 'Old Standard TT', serif;
+}
+
