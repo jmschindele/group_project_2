@@ -1,79 +1,72 @@
 
-{{!-- user log-in screen here  --}}
+{{!-- log in section  --}}
     <div class="container hidden" id="log-in-screen">
         <div class="row" id="logo-row">
             <div class="col-12 mx-auto">
-                <img src="https://www.place-hold.it/250x250" id="round-photo">
+                <img src="./images/logo2.png" id="round-photo">
             </div>
         </div>
-        <div class="row" id="form-row bg-purple">
+        <div class="row" id="form-row">
             <div class="col-12 text-center">
             <form>
                 <br>
-                <input type="email" class="form-control" placeholder="Username" id='user-email'></input><br>
+                <input type="text" class="form-control" placeholder="Username" id='user-email'></input><br>
                 <input type="password" class="form-control" placeholder='Password' id='user-password'></input><br>
-                <!-- <input type="submit" class="form-control btn-primary" value='Log In' id="login-submit"></input> -->
-                <a href='./userMenu'><p class='btn btn-primary'>submit<p></a>
+                <button class='btn btn-primary' id="login-submit">submit</button>
             </form>
             </div>
         </div>
     </div>
 
-{{!-- end log-in screen here --}}
+{{!-- main page section  --}}
 
-{{!-- start user index here --}}
-
-
-    <div class="container" id="index">
-      <div class="row bg-purple" id="logo-row">
+    <div class="container bg-2 spacer" id="index">
+      <div class="row bg-2" id="logo-row">
         <div class="col-12 mx-auto">
-          <img src="https://www.place-hold.it/250x250" id="round-photo" />
+          <img src="#" alt="" />
+          <img src="./images/logo2.png" id="round-photo" />
         </div>
       </div>
-      <div class="row bg-purple" id="card-row">
-        <div class="col-12">
-<!-- Hard code url for now; replace with route when ready -->
+      <div class="row bg-3" id="card-row">
+        <div class="col-12 bg-2">
             <a href="./dates">
-          <div class="card bg-purple" style="width: 18rem;">
-            <img class="card-img-top" src="https://www.place-hold.it/250x150" alt="" />
+          <div class="card card-border" >
+            <img class="card-img-top" src="./images/dates-photo.jpg" alt="" />
             <div class="card-body">
-              <p class="card-text">
+              <p class="card-text bg-2 text-4">
                 Dates to Remember
               </p>
             </div>
           </div>
             </a>
           <br />
-<!-- Hard code url for now; replace with route when ready -->
           <a href="./interests">
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="https://www.place-hold.it/250x150" alt="" />
+          <div class="card card-border" >
+            <img class="card-img-top" src="./images/interest.jpg" alt="" />
             <div class="card-body">
-              <p class="card-text">
+              <p class="card-text bg-2 text-4">
                 Interests
               </p>
             </div>
           </div>
           </a>
           <br />
-<!-- Hard code url for now; replace with route when ready -->
           <a href="./favorites">
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="https://www.place-hold.it/250x150" alt="" />
+          <div class="card card-border">
+            <img class="card-img-top" src="./images/favorites.jpg" alt="" />
             <div class="card-body">
-              <p class="card-text">
+              <p class="card-text bg-2 text-4">
                 Favorites
               </p>
             </div>
           </div>
           </a>
           <br />
-<!-- Hard code url for now; replace with route when ready -->
-          <a href="./love-languages">
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="https://www.place-hold.it/250x150" alt="" />
+          <a href="./lovelangs">
+          <div class="card card-border">
+            <img class="card-img-top" src="./images/lovelang.png" alt="" />
             <div class="card-body">
-              <p class="card-text">
+              <p class="card-text bg-2 text-4">
                 Love Languages
               </p>
             </div>
@@ -83,5 +76,116 @@
       </div>
     </div>
 
-{{!-- end user main screen here  --}}
+    {{!-- new spouse section --}}
+
+    <div class="container hidden" id="new1">
+      <div class="row">
+        <div class="col-12">
+          <form>
+            <input placeholder="Spouse Name"></input>
+            <button id='newsub1'> Next </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    {{!-- page 2 of questions --}}
+
+        <div class="container hidden" id="new2">
+      <div class="row">
+        <div class="col-12">
+          <form>
+            <input placeholder="Event">
+            <input placeholder="Date">
+            <input type='submit' value='next' id="newsub2">
+          </form>
+        </div>
+      </div>
+    </div>
+
+{{!-- page 3 of questions --}}
+
+        <div class="container hidden" id="new3">
+      <div class="row">
+        <div class="col-12">
+          <form>
+            <input type='radio' name="isLike" value='like'> Like</input>
+            <input type='radio' name='isLike' value='dislike'> Dislike <br></input>
+            <input type='text' class='form-control' placeholder='Description'>
+            <input type='submit' value='next' id='newsub3'>
+          </form>
+        </div>
+      </div>
+    </div>
+
+{{!-- page 4 of questions --}}
+        <div class="container hidden" id="new4">
+      <div class="row">
+        <div class="col-12">
+          <form>
+            <input placeholder='article'>
+            <input placeholder='Size' >
+            <input placeholder='Notes' >
+            <input type='submit' value='next' id='newsub4'>
+          </form>
+        </div>
+      </div>
+    </div>
+
+{{!-- last page of questions  --}}
+        <div class="container hidden" id="new5">
+      <div class="row">
+        <div class="col-12">
+          <form>
+            <h2>Love Languages</h2>
+            <p>Try to include at least the top 2.</p>
+            <p>Not sure? 
+            <a href='https://www.5lovelanguages.com/profile/couples/'>
+            Take the quiz now</a></p>
+<select>
+    <option value='affirmation' >Words of Affirmation</option>
+    <option value='service' >Acts of Service</option>
+    <option value='gifts' >Receiving Gifts</option>
+    <option value='quality-time'>Quality Time</option>
+    <option value='physical-touch'>Physical Touch</option>
+    <option value='na'>Not Sure</option>
+</select>
+<select>
+    <option value='affirmation' >Words of Affirmation</option>
+    <option value='service' >Acts of Service</option>
+    <option value='gifts' >Receiving Gifts</option>
+    <option value='quality-time'>Quality Time</option>
+    <option value='physical-touch'>Physical Touch</option>
+    <option value='na'>Not Sure</option>
+</select>
+<select>
+    <option value='affirmation' >Words of Affirmation</option>
+    <option value='service' >Acts of Service</option>
+    <option value='gifts' >Receiving Gifts</option>
+    <option value='quality-time'>Quality Time</option>
+    <option value='physical-touch'>Physical Touch</option>
+    <option value='na'>Not Sure</option>
+</select>
+<select>
+    <option value='affirmation' >Words of Affirmation</option>
+    <option value='service' >Acts of Service</option>
+    <option value='gifts' >Receiving Gifts</option>
+    <option value='quality-time'>Quality Time</option>
+    <option value='physical-touch'>Physical Touch</option>
+    <option value='na'>Not Sure</option>
+</select>
+<select>
+    <option value='affirmation' >Words of Affirmation</option>
+    <option value='service' >Acts of Service</option>
+    <option value='gifts' >Receiving Gifts</option>
+    <option value='quality-time'>Quality Time</option>
+    <option value='physical-touch'>Physical Touch</option>
+    <option value='na'>Not Sure</option>
+</select>
+<br>
+            <input type='submit' value='Submit' id='newsub5'>
+          </form>
+        </div>
+      </div>
+    </div>
 
