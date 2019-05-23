@@ -179,3 +179,9 @@ body {
     font-family: 'Old Standard TT', serif;
 }
 
+.add-btn {
+    border: solid 1px green;
+    color: darkgreen;
+    border-radius: 100%;
+    background: lightgreen;
+}
