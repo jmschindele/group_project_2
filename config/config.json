@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": null,
+    "password": "3ThreeBelieve!",
     "database": "duet_testdb", 
     "host": "localhost",
     "dialect": "mysql"
