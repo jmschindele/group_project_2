@@ -63,7 +63,7 @@
 
 body {
     background: black;
-    background-image: url('../images/light-veneer.png');
+    background-image: url('../images/grey_wash_wall.png');
 }
 
 #card-row {
@@ -144,7 +144,8 @@ body {
     padding-right: 15px;
     padding-top: 7px;
     text-shadow: 0px 0px 5px black;
-    box-shadow: inset 0px 0px 10px 1px #6F0765;
+    /* box-shadow: inset 0px 0px 10px 1px #6F0765; */
+    background-image: url('../images/zig-zag.png');
 }
 
 
