@@ -1,7 +1,5 @@
 var loggedIn = false;
 
-
-
 $(document).ready(function() {
   var $login = $("#login-submit");
   var $userName = $('#user-email');
@@ -196,3 +194,17 @@ $(document).ready(function(){
     console.log('logged out')
   }
 })
+
+var spouseId = 1;
+
+
+// $('#click').on('click', function(){
+
+// $.ajax('api/interests/' + spouseId , {
+//   type: 'GET'
+// }).then(function(response) {
+//   console.log(response)
+// })
+
+// });
+
