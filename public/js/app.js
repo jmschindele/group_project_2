@@ -10,8 +10,6 @@ $(document).ready(function() {
     e.preventDefault();
     var loginName = $userName.val().trim();
     var loginPassword = $userPassword.val().trim();
-    $logInScreen.toggleClass("hidden");
-    $index.toggleClass("hidden");
     var user;
 
     console.log(loginName, loginPassword)
