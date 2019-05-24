@@ -52,6 +52,12 @@ $(document).ready(function() {
     $new5.toggleClass("hidden");
   });
 
+  $newSub5.on('click', function(e){
+    e.preventDefault();
+    $new5.toggleClass('hidden');
+    $('#index').toggleClass('hidden');
+  })
+
   //Handler for new spouse blanks
 
   var $addSpouse = $("#add-spouse");
@@ -129,3 +135,27 @@ for (var i = 0; i < 5; i++) {
 </select>
   `)
 }
+
+
+
+//Click handler to take new user to spouse entry form
+$('#add-spouse').on('click', function(e) {
+  e.preventDefault();
+  $('#index').toggleClass('hidden');
+  $('#new1').toggleClass('hidden');
+});
+
+
+//new user submit click handler
+
+$('#new-user-screen').on('click',function(e){
+  e.preventDefault();
+  $('#index').toggleClass('hidden');
+  $('#new-user-screen').toggleClass('hidden');
+})
+
+$('#new-user').on('click', function(e){
+e.preventDefault();
+$('#log-in-screen').toggleClass('hidden');
+$('#new-user-screen').toggleClass('hidden');
+});

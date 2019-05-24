@@ -1,5 +1,5 @@
 {{!-- log in section  --}}
-<div class="container " id="log-in-screen">
+<div class="container bg-2 text-4" id="log-in-screen">
   <div class="row" id="logo-row">
     <div class="col-12 mx-auto">
       <img src="./images/logo2.png" id="round-photo">
@@ -12,6 +12,7 @@
         <input type="text" class="form-control" placeholder="Username" id='user-email'></input><br>
         <input type="password" class="form-control" placeholder='Password' id='user-password'></input><br>
         <button class='btn btn-primary' id="login-submit">submit</button>
+        <button class='btn btn-success' id="new-user">New User</button>
       </form>
     </div>
   </div>
@@ -71,18 +72,41 @@
           </div>
         </div>
       </a>
+      <h3><button id='add-spouse'>Add Spouse</button></h3>
     </div>
   </div>
 </div>
 
+{{!-- New User Section --}}
+
+<div class="container hidden bg-2 text-4" id="new-user-screen">
+  {{!-- <div class="row" id="logo-row">
+    <div class="col-12 mx-auto">
+      <img src="./images/logo2.png" id="round-photo">
+    </div>
+  </div> --}}
+  <div class="row" id="form-row">
+    <div class="col-12 text-center">
+      <form>
+        <br>
+        <input type="text" class="form-control" placeholder="Choose Username" id='new-username'></input><br>
+        <input type="email" class="form-control" placeholder='Email' id='new-email'></input><br>
+        <input type="email" class="form-control" placeholder='Confirm Email'></input><br>
+        <input type="password" class="form-control" placeholder='Password' id='user-password'></input><br>
+        <button class='btn btn-primary' id="new-user-submit">submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
 {{!-- new spouse section --}}
 
-<div class="container hidden" id="new1">
+<div class="container hidden bg-2 text-4" id="new1">
   <div class="row">
     <div class="col-12">
       <h2>Click Below to add a Spouse</h2>
       <form id="spouse-form">
-        <button class='add-btn' id="add-spouse">+</button>
         <button id='newsub1'> Next </button>
       </form>
     </div>
