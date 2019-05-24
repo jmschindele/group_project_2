@@ -1,191 +1,178 @@
-
 {{!-- log in section  --}}
-    <div class="container hidden" id="log-in-screen">
-        <div class="row" id="logo-row">
-            <div class="col-12 mx-auto">
-                <img src="./images/logo2.png" id="round-photo">
-            </div>
-        </div>
-        <div class="row" id="form-row">
-            <div class="col-12 text-center">
-            <form>
-                <br>
-                <input type="text" class="form-control" placeholder="Username" id='user-email'></input><br>
-                <input type="password" class="form-control" placeholder='Password' id='user-password'></input><br>
-                <button class='btn btn-primary' id="login-submit">submit</button>
-            </form>
-            </div>
-        </div>
+
+<div class="container bg-2 text-4" id="log-in-screen">
+  <div class="row" id="logo-row">
+    <div class="col-12 mx-auto">
+      <img src="./images/logo2.png" id="round-photo">
     </div>
+  </div>
+  <div class="row" id="form-row">
+    <div class="col-12 text-center">
+      <form>
+        <br>
+        <input type="password" class="form-control" placeholder='Password' id='user-password'></input><br>
+        <input type="text" class="form-control" placeholder="Username" id='user-email'></input><br>
+        <button class='btn btn-primary' id="login-submit">submit</button>
+        <button class='btn btn-success' id="new-user">New User</button>
+      </form>
+    </div>
+  </div>
+</div>
 
 {{!-- main page section  --}}
 
-    <div class="container bg-2 spacer" id="index">
-      <div class="row bg-2" id="logo-row">
-        <div class="col-12 mx-auto">
-          <img src="#" alt="" />
-          <img src="./images/logo2.png" id="round-photo" />
-        </div>
-      </div>
-      <div class="row bg-3" id="card-row">
-        <div class="col-12 bg-2">
-            <a href="./dates">
-          <div class="card card-border" >
-            <img class="card-img-top" src="./images/dates-photo.jpg" alt="" />
-            <div class="card-body">
-              <p class="card-text bg-2 text-4">
-                Dates to Remember
-              </p>
-            </div>
-          </div>
-            </a>
-          <br />
-          <a href="./interests">
-          <div class="card card-border" >
-            <img class="card-img-top" src="./images/interest.jpg" alt="" />
-            <div class="card-body">
-              <p class="card-text bg-2 text-4">
-                Interests
-              </p>
-            </div>
-          </div>
-          </a>
-          <br />
-          <a href="./favorites">
-          <div class="card card-border">
-            <img class="card-img-top" src="./images/favorites.jpg" alt="" />
-            <div class="card-body">
-              <p class="card-text bg-2 text-4">
-                Favorites
-              </p>
-            </div>
-          </div>
-          </a>
-          <br />
-          <a href="./lovelangs">
-          <div class="card card-border">
-            <img class="card-img-top" src="./images/lovelang.png" alt="" />
-            <div class="card-body">
-              <p class="card-text bg-2 text-4">
-                Love Languages
-              </p>
-            </div>
-          </div>
-          </a>
-        </div>
-      </div>
+
+<div class="container hidden bg-2 spacer" id="index">
+  <div class="row bg-2" id="logo-row">
+    <div class="col-12 mx-auto">
+      <img src="#" alt="" />
+      <img src="./images/logo2.png" id="round-photo" />
     </div>
-
-    {{!-- new spouse section --}}
-
-    <div class="container hidden" id="new1">
-      <div class="row">
-        <div class="col-12">
-          <form>
-            <input placeholder="Spouse Name"></input>
-            <button id='newsub1'> Next </button>
-          </form>
+  </div>
+  <div class="row bg-3" id="card-row">
+    <div class="col-12 bg-2">
+      <a href="./dates">
+        <div class="card card-border">
+          <img class="card-img-top" src="./images/dates-photo.jpg" alt="" />
+          <div class="card-body">
+            <p class="card-text bg-2 text-4">
+              Dates to Remember
+            </p>
+          </div>
         </div>
-      </div>
-    </div>
-
-    {{!-- page 2 of questions --}}
-
-        <div class="container hidden" id="new2">
-      <div class="row">
-        <div class="col-12">
-          <form>
-            <input placeholder="Event">
-            <input placeholder="Date">
-            <input type='submit' value='next' id="newsub2">
-          </form>
+      </a>
+      <br />
+      <a href="./interests">
+        <div class="card card-border">
+          <img class="card-img-top" src="./images/interest.jpg" alt="" />
+          <div class="card-body">
+            <p class="card-text bg-2 text-4">
+              Interests
+            </p>
+          </div>
         </div>
-      </div>
+      </a>
+      <br />
+      <a href="./favorites">
+        <div class="card card-border">
+          <img class="card-img-top" src="./images/favorites.jpg" alt="" />
+          <div class="card-body">
+            <p class="card-text bg-2 text-4">
+              Favorites
+            </p>
+          </div>
+        </div>
+      </a>
+      <br />
+      <a href="./lovelangs">
+        <div class="card card-border">
+          <img class="card-img-top" src="./images/lovelang.png" alt="" />
+          <div class="card-body">
+            <p class="card-text bg-2 text-4">
+              Love Languages
+            </p>
+          </div>
+        </div>
+      </a>
+      <h3><button id='add-spouse'>Add Spouse</button></h3>
     </div>
+  </div>
+</div>
+
+{{!-- New User Section --}}
+
+<div class="container hidden bg-2 text-4" id="new-user-screen">
+  <div class="row" id="logo-row">
+    <div class="col-12 mx-auto">
+      <img src="./images/logo2.png" id="round-photo">
+    </div>
+  </div>
+  <div class="row" id="form-row">
+    <div class="col-12 text-center">
+      <form>
+        <br>
+        <input type="text" class="form-control" placeholder="Choose Username" id='new-username'></input><br>
+        <input type="password" class="form-control" placeholder='Password' id='user-password'></input><br>
+        <input type="text" class="form-control" placeholder='Hint:' id='new-email'></input><br>
+        <button class='btn btn-primary' id="new-user-submit">submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+{{!-- new spouse section --}}
+
+<div class="container hidden bg-2 text-4" id="new1">
+  <div class="row">
+    <div class="col-12">
+      <h2>Click Below to add a Spouse</h2>
+      <form id="spouse-form">
+        <button id='newsub1'> Next </button>
+      </form>
+    </div>
+  </div>
+  
+</div>
+
+{{!-- page 2 of questions --}}
+
+<div class="container hidden bg-2 text-4" id="new2">
+  <div class="row">
+    <div class="col-12">
+      <h3>Add important dates!</h3>
+      <form id='date-form'>
+        <br>
+        <button class='add-btn' id="add-date">+</button>
+        <input type='submit' value='next' id="newsub2">
+      </form>
+    </div>
+  </div>
+</div>
 
 {{!-- page 3 of questions --}}
 
-        <div class="container hidden" id="new3">
-      <div class="row">
-        <div class="col-12">
-          <form>
-            <input type='radio' name="isLike" value='like'> Like</input>
-            <input type='radio' name='isLike' value='dislike'> Dislike <br></input>
-            <input type='text' class='form-control' placeholder='Description'>
-            <input type='submit' value='next' id='newsub3'>
-          </form>
-        </div>
-      </div>
+<div class="container hidden bg-2 text-4" id="new3">
+  <div class="row">
+    <div class="col-12">
+      <h3>Add some likes and dislikes below</h3>
+      <form id='interest-form'>
+        <br>
+        <button class='add-btn' id="add-interest">+</button>
+        <input type='submit' value='next' id='newsub3'>
+      </form>
     </div>
+  </div>
+</div>
 
 {{!-- page 4 of questions --}}
-        <div class="container hidden" id="new4">
-      <div class="row">
-        <div class="col-12">
-          <form>
-            <input placeholder='article'>
-            <input placeholder='Size' >
-            <input placeholder='Notes' >
-            <input type='submit' value='next' id='newsub4'>
-          </form>
-        </div>
-      </div>
+<div class="container hidden bg-2 text-4" id="new4">
+  <div class="row">
+    <div class="col-12">
+      <h3>Add some Clothing and sizes here</h3>
+      <form id='favorite-form'>
+        <br>
+        <button class='add-btn' id="add-favorite">+</button>
+        <input type='submit' value='next' id='newsub4'>
+      </form>
     </div>
+  </div>
+</div>
 
 {{!-- last page of questions  --}}
-        <div class="container hidden" id="new5">
-      <div class="row">
-        <div class="col-12">
-          <form>
-            <h2>Love Languages</h2>
-            <p>Try to include at least the top 2.</p>
-            <p>Not sure? 
-            <a href='https://www.5lovelanguages.com/profile/couples/'>
-            Take the quiz now</a></p>
-<select>
-    <option value='affirmation' >Words of Affirmation</option>
-    <option value='service' >Acts of Service</option>
-    <option value='gifts' >Receiving Gifts</option>
-    <option value='quality-time'>Quality Time</option>
-    <option value='physical-touch'>Physical Touch</option>
-    <option value='na'>Not Sure</option>
-</select>
-<select>
-    <option value='affirmation' >Words of Affirmation</option>
-    <option value='service' >Acts of Service</option>
-    <option value='gifts' >Receiving Gifts</option>
-    <option value='quality-time'>Quality Time</option>
-    <option value='physical-touch'>Physical Touch</option>
-    <option value='na'>Not Sure</option>
-</select>
-<select>
-    <option value='affirmation' >Words of Affirmation</option>
-    <option value='service' >Acts of Service</option>
-    <option value='gifts' >Receiving Gifts</option>
-    <option value='quality-time'>Quality Time</option>
-    <option value='physical-touch'>Physical Touch</option>
-    <option value='na'>Not Sure</option>
-</select>
-<select>
-    <option value='affirmation' >Words of Affirmation</option>
-    <option value='service' >Acts of Service</option>
-    <option value='gifts' >Receiving Gifts</option>
-    <option value='quality-time'>Quality Time</option>
-    <option value='physical-touch'>Physical Touch</option>
-    <option value='na'>Not Sure</option>
-</select>
-<select>
-    <option value='affirmation' >Words of Affirmation</option>
-    <option value='service' >Acts of Service</option>
-    <option value='gifts' >Receiving Gifts</option>
-    <option value='quality-time'>Quality Time</option>
-    <option value='physical-touch'>Physical Touch</option>
-    <option value='na'>Not Sure</option>
-</select>
-<br>
-            <input type='submit' value='Submit' id='newsub5'>
-          </form>
-        </div>
-      </div>
-    </div>
+<div class="container hidden bg-2 text-4" id="new5">
+  <div class="row">
+    <div class="col-12">
+      <h2>Love Languages</h2>
+      <p>Try to include at least the top 2.</p>
+      <p>Not sure?
+        <a href='https://www.5lovelanguages.com/profile/couples/'>
+          Take the quiz now</a></p>
 
+      <form id='lovelang-form'>
+        <br>
+        <input type='submit' value='Submit' id='newsub5'>
+      </form>
+    </div>
+  </div>
+</div>
