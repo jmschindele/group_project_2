@@ -1,3 +1,4 @@
+
 use duet_testdb;
 
 INSERT INTO users (userName,  `password`, hint, createdAt, updatedAt)
@@ -22,7 +23,17 @@ SELECT 0 as `type`, 'spiders' as note, now() as createdAt, now() as updatedAt, i
 INSERT INTO interests (`type`, note , createdAt, updatedAt, SpouseId )
 SELECT 0 as `type`, 'sweatpants that look like bluejeans' as note, now() as createdAt, now() as updatedAt, id as SpouseId from spouses where UserID = (select id FROM users where userName = 'robin3' ) ;
 
+delete from lovelangs where SpouseId = (select id from Spouses where UserID = (select id FROM users where userName = 'robin3' ));
+
+INSERT INTO lovelangs ( LoveLanguage, Priority, createdAt, updatedAt, SpouseId )
+SELECT 'Gifts' as LoveLanguage, 2 as Priority, now() as createdAt, now() as updatedAt, id as SpouseId 
+from spouses where UserID = (select id FROM users where userName = 'robin3' ) ;
+
+INSERT INTO lovelangs ( LoveLanguage, Priority, createdAt, updatedAt, SpouseId )
+SELECT 'Physical Touch' as LoveLanguage, 1 as Priority, now() as createdAt, now() as updatedAt, id as SpouseId 
+from spouses where UserID = (select id FROM users where userName = 'robin3' ) ;
 
 SELECT * FROM users;
 select * from spouses;
 select * from interests;
+select * from lovelangs; 
