@@ -1,3 +1,7 @@
+var loggedIn = false;
+
+
+
 $(document).ready(function() {
   var $login = $("#login-submit");
   var $userEmail = $("#user-email");
@@ -13,6 +17,9 @@ $(document).ready(function() {
     $logInScreen.toggleClass("hidden");
     $index.toggleClass("hidden");
     console.log(loginEmail, loginPassword);
+    loggedIn = true;
+    console.log('logged in')
+    console.log(loggedIn);
   });
 
   // new user handler
@@ -28,8 +35,8 @@ $(document).ready(function() {
   var $newSub4 = $("#newsub4");
   var $newSub5 = $("#newsub5");
 
-  $newSub1.on("click", function(handler) {
-    handler.preventDefault();
+  $newSub1.on("click", function(e) {
+    e.preventDefault();
     $new1.toggleClass("hidden");
     $new2.toggleClass("hidden");
   });
@@ -159,3 +166,18 @@ e.preventDefault();
 $('#log-in-screen').toggleClass('hidden');
 $('#new-user-screen').toggleClass('hidden');
 });
+
+
+
+//log in functionality
+
+
+
+$(document).ready(function(){
+  if (loggedIn) {
+    $('#log-in-screen').attr('class','hidden');
+    $('#index').toggleClass('hidden');
+  } else {
+    console.log('logged out')
+  }
+})
