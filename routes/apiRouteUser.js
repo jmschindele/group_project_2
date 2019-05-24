@@ -14,14 +14,23 @@ var db = require("../models");
 
 module.exports = function (app) {
 
+  app.get("/api/user", function(req, res) {
+    db.User.findAll({
+      include: [db.Spouse]
+    }).then(function(dbUser) {
+      res.json(dbUser);
+    });
+  });
+
   // -------------------------------
   // Get user with matching userName
   // -------------------------------
   app.get("/api/user/:username", function (req, res) {
-    db.User.findAll({
+    db.User.findOne({
       where: {
         userName: req.params.username
-      }
+      },
+      include: [db.Spouse]
     }).then(function (dbUsers) {
       res.json(dbUsers);
     });
