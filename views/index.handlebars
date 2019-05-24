@@ -9,8 +9,8 @@
     <div class="col-12 text-center">
       <form>
         <br>
-        <input type="text" class="form-control" placeholder="Username" id='user-email'></input><br>
         <input type="password" class="form-control" placeholder='Password' id='user-password'></input><br>
+        <input type="text" class="form-control" placeholder="Username" id='user-email'></input><br>
         <button class='btn btn-primary' id="login-submit">submit</button>
         <button class='btn btn-success' id="new-user">New User</button>
       </form>
@@ -80,19 +80,18 @@
 {{!-- New User Section --}}
 
 <div class="container hidden bg-2 text-4" id="new-user-screen">
-  {{!-- <div class="row" id="logo-row">
+  <div class="row" id="logo-row">
     <div class="col-12 mx-auto">
       <img src="./images/logo2.png" id="round-photo">
     </div>
-  </div> --}}
+  </div>
   <div class="row" id="form-row">
     <div class="col-12 text-center">
       <form>
         <br>
         <input type="text" class="form-control" placeholder="Choose Username" id='new-username'></input><br>
-        <input type="email" class="form-control" placeholder='Email' id='new-email'></input><br>
-        <input type="email" class="form-control" placeholder='Confirm Email'></input><br>
         <input type="password" class="form-control" placeholder='Password' id='user-password'></input><br>
+        <input type="text" class="form-control" placeholder='Hint:' id='new-email'></input><br>
         <button class='btn btn-primary' id="new-user-submit">submit</button>
       </form>
     </div>
@@ -111,6 +110,7 @@
       </form>
     </div>
   </div>
+  
 </div>
 
 {{!-- page 2 of questions --}}
