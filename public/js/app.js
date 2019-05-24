@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     var $login = $('#login-submit');
-    var $userEmail = $('#user-email');
+    var $userName = $('#user-email');
     var $userPassword = $('#user-password');
     var $logInScreen = $('#log-in-screen');
     var $index = $('#index');
@@ -9,12 +9,34 @@ $(document).ready(function () {
     //login click handler
     $login.on('click', function (e) {
       e.preventDefault();
-      var loginEmail = $userEmail.val().trim();
+      var loginName = $userName.val().trim();
       var loginPassword = $userPassword.val().trim();
-      $logInScreen.toggleClass('hidden');
-      $index.toggleClass('hidden');
-      console.log(loginEmail, loginPassword)
+      var user;
+
+      console.log(loginName, loginPassword)
+       
+
+       $.get("/api/user/" + loginName, function(data) {
+         console.log(data);
+         user = data;
+         if(user === null){
+           alert("No matching username. Please try again or create an account");
+         }else {
+           console.log(user.password);
+           if(loginPassword === user.password){
+             console.log("yes we match");
+             $logInScreen.toggleClass("hidden");
+             $index.toggleClass("hidden");
+           }else {
+             alert("incorrect password");
+           }
+         }
+         
+       });
+
     });
+
+  
 
 
     // new user handler
@@ -54,4 +76,4 @@ $(document).ready(function () {
       $new5.toggleClass('hidden');
     })
 
-  });
+});
