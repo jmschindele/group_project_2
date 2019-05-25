@@ -14,6 +14,7 @@ $(document).ready(function() {
 
     console.log(loginName, loginPassword)
     
+    // retrieve specific user information along with their spouses
     $.get("/api/user/" + loginName, function(data) {
          console.log(data);
          user = data;
@@ -165,15 +166,42 @@ $('#add-spouse').on('click', function(e) {
 
 
 //new user submit click handler
+var $addNewUserName = $("#new-username");
+var $addNewPassword = $("#new-password");
+var $addNewHint = $("#new-hint");
 
-$('#new-user-screen').on('click',function(e){
+// when you click anywhere on the new-user-screen sends you to #index area
+// $('#new-user-screen').on('click',function(e){
+//   e.preventDefault();  
+//   $('#index').toggleClass('hidden');
+//   $('#new-user-screen').toggleClass('hidden');
+// })
+
+//changes over to new-user-screen when click new user btn on login-screen
+$('#new-user').on('click', function(e){
   e.preventDefault();
-  $('#index').toggleClass('hidden');
-  $('#new-user-screen').toggleClass('hidden');
+  $("#log-in-screen").toggleClass("hidden");
+  $("#new-user-screen").toggleClass("hidden");
 })
 
-$('#new-user').on('click', function(e){
+//new user button on new user screen
+$('#new-user-submit').on('click', function(e){
 e.preventDefault();
-$('#log-in-screen').toggleClass('hidden');
-$('#new-user-screen').toggleClass('hidden');
+var newUserName = $addNewUserName.val().trim();
+var newPassword = $addNewPassword.val().trim();
+var newHint = $addNewHint.val().trim();
+
+console.log(newUserName, newPassword, newHint);
+
+var newUser = {
+  userName: newUserName,
+  password: newPassword,
+  hint: newHint
+};
+console.log(newUser);
+
+//sending new user information to user table in database
+$.post("/api/user", newUser);
+$("#new-user-screen").toggleClass("hidden");
+$("#index").toggleClass("hidden");
 });
