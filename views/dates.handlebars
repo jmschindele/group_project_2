@@ -17,13 +17,17 @@
           <!-- countdown until the next event  -->
           <br>
           <h2>Next Big Thing</h2>
-          <h1>00:00:00</h1>
-          <hr class='bg-3'>
+
+          <h3 id="countDown"> </h3>           
+          <hr>
+
           <p>event (click to drop down date)</p>
           <hr class='bg-3'>
           <p><u>Anniversary</u></p>
-            <p>May 30th - 12 days away</p>
-          <hr class='bg-3'>
+
+            <p>May 30th - 6 days away</p>
+          <hr>
+
           <p>Birthday</p>
           <hr class='bg-3'>
           <p>Turtle's Birthday</p>
@@ -38,5 +42,29 @@
         </div>
       </div>
     </div>
+    <script>
+            var countDownDate = new Date("may 30, 2019 00:00:00").getTime();
+            // have to figure out how to pull the different dates from database
+            var x = setInterval(function() {
 
-    <script src="./js/app.js"></script>
+
+            var now = new Date().getTime();
+    
+            var distance = countDownDate - now;
+    
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+              
+            document.getElementById("countDown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+  
+            // this is where we could get it to loop and pull the new date v
+            if (distance < 0) {
+              clearInterval(x);
+              document.getElementById("countDown").innerHTML = "EXPIRED";
+            }
+            }, 1000); 
+      </script>
+  <script src=".models/dates.js"> </script>
+
