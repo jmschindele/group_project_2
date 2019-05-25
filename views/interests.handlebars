@@ -51,9 +51,9 @@
 <h3>Likes</h3>
 
 <ul>
-    {{#each interests}}
-        {{#if isLike}}
-          {{> interests/interests-block isLike=true}}
+    {{#each Interests}}
+        {{#if type}}
+          {{> interests/interests-block type=true}}
         {{/if}}
     {{/each}}
 </ul>
@@ -63,9 +63,9 @@
 </div>
 
 <ul>
-    {{#each interests}}
-        {{#ifnot isLike}}
-            {{> interests/interests-block isLike=false}}
+    {{#each Interests}}
+        {{#ifnot type}}
+            {{> interests/interests-block type=false}}
         {{/ifnot}}
      {{/each}}
 </ul>

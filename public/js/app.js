@@ -198,13 +198,13 @@ $(document).ready(function(){
 var spouseId = 1;
 
 
-// $('#click').on('click', function(){
+$('#click').on('click', function(){
 
-// $.ajax('api/interests/' + spouseId , {
-//   type: 'GET'
-// }).then(function(response) {
-//   console.log(response)
-// })
+$.ajax('api/interest/' + spouseId , {
+  type: 'GET'
+}).then(function(response) {
+  console.log("hi", response);
+})
 
-// });
-
+});
+ 
