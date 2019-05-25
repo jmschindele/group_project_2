@@ -193,6 +193,7 @@ var newHint = $addNewHint.val().trim();
 
 console.log(newUserName, newPassword, newHint);
 
+<<<<<<< HEAD
 var newUser = {
   userName: newUserName,
   password: newPassword,
@@ -205,4 +206,22 @@ $.post("/api/user", newUser);
 //retrieve updated data for currentUser
 $("#new-user-screen").toggleClass("hidden");
 $("#log-in-screen").toggleClass("hidden");
+=======
+if (newUserName === "" || newPassword === ""){
+  alert("Please enter a valid username and password");
+}else {
+  var newUser = {
+    userName: newUserName,
+    password: newPassword,
+    hint: newHint
+  };
+  console.log(newUser);
+
+  //sending new user information to user table in database
+  $.post("/api/user", newUser);
+  $("#new-user-screen").toggleClass("hidden");
+  $("#index").toggleClass("hidden");
+}
+
+>>>>>>> 44aed7eb047aca25c805d5a528d74bde5c45dad6
 });
