@@ -22,7 +22,10 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Routes
-require("./routes/apiRoutes")(app);
+
+require("./routes/apiRouteLovelang")(app);
+require("./routes/apiRouteSpouse")(app);
+require("./routes/apiRouteUser")(app);
 require("./routes/htmlRoutes")(app);
 
 // Starting the server, syncing our models ------------------------------------/

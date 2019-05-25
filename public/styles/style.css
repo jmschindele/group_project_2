@@ -63,7 +63,7 @@
 
 body {
     background: black;
-    background-image: url('../images/light-veneer.png');
+    background-image: url('../images/grey_wash_wall.png');
 }
 
 #card-row {
@@ -129,10 +129,7 @@ body {
     border: 3px solid #FFB228;
 }
 
-/* .card img {
-    width: 295px;
-    height: auto;
-} */
+
 .card-text {
     height: 50px;
     width: 100%;
@@ -144,7 +141,8 @@ body {
     padding-right: 15px;
     padding-top: 7px;
     text-shadow: 0px 0px 5px black;
-    box-shadow: inset 0px 0px 10px 1px #6F0765;
+    /* box-shadow: inset 0px 0px 10px 1px #6F0765; */
+    background-image: url('../images/zig-zag.png');
 }
 
 
@@ -178,3 +176,9 @@ body {
     font-family: 'Old Standard TT', serif;
 }
 
+.add-btn {
+    border: solid 1px green;
+    color: darkgreen;
+    border-radius: 100%;
+    background: lightgreen;
+}
