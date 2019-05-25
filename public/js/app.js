@@ -202,6 +202,7 @@ console.log(newUser);
 
 //sending new user information to user table in database
 $.post("/api/user", newUser);
+//retrieve updated data for currentUser
 $("#new-user-screen").toggleClass("hidden");
-$("#index").toggleClass("hidden");
+$("#log-in-screen").toggleClass("hidden");
 });
