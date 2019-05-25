@@ -10,8 +10,8 @@
     <div class="col-12 text-center">
       <form>
         <br>
-        <input type="password" class="form-control" placeholder='Password' id='user-password'></input><br>
         <input type="text" class="form-control" placeholder="Username" id='user-email'></input><br>
+        <input type="password" class="form-control" placeholder='Password' id='user-password'></input><br>
         <button class='btn btn-primary' id="login-submit">submit</button>
         <button class='btn btn-success' id="new-user">New User</button>
       </form>
@@ -22,7 +22,13 @@
 {{!-- main page section  --}}
 
 
-<div class="container hidden bg-2 spacer" id="index">
+<div class="container bg-2 hidden spacer" id="index">
+  <div class="row bg-2" id="logo-row">
+    <div class="col-12 mx-auto">
+      <a href="/">
+      <button class='btn log-out'>Sign Out</button>
+      </a>
+      </div></div>
   <div class="row bg-2" id="logo-row">
     <div class="col-12 mx-auto">
       <img src="#" alt="" />
@@ -124,6 +130,7 @@
       <form id='date-form'>
         <br>
         <button class='add-btn' id="add-date">+</button>
+        <a class="btn-floating btn-large pulse"><i class="material-icons">edit</i></a>
         <input type='submit' value='next' id="newsub2">
       </form>
     </div>
