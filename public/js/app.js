@@ -165,15 +165,37 @@ $('#add-spouse').on('click', function(e) {
 
 
 //new user submit click handler
+var $addNewUserName = $("#new-username").val().trim();
+var $addNewPassword = $("#new-password").val().trim();
+var $addNewHint = $("#new-hint").val().trim();
 
-$('#new-user-screen').on('click',function(e){
-  e.preventDefault();
-  $('#index').toggleClass('hidden');
-  $('#new-user-screen').toggleClass('hidden');
-})
+// when you click anywhere on the new-user-screen sends you to #index area
+// $('#new-user-screen').on('click',function(e){
+//   e.preventDefault();  
+//   $('#index').toggleClass('hidden');
+//   $('#new-user-screen').toggleClass('hidden');
+// })
 
 $('#new-user').on('click', function(e){
+  e.preventDefault();
+  $("#log-in-screen").toggleClass("hidden");
+  $("#new-user-screen").toggleClass("hidden");
+})
+
+$('#new-user-submit').on('click', function(e){
 e.preventDefault();
-$('#log-in-screen').toggleClass('hidden');
-$('#new-user-screen').toggleClass('hidden');
+var newUserName = $addNewUserName;
+var newPassword = $addNewPassword;
+var newHint = $addNewHint;
+
+var newUser = {
+  userName: newUserName,
+  password: newPassword,
+  hint: newHint
+};
+console.log(newUser);
+
+$.post("/api/user", newUser);
+$("#new-user-screen").toggleClass("hidden");
+$("#index").toggleClass("hidden");
 });
