@@ -141,16 +141,20 @@ $addDate.on("click", function(e) {
 var $addInterest = $('#add-interest');
 var $interestForm = $('#interest-form');
 
-var newInterestEntry = `
-<br>
-<input type='text' class='form-control' placeholder='Description'>
-<input type='radio' name="isLike" value='like'> Like</input>
-<input type='radio' name='isLike' value='dislike'> Dislike <br></input>
-`
+
+//bug fix; without the count variable, the radio buttons will only work in one location regardless of amount of rows
+var count = 0;
 
 $addInterest.on('click', function(e){
   e.preventDefault();
-  $interestForm.prepend(newInterestEntry);
+  count++;
+  $interestForm.prepend(`
+<br>
+<input type='text' class='form-control' placeholder='Description'>
+<input type='radio' name="isLike${count}" value='like'> Like</input>
+<input type='radio' name='isLike${count}' value='dislike'> Dislike <br></input>
+  `);
+  return count;
 });
 
 

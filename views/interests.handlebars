@@ -52,9 +52,10 @@
 
 <ul>
     {{#each Interests}}
-        {{#if type}}
-          {{> interests/interests-block type=true}}
-        {{/if}}
+    
+          {{> Interests/interests-block 
+          }}
+      
     {{/each}}
 </ul>
 
@@ -69,11 +70,6 @@
         {{/ifnot}}
      {{/each}}
 </ul>
-
-
-
-
-
 
 
         </div>
