@@ -6,8 +6,7 @@ $(document).ready(function() {
   console.log(loggedIn)
 
   var currentUserId = localStorage.getItem('currentUser');
-  
-
+  var currentUserSpouse = localStorage.getItem('spouseId');
 
   //log in functionality
 
@@ -15,6 +14,7 @@ $(document).ready(function() {
     $('#log-in-screen').attr('class','hidden');
     $('#index').toggleClass('hidden');
     console.log(currentUserId);
+    console.log(currentUserSpouse);
   } else {
     console.log('logged out')
   };
@@ -60,9 +60,11 @@ $('.log-out').on('click', function(e){
            console.log(user.password);
            if(loginPassword === user.password){
              console.log("yes we match");
+              getSpouse();
              $logInScreen.toggleClass("hidden");
              $index.toggleClass("hidden");
              console.log(currentUserId);
+            
            }else {
              alert("incorrect password");
              localStorage.setItem("loggedIn", "false");
@@ -91,6 +93,7 @@ $('.log-out').on('click', function(e){
     e.preventDefault();
 
     addNewSpouse();
+    getSpouse();
 
     $new1.toggleClass("hidden");
     $new2.toggleClass("hidden");
@@ -134,15 +137,34 @@ $('.log-out').on('click', function(e){
   });
 });
 
+
 function addNewSpouse(){
+
+  var loggedInId = localStorage.getItem("currentUser");
   newSpouse = {
     spouseName: $("#new-spouse")
       .val()
       .trim(),
-    UserId: currentUserId
+    UserId: loggedInId
   };
   console.log(newSpouse);
   $.post("/api/spouse/", newSpouse);
+}
+
+var currentSpouseId;
+function getSpouse(){
+
+  var loggedInSpouse = localStorage.getItem("currentUser");
+  $.get("/api/spouse/" + loggedInSpouse, function(data) {
+    console.log(data);
+
+    //currently set to get the user's 1st entered spouse
+    currentSpouseId = data[0].id;
+    localStorage.setItem("spouseId", JSON.parse(currentSpouseId));
+
+    var spouseId = localStorage.getItem("spouseId");
+    console.log(spouseId);
+  })
 }
 
 //Handler for new date blanks
