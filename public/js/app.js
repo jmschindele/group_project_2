@@ -5,7 +5,7 @@ $(document).ready(function() {
   var loggedIn = localStorage.getItem('loggedIn');
   console.log(loggedIn)
 
-  var currentUser = localStorage.getItem('currentUser');
+  var currentUserId = localStorage.getItem('currentUser');
   
 
 
@@ -14,7 +14,7 @@ $(document).ready(function() {
   if (loggedIn === "true") {
     $('#log-in-screen').attr('class','hidden');
     $('#index').toggleClass('hidden');
-    console.log(currentUser);
+    console.log(currentUserId);
   } else {
     console.log('logged out')
   };
@@ -62,9 +62,10 @@ $('.log-out').on('click', function(e){
              console.log("yes we match");
              $logInScreen.toggleClass("hidden");
              $index.toggleClass("hidden");
-             console.log(currentUser);
+             console.log(currentUserId);
            }else {
              alert("incorrect password");
+             localStorage.setItem("loggedIn", "false");
            }
          }
          
@@ -88,6 +89,9 @@ $('.log-out').on('click', function(e){
 
   $newSub1.on("click", function(e) {
     e.preventDefault();
+
+    addNewSpouse();
+
     $new1.toggleClass("hidden");
     $new2.toggleClass("hidden");
   });
@@ -122,13 +126,24 @@ $('.log-out').on('click', function(e){
   var $spouseForm = $("#spouse-form");
   // setting up new spouse blank as a variable so any formatting changes will apply
   var newSpouseEntry =
-    '<input placeholder="Spouse Name" class="form-control"></input>';
+    '<input placeholder="Spouse Name" id= "new-spouse" class="form-control"></input>';
 
   $addSpouse.on("click", function(e) {
     e.preventDefault();
     $spouseForm.prepend(newSpouseEntry);
   });
 });
+
+function addNewSpouse(){
+  newSpouse = {
+    spouseName: $("#new-spouse")
+      .val()
+      .trim(),
+    UserId: currentUserId
+  };
+  console.log(newSpouse);
+  $.post("/api/spouse/", newSpouse);
+}
 
 //Handler for new date blanks
 var $addDate = $("#add-date");
