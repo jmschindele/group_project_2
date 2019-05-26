@@ -4,6 +4,8 @@ $(document).ready(function() {
 
   var loggedIn = localStorage.getItem('loggedIn');
   console.log(loggedIn)
+
+  var currentUser = localStorage.getItem('currentUser');
   
 
 
@@ -12,6 +14,7 @@ $(document).ready(function() {
   if (loggedIn === "true") {
     $('#log-in-screen').attr('class','hidden');
     $('#index').toggleClass('hidden');
+    console.log(currentUser);
   } else {
     console.log('logged out')
   };
@@ -24,14 +27,14 @@ $('.log-out').on('click', function(e){
   location.reload();
 })
 
-
-
   var $login = $("#login-submit");
   var $userName = $('#user-email');
   var $userPassword = $("#user-password");
   var $logInScreen = $("#log-in-screen");
   var $index = $("#index");
 
+
+  var loggedInUserId;
   //login click handler
   $login.on("click", function(e) {
     e.preventDefault();
@@ -45,23 +48,28 @@ $('.log-out').on('click', function(e){
     console.log(loginName, loginPassword)
     
     // retrieve specific user information along with their spouses
-    // $.get("/api/user/" + loginName, function(data) {
-    //      console.log(data);
-    //      user = data;
-    //      if(user === null){
-    //        alert("No matching username. Please try again or create an account");
-    //      }else {
-    //        console.log(user.password);
-    //        if(loginPassword === user.password){
-    //          console.log("yes we match");
-    //          $logInScreen.toggleClass("hidden");
-    //          $index.toggleClass("hidden");
-    //        }else {
-    //          alert("incorrect password");
-    //        }
-    //      }
+    $.get("/api/user/" + loginName, function(data) {
+         console.log(data);
+         user = data;
+         if(user === null){
+           alert("No matching username. Please try again or create an account");
+         }else {
+           loggedInUserId = user.id;
+           localStorage.setItem("currentUser", loggedInUserId);
+            console.log(loggedInUserId);
+           console.log(user.password);
+           if(loginPassword === user.password){
+             console.log("yes we match");
+             $logInScreen.toggleClass("hidden");
+             $index.toggleClass("hidden");
+             console.log(currentUser);
+           }else {
+             alert("incorrect password");
+           }
+         }
          
-      //  });
+       });
+      
       location.reload();
   });
 
@@ -241,7 +249,7 @@ if (newUserName === "" || newPassword === ""){
   //sending new user information to user table in database
   $.post("/api/user", newUser);
   $("#new-user-screen").toggleClass("hidden");
-  $("#index").toggleClass("hidden");
+  $("#log-in-screen").toggleClass("hidden");
 }
 
 });
@@ -253,17 +261,17 @@ if (newUserName === "" || newPassword === ""){
 
 //This id is for testing, need to pull the spouse id from the SQL object once the log in is working properly
 
-var spouseId = 1;
+// var spouseId = 1;
 
-//var spouseId = Spouses.id
+// //var spouseId = Spouses.id
 
-$('#click').on('click', function(){
+// $('#click').on('click', function(){
 
-$.ajax('api/interest/' + spouseId , {
-  type: 'GET'
-}).then(function(response) {
-  console.log("hi", response);
-})
+// $.ajax('api/interest/' + spouseId , {
+//   type: 'GET'
+// }).then(function(response) {
+//   console.log("hi", response);
+// })
 
-});
+// });
  
