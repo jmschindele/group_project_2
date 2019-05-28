@@ -288,7 +288,6 @@ if (newUserName === "" || newPassword === ""){
   $("#new-user-screen").toggleClass("hidden");
   $("#log-in-screen").toggleClass("hidden");
 }
-
 });
 
 
