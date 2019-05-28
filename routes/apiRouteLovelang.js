@@ -15,12 +15,7 @@ module.exports = function (app) {
     db.Lovelang.findAll({
       where: {
         SpouseId: req.params.spouseid
-      },
-      order: [
-        ['Priority', 'ASC'],
-        ['LoveLanguage', 'ASC'],
-      ],
-      attributes: ['id', 'Priority', 'LoveLanguage']
+      }
     }).then(function (Lovelangs) {
       console.log("Lovelangs is", Lovelangs)
       res.json(Lovelangs);
