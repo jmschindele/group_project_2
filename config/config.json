@@ -1,22 +1,21 @@
 {
   "development": {
-    "username": "root",
-    "password": "3ThreeBelieve!",
-    "database": "duet_testdb",
-    "host": "localhost",
+    "username": "i1vdtasma0vauty2",	  
+    "password": "i69wetaam2ni085o",	   
+    "database": "axdpvn7mhhbngbno", 	
+    "host": "xefi550t7t6tjn36.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   },
-  "test": {
-    "username": "root",
-    "password": null,
-    "database": "testdb",
-    "host": "localhost",
-    "dialect": "mysql",
-    "logging": false
-  },
-  "production": {
-    "use_env_variable": "JAWSDB_URL",
+  "test": {	
+    "username": "i1vdtasma0vauty2",
+    "password": "i69wetaam2ni085o",
+    "database": "axdpvn7mhhbngbno",	  
+    "host": "xefi550t7t6tjn36.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
-  }
-}
+  },
+  	"production": {
+    "username": "i1vdtasma0vauty2",	
+    "dialect": "mysql"
+  }	  
 
+}

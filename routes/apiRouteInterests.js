@@ -14,7 +14,7 @@ module.exports = function (app) {
       ],
       attributes: ['id', 'type', 'note']
     }).then(function (Results) {
-      console.log("Results is", Results)
+      // console.log("Results is", Results)
       res.json(Results);
     });
 

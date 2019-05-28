@@ -19,30 +19,23 @@
 <!-- picturing a rotating drop down menu here. We keep it at the top so its always available, but shrink the content so its not in the way when we aren't referencing it -->
 
 
+
+    {{#each favorites}}
+          {{> in favorites/favorites-block}}
+    {{/each}}
+
+
 <table class="table">
         <caption>List of Sizes</caption>
         <thead>
           <tr>
             <th scope="col">Garment</th>
             <th scope="col">Size</th>
-
+            <th scope="col">Note</th>
           </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Bowling Shoes</td>
-            <td>13</td>
-          </tr>
-          <tr>
-            <td>Blouse</td>
-            <td>small</td>
-          </tr>
-          <tr>
-
-            <td>Pants</td>
-            <td>3?</td>
-
-          </tr>
+              {{#each favorites}}
+                {{> infavorites/favorites-block}}
+              {{/each}}
         </tbody>
       </table>
 

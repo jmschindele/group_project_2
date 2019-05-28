@@ -22,7 +22,7 @@ module.exports = function(app) {
 
     app.get("/interests", function(req, res) {
       db.Interests.findAll({}).then(function(dbInterests) {
-        console.log(dbInterests);
+        // console.log(dbInterests);
         res.render("interests", { User: dbInterests }); //add in correct handlebars link for interests
       });
     });
