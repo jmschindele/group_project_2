@@ -1,17 +1,50 @@
+
 $(document).ready(function() {
+
+
+  var loggedIn = localStorage.getItem('loggedIn');
+  console.log(loggedIn)
+
+  var currentUserId = localStorage.getItem('currentUser');
+  var currentUserSpouse = localStorage.getItem('spouseId');
+
+  //log in functionality
+
+  if (loggedIn === "true") {
+    $('#log-in-screen').attr('class','hidden');
+    $('#index').toggleClass('hidden');
+    console.log(currentUserId);
+    console.log(currentUserSpouse);
+  } else {
+    console.log('logged out')
+  };
+
+//log out functionality 
+$('.log-out').on('click', function(e){
+  e.preventDefault();
+  localStorage.setItem("loggedIn",'false');
+  console.log('successfully logged out')
+  location.reload();
+})
+
   var $login = $("#login-submit");
   var $userName = $('#user-email');
   var $userPassword = $("#user-password");
   var $logInScreen = $("#log-in-screen");
   var $index = $("#index");
 
+
+  var loggedInUserId;
   //login click handler
   $login.on("click", function(e) {
     e.preventDefault();
+    loggedIn = localStorage.getItem('loggedIn');
+    localStorage.setItem("loggedIn", "true");
+    console.log(loggedIn);
     var loginName = $userName.val().trim();
     var loginPassword = $userPassword.val().trim();
     var user;
-
+    // return loggedIn;
     console.log(loginName, loginPassword)
     
     // retrieve specific user information along with their spouses
@@ -21,17 +54,26 @@ $(document).ready(function() {
          if(user === null){
            alert("No matching username. Please try again or create an account");
          }else {
+           loggedInUserId = user.id;
+           localStorage.setItem("currentUser", loggedInUserId);
+            console.log(loggedInUserId);
            console.log(user.password);
            if(loginPassword === user.password){
              console.log("yes we match");
+              getSpouse();
              $logInScreen.toggleClass("hidden");
              $index.toggleClass("hidden");
+             console.log(currentUserId);
+            
            }else {
              alert("incorrect password");
+             localStorage.setItem("loggedIn", "false");
            }
          }
          
        });
+      
+      location.reload();
   });
 
   // new user handler
@@ -47,8 +89,12 @@ $(document).ready(function() {
   var $newSub4 = $("#newsub4");
   var $newSub5 = $("#newsub5");
 
-  $newSub1.on("click", function(handler) {
-    handler.preventDefault();
+  $newSub1.on("click", function(e) {
+    e.preventDefault();
+
+    addNewSpouse();
+    getSpouse();
+
     $new1.toggleClass("hidden");
     $new2.toggleClass("hidden");
   });
@@ -83,13 +129,43 @@ $(document).ready(function() {
   var $spouseForm = $("#spouse-form");
   // setting up new spouse blank as a variable so any formatting changes will apply
   var newSpouseEntry =
-    '<input placeholder="Spouse Name" class="form-control"></input>';
+    '<input placeholder="Spouse Name" id= "new-spouse" class="form-control"></input>';
 
   $addSpouse.on("click", function(e) {
     e.preventDefault();
     $spouseForm.prepend(newSpouseEntry);
   });
 });
+
+
+function addNewSpouse(){
+
+  var loggedInId = localStorage.getItem("currentUser");
+  newSpouse = {
+    spouseName: $("#new-spouse")
+      .val()
+      .trim(),
+    UserId: loggedInId
+  };
+  console.log(newSpouse);
+  $.post("/api/spouse/", newSpouse);
+}
+
+var currentSpouseId;
+function getSpouse(){
+
+  var loggedInSpouse = localStorage.getItem("currentUser");
+  $.get("/api/spouse/" + loggedInSpouse, function(data) {
+    console.log(data);
+
+    //currently set to get the user's 1st entered spouse
+    currentSpouseId = data[0].id;
+    localStorage.setItem("spouseId", JSON.parse(currentSpouseId));
+
+    var spouseId = localStorage.getItem("spouseId");
+    console.log(spouseId);
+  })
+}
 
 //Handler for new date blanks
 var $addDate = $("#add-date");
@@ -110,16 +186,20 @@ $addDate.on("click", function(e) {
 var $addInterest = $('#add-interest');
 var $interestForm = $('#interest-form');
 
-var newInterestEntry = `
-<br>
-<input type='text' class='form-control' placeholder='Description'>
-<input type='radio' name="isLike" value='like'> Like</input>
-<input type='radio' name='isLike' value='dislike'> Dislike <br></input>
-`
+
+//bug fix; without the count variable, the radio buttons will only work in one location regardless of amount of rows
+var count = 0;
 
 $addInterest.on('click', function(e){
   e.preventDefault();
-  $interestForm.prepend(newInterestEntry);
+  count++;
+  $interestForm.prepend(`
+<br>
+<input type='text' class='form-control' placeholder='Description'>
+<input type='radio' name="isLike${count}" value='like'> Like</input>
+<input type='radio' name='isLike${count}' value='dislike'> Dislike <br></input>
+  `);
+  return count;
 });
 
 
@@ -193,17 +273,41 @@ var newHint = $addNewHint.val().trim();
 
 console.log(newUserName, newPassword, newHint);
 
-<<<<<<< HEAD
-var newUser = {
-  userName: newUserName,
-  password: newPassword,
-  hint: newHint
-};
-console.log(newUser);
+if (newUserName === "" || newPassword === ""){
+  alert("Please enter a valid username and password");
+}else {
+  var newUser = {
+    userName: newUserName,
+    password: newPassword,
+    hint: newHint
+  };
+  console.log(newUser);
 
-//sending new user information to user table in database
-$.post("/api/user", newUser);
-//retrieve updated data for currentUser
-$("#new-user-screen").toggleClass("hidden");
-$("#log-in-screen").toggleClass("hidden");
+  //sending new user information to user table in database
+  $.post("/api/user", newUser);
+  $("#new-user-screen").toggleClass("hidden");
+  $("#log-in-screen").toggleClass("hidden");
+}
 });
+
+
+
+
+
+
+//This id is for testing, need to pull the spouse id from the SQL object once the log in is working properly
+
+// var spouseId = 1;
+
+// //var spouseId = Spouses.id
+
+// $('#click').on('click', function(){
+
+// $.ajax('api/interest/' + spouseId , {
+//   type: 'GET'
+// }).then(function(response) {
+//   console.log("hi", response);
+// })
+
+// });
+ 

@@ -12,23 +12,15 @@ module.exports = function (app) {
   // -----------------------------------
 
   app.get("/api/lovelang/:spouseid", function (req, res) {
-    db.Spouse.findAll({
+    db.Lovelang.findAll({
       where: {
         SpouseId: req.params.spouseid
-      },
-      order: [
-        ['Priority', 'ASC'],
-        ['LoveLanguage', 'ASC'],
-    ],
+      }
     }).then(function (Lovelangs) {
+      console.log("Lovelangs is", Lovelangs)
       res.json(Lovelangs);
     });
 
   });
 
 };
-
-
-
-
- 
