@@ -34,7 +34,7 @@ require("./routes/htmlRoutes")(app);
 
 
 // CHANGE FORCE BACK TO FALSE!!!!!!!!!!!!!!!!!!!!!!!
-db.sequelize.sync({ force: false }).then(function() {
+db.sequelize.sync({ force: true }).then(function() {
   app.listen(PORT, function() {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
