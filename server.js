@@ -27,6 +27,7 @@ require("./routes/apiRouteLovelang")(app);
 require("./routes/apiRouteSpouse")(app);
 require("./routes/apiRouteUser")(app);
 require('./routes/apiRouteInterests')(app);
+require("./routes/apiRouteFavorites")(app);
 require("./routes/htmlRoutes")(app);
 
 // Starting the server, syncing our models ------------------------------------/
