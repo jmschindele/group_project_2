@@ -119,11 +119,20 @@ $('.log-out').on('click', function(e){
 
   $newSub5.on('click', function(e){
     e.preventDefault();
+    var loveLangPriorities = {
+        LoveLanguage1: $('#ll0').find(":selected").text(),
+        LoveLanguage2: $('#ll1').find(":selected").text(),
+        LoveLanguage3: $('#ll2').find(":selected").text(),
+        LoveLanguage4: $('#ll3').find(":selected").text(),
+        LoveLanguage5: $('#ll4').find(":selected").text()
+        
+      }
+    console.log(loveLangPriorities);
     $new5.toggleClass('hidden');
     $('#index').toggleClass('hidden');
   })
 
-  //Handler for new spouse blanks
+  // Handler for new spouse blanks
 
   var $addSpouse = $("#add-spouse");
   var $spouseForm = $("#spouse-form");
@@ -222,8 +231,9 @@ $addFavorite.on('click', function(e){
 //Add love language drop down selections
 
 for (var i = 0; i < 5; i++) {
-  $('#lovelang-form').prepend(`
-  <select>
+  $('#lovelang-form').append(`
+  <br>
+  <select id='ll${i}'>
     <option selected>Please Select</option>
     <option value='affirmation' >Words of Affirmation</option>
     <option value='service' >Acts of Service</option>
@@ -234,6 +244,8 @@ for (var i = 0; i < 5; i++) {
 </select>
   `)
 }
+
+
 
 
 
@@ -249,13 +261,6 @@ $('#add-spouse').on('click', function(e) {
 var $addNewUserName = $("#new-username");
 var $addNewPassword = $("#new-password");
 var $addNewHint = $("#new-hint");
-
-// when you click anywhere on the new-user-screen sends you to #index area
-// $('#new-user-screen').on('click',function(e){
-//   e.preventDefault();  
-//   $('#index').toggleClass('hidden');
-//   $('#new-user-screen').toggleClass('hidden');
-// })
 
 //changes over to new-user-screen when click new user btn on login-screen
 $('#new-user').on('click', function(e){
@@ -286,7 +291,7 @@ if (newUserName === "" || newPassword === ""){
   //sending new user information to user table in database
   $.post("/api/user", newUser);
   $("#new-user-screen").toggleClass("hidden");
-  $("#log-in-screen").toggleClass("hidden");
+  $("#index").toggleClass("hidden");
 }
 
 });
@@ -298,17 +303,17 @@ if (newUserName === "" || newPassword === ""){
 
 //This id is for testing, need to pull the spouse id from the SQL object once the log in is working properly
 
-// var spouseId = 1;
+var spouseId = 1;
 
-// //var spouseId = Spouses.id
+// var spouseId = Spouses.id
 
-// $('#click').on('click', function(){
+$('#click').on('click', function(){
 
-// $.ajax('api/interest/' + spouseId , {
-//   type: 'GET'
-// }).then(function(response) {
-//   console.log("hi", response);
-// })
+$.ajax('api/interest/' + spouseId , {
+  type: 'GET'
+}).then(function(response) {
+  console.log("hi", response);
+})
 
-// });
+});
  
