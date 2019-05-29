@@ -36,7 +36,7 @@ module.exports = function (app) {
         LoveLanguage3: req.body.lovelanguage3,
         LoveLanguage4: req.body.lovelanguage4,
         LoveLanguage5: req.body.lovelanguage5,
-          SpouseId: req.body.spouseid
+          SpouseId: req.body.spouseId
       }).then(function (AddedLovelangs) {
           // We have the new love languages inside of the callback function
           //console.log("AddedLovelangs to add is", AddedLovelangs)
