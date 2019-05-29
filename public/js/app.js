@@ -23,6 +23,7 @@ $(document).ready(function() {
 $('.log-out').on('click', function(e){
   e.preventDefault();
   localStorage.setItem("loggedIn",'false');
+  localStorage.removeItem("spouseId");
   console.log('successfully logged out')
   location.reload();
 })
@@ -45,25 +46,25 @@ $('.log-out').on('click', function(e){
     var loginPassword = $userPassword.val().trim();
     var user;
     // return loggedIn;
-    console.log(loginName, loginPassword)
+    // console.log(loginName, loginPassword)
     
     // retrieve specific user information along with their spouses
     $.get("/api/user/" + loginName, function(data) {
-         console.log(data);
+        //  console.log(data);
          user = data;
          if(user === null){
            alert("No matching username. Please try again or create an account");
          }else {
            loggedInUserId = user.id;
            localStorage.setItem("currentUser", loggedInUserId);
-            console.log(loggedInUserId);
-           console.log(user.password);
+            // console.log(loggedInUserId);
+          //  console.log(user.password);
            if(loginPassword === user.password){
-             console.log("yes we match");
+            //  console.log("yes we match");
               getSpouse();
              $logInScreen.toggleClass("hidden");
              $index.toggleClass("hidden");
-             console.log(currentUserId);
+            //  console.log(currentUserId);
             
            }else {
              alert("incorrect password");
@@ -152,18 +153,21 @@ function addNewSpouse(){
 }
 
 var currentSpouseId;
+
 function getSpouse(){
 
   var loggedInSpouse = localStorage.getItem("currentUser");
   $.get("/api/spouse/" + loggedInSpouse, function(data) {
-    console.log(data);
+  
+    console.log("current user's spouses: ", data);
 
+      currentSpouseId = data[0].id;
+      
+      localStorage.setItem("spouseId", JSON.parse(currentSpouseId));
+
+      // var spouseId = localStorage.getItem("spouseId");
+      // console.log(spouseId);
     //currently set to get the user's 1st entered spouse
-    currentSpouseId = data[0].id;
-    localStorage.setItem("spouseId", JSON.parse(currentSpouseId));
-
-    var spouseId = localStorage.getItem("spouseId");
-    console.log(spouseId);
   })
 }
 
@@ -271,7 +275,7 @@ var newUserName = $addNewUserName.val().trim();
 var newPassword = $addNewPassword.val().trim();
 var newHint = $addNewHint.val().trim();
 
-console.log(newUserName, newPassword, newHint);
+// console.log(newUserName, newPassword, newHint);
 
 if (newUserName === "" || newPassword === ""){
   alert("Please enter a valid username and password");
@@ -281,7 +285,7 @@ if (newUserName === "" || newPassword === ""){
     password: newPassword,
     hint: newHint
   };
-  console.log(newUser);
+  // console.log(newUser);
 
   //sending new user information to user table in database
   $.post("/api/user", newUser);
