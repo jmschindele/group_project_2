@@ -1,6 +1,12 @@
 $(document).ready(function() {
+<<<<<<< Updated upstream
   var loggedIn = localStorage.getItem("loggedIn");
   console.log(loggedIn);
+=======
+
+  var loggedIn = localStorage.getItem('loggedIn');
+  console.log(loggedIn)
+>>>>>>> Stashed changes
 
   var currentUserId = localStorage.getItem('currentUser');
   // var currentUserSpouse = localStorage.getItem('spouseId');
@@ -117,6 +123,7 @@ $('.log-out').on('click', function(e){
     $new5.toggleClass("hidden");
   });
 
+<<<<<<< Updated upstream
   $newSub5.on("click", function(e) {
     e.preventDefault();
     var grabSpouseId = localStorage.getItem("spouseId");
@@ -148,6 +155,34 @@ $('.log-out').on('click', function(e){
     // $("#index").toggleClass("hidden");
   });
 
+=======
+  //add love languages
+  $newSub5.on('click', function(e){
+    e.preventDefault();
+
+    var ll0 = $("#ll0")
+      .find(":selected")
+      .val();
+    
+      console.log(ll0);
+
+    
+    // $("#ll1")
+    //   .find(":selected")
+    //   .text();
+    // $("#ll2")
+    //   .find(":selected")
+    //   .text();
+    // $("#ll3")
+    //   .find(":selected")
+    //   .text();
+    // $("#ll4")
+    //   .find(":selected")
+    //   .text(); 
+    // $new5.toggleClass('hidden');
+    // $('#index').toggleClass('hidden');
+  })
+>>>>>>> Stashed changes
 
   // Handler for new spouse blanks
 
@@ -176,15 +211,31 @@ function addNewSpouse() {
 }
 
 var currentSpouseId;
+<<<<<<< Updated upstream
 function getSpouse() {
+=======
+
+function getSpouse(){
+>>>>>>> Stashed changes
 
   var loggedInSpouse = localStorage.getItem("currentUser");
   $.get("/api/spouse/" + loggedInSpouse, function(data) {
   
     console.log("current user's spouses: ", data);
+<<<<<<< Updated upstream
     //currently set to get the user's 1st entered spouse
       currentSpouseId = data[0].id;
       localStorage.setItem("spouseId", JSON.parse(currentSpouseId));
+=======
+
+      currentSpouseId = data[0].id;
+      
+      localStorage.setItem("spouseId", JSON.parse(currentSpouseId));
+
+      // var spouseId = localStorage.getItem("spouseId");
+      // console.log(spouseId);
+    //currently set to get the user's 1st entered spouse
+>>>>>>> Stashed changes
   })
 
 }
@@ -240,6 +291,7 @@ $addFavorite.on("click", function(e) {
 //Add love language drop down selections
 
 for (var i = 0; i < 5; i++) {
+<<<<<<< Updated upstream
 
   $("#lovelang-form").append(`
   <br>
@@ -248,6 +300,20 @@ for (var i = 0; i < 5; i++) {
     <option value='<h4>Words of Affirmation</h4>
     <p>This love language expresses love with words that build up your partner. Verbal compliments don’t have to be complicated; the shortest and simplest words of affirmation can be the most effective.</p>
 '>Words of Affirmation</option>
+=======
+  $("#lovelang-form").prepend(`
+  <select id='ll${i}'>
+    <option selected>Please Select</option>
+    <option value='affirmation' >Words of Affirmation</option>
+    <option value='service' >Acts of Service</option>
+    <option value='gifts' >Receiving Gifts</option>
+    <option value='quality-time'>Quality Time</option>
+    <option value='physical-touch'>Physical Touch</option>
+    <option value='na'>Not Sure</option>
+</select>
+  `);
+}
+>>>>>>> Stashed changes
 
     <option value='<h4>Acts of Service</h4>
     <p>This love language expresses itself by doing things that you know your spouse would like. Cooking a meal, doing the laundry, and picking up a prescription are all acts of service. They require some thought, time, and effort.</p>' >Acts of Service</option>
