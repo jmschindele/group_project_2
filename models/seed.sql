@@ -24,15 +24,27 @@ SELECT 0 as `type`, 'sweatpants that look like bluejeans' as note, now() as crea
 
 delete from Lovelangs where SpouseId = (select id from Spouses where UserID = (select id FROM Users where userName = 'robin3' ));
 
-INSERT INTO lovelangs ( LoveLanguage, Priority, createdAt, updatedAt, SpouseId )
-SELECT 'Gifts' as LoveLanguage, 2 as Priority, now() as createdAt, now() as updatedAt, id as SpouseId 
+INSERT INTO lovelangs ( LoveLanguage1, LoveLanguage2, LoveLanguage3, LoveLanguage4, LoveLanguage5, createdAt, updatedAt, SpouseId )
+SELECT 'Gifts' as LoveLanguage1, 'Physical Touch' as LoveLanguage2, '', '', '',  now() as createdAt, now() as updatedAt, id as SpouseId 
 from Spouses where UserID = (select id FROM Users where userName = 'robin3' ) ;
 
-INSERT INTO lovelangs ( LoveLanguage, Priority, createdAt, updatedAt, SpouseId )
-SELECT 'Physical Touch' as LoveLanguage, 1 as Priority, now() as createdAt, now() as updatedAt, id as SpouseId 
+delete from Dates where SpouseId = (select id from Spouses where UserID = (select id FROM Users where userName = 'robin3' ));
+
+INSERT INTO axdpvn7mhhbngbno.dates (`date`,`event`, createdAt, updatedAt, `SpouseId`)
+select '1952-01-29' as 'date', 'Bitrthday' as 'event',  now() as createdAt, now() as updatedAt, id as SpouseId 
 from Spouses where UserID = (select id FROM Users where userName = 'robin3' ) ;
+
+INSERT INTO axdpvn7mhhbngbno.dates (`date`,`event`, createdAt, updatedAt, `SpouseId`)
+select '1995-04-29' as 'date', 'Wedding Aniversery' as 'event',  now() as createdAt, now() as updatedAt, id as SpouseId 
+from Spouses where UserID = (select id FROM Users where userName = 'robin3' ) ;
+
+
 
 SELECT * FROM Users;
 select * from Spouses;
 select * from Interests;
 select * from Lovelangs; 
+select * from Dates;
+
+SELECT `id`, `date`, `event` FROM `Dates` AS `Dates` WHERE `Dates`.`SpouseId` = '1' ORDER BY `Dates`.`date` ASC, `Dates`.`event` ASC;
+
