@@ -281,6 +281,7 @@ $("#new-user-submit").on("click", function(e) {
   var newPassword = $addNewPassword.val().trim();
   var newHint = $addNewHint.val().trim();
 
+
   console.log(newUserName, newPassword, newHint);
 
   if (newUserName === "" || newPassword === "") {
@@ -299,6 +300,7 @@ $("#new-user-submit").on("click", function(e) {
     $("#index").toggleClass("hidden");
 
   }
+
 });
 
 //This id is for testing, need to pull the spouse id from the SQL object once the log in is working properly
