@@ -141,11 +141,15 @@ $('.log-out').on('click', function(e){
     };
     console.log(loveLangPriorities);
 
-    
-
     $.post("/api/lovelang/", loveLangPriorities);
-    $new5.toggleClass("hidden");
-    $("#index").toggleClass("hidden");
+
+     $.get("/api/lovelang/" + grabSpouseId, function(lovedata) {
+      console.log("This is the new love table data: ", lovedata);
+
+      $new5.toggleClass("hidden");
+      $("#index").toggleClass("hidden");
+    });
+  
   });
 
 
