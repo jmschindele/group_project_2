@@ -15,9 +15,36 @@ module.exports = function(app) {
       where: {
         SpouseId: req.params.spouseid
       }
-    }).then(function(Lovelangs) {
-      console.log("Lovelangs is", Lovelangs);
+
+
+    }).then(function (Lovelangs) {
+      //console.log("Lovelangs is", Lovelangs)
+
       res.json(Lovelangs);
     });
   });
+
+
+    // -----------------------------------------
+    // POST route for saving new Love Languages
+    // -----------------------------------------
+    app.post("/api/lovelang/", function (req, res) {
+      // create takes an argument of an object describing 
+      // the item we want to insert into our table. 
+      //console.log("req.body in post is", req.body)
+      db.Lovelang.create({
+        LoveLanguage1: req.body.lovelanguage1,
+        LoveLanguage2: req.body.lovelanguage2,
+        LoveLanguage3: req.body.lovelanguage3,
+        LoveLanguage4: req.body.lovelanguage4,
+        LoveLanguage5: req.body.lovelanguage5,
+          SpouseId: req.body.spouseId
+      }).then(function (AddedLovelangs) {
+          // We have the new love languages inside of the callback function
+          //console.log("AddedLovelangs to add is", AddedLovelangs)
+          res.json(AddedLovelangs);
+      });
+  });
+
 };
+

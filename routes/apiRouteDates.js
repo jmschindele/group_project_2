@@ -19,9 +19,29 @@ module.exports = function (app) {
       ],
       attributes: ['id', 'date', 'event']
     }).then(function (DatesToRemember) {
+      console.log ("DatesToRemember is ", DatesToRemember)
       res.json(DatesToRemember);
     });
 
   });
+
+  // -----------------------------------------
+  // POST route for saving new Love Languages
+  // -----------------------------------------
+  app.post("/api/dates/", function (req, res) {
+
+    //console.log("req.body in post is", req.body)
+    db.Dates.create({
+      date: req.body.date,
+      event: req.body.event,
+      SpouseId: req.body.spouseid
+    }).then(function (AddedEvent) {
+      // We have the new event inside of the callback function
+      //console.log("AddedEvent was ", AddedEvent)
+      res.json(AddedEvent);
+    });
+  });
+
+
 
 };
