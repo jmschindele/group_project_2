@@ -20,7 +20,7 @@
 
           <h3 id="countDown"> </h3>           
           <hr>
-
+{{!-- to be replaced with accordion style collapsables(see bootstrap docs) --}}
           <p>event (click to drop down date)</p>
           <hr class='bg-3'>
           <p><u>Anniversary</u></p>
@@ -40,9 +40,19 @@
           <hr class='bg-3'>
           
 
-    {{#each Dates}}
-            {{> dates/dates-block}}
-     {{/each}}
+
+
+<div class="accordion" id="accordion">
+
+ {{#each Dates}}
+   {{> dates/dates-block}}
+ {{/each}}
+
+</div>
+
+
+
+
 
         </div>
       </div>

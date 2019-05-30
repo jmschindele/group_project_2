@@ -35,8 +35,10 @@
     border: solid 3px black;
     width: 385px;
     overflow-x: hidden;
+    overflow-y: visible;
     margin: 0 auto;
     height: 600px;
+    
 }
 #phonebottom {
     border: solid 3px black;
@@ -149,7 +151,7 @@ body {
 .container {
     width: 375px;
     border: solid 1px black;
-    overflow: auto;
+    overflow-y: visible;
 }
 
 .hidden {
@@ -181,4 +183,10 @@ body {
     color: darkgreen;
     border-radius: 100%;
     background: lightgreen;
+}
+
+
+
+::-webkit-scrollbar { 
+    display: none; 
 }
