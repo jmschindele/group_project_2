@@ -1,8 +1,8 @@
 $(document).ready(function() {
-  var loggedIn = localStorage.getItem('loggedIn');
-  console.log(loggedIn)
+  var loggedIn = localStorage.getItem("loggedIn");
+  console.log(loggedIn);
 
-  var currentUserId = localStorage.getItem('currentUser');
+  var currentUserId = localStorage.getItem("currentUser");
   // var currentUserSpouse = localStorage.getItem('spouseId');
 
   //log in functionality
@@ -15,23 +15,20 @@ $(document).ready(function() {
     console.log("logged out");
   }
 
-
-//log out functionality 
-$('.log-out').on('click', function(e){
-  e.preventDefault();
-  localStorage.setItem("loggedIn",'false');
-  localStorage.removeItem("spouseId");
-  console.log('successfully logged out')
-  location.reload();
-})
-
+  //log out functionality
+  $(".log-out").on("click", function(e) {
+    e.preventDefault();
+    localStorage.setItem("loggedIn", "false");
+    localStorage.removeItem("spouseId");
+    console.log("successfully logged out");
+    location.reload();
+  });
 
   var $login = $("#login-submit");
   var $userName = $("#user-email");
   var $userPassword = $("#user-password");
   var $logInScreen = $("#log-in-screen");
   var $index = $("#index");
-
 
   //login click handler
   var loggedInUserId;
@@ -46,34 +43,32 @@ $('.log-out').on('click', function(e){
 
     // return loggedIn;
     // console.log(loginName, loginPassword)
-    
+
     // retrieve specific user information along with their spouses
     $.get("/api/user/" + loginName, function(data) {
-        //  console.log(data);
-         user = data;
-         if(user === null){
-           alert("No matching username. Please try again or create an account");
-         }else {
-           loggedInUserId = user.id;
-           localStorage.setItem("currentUser", loggedInUserId);
-            // console.log(loggedInUserId);
-          //  console.log(user.password);
-           if(loginPassword === user.password){
-            //  console.log("yes we match");
-              getSpouse();
-             $logInScreen.toggleClass("hidden");
-             $index.toggleClass("hidden");
-            //  console.log(currentUserId); 
-           }else {
-             alert("incorrect password");
-             localStorage.setItem("loggedIn", "false");
-           }
-         }
-         
-       });
-      
-      location.reload();
+      //  console.log(data);
+      user = data;
+      if (user === null) {
+        alert("No matching username. Please try again or create an account");
+      } else {
+        loggedInUserId = user.id;
+        localStorage.setItem("currentUser", loggedInUserId);
+        // console.log(loggedInUserId);
+        //  console.log(user.password);
+        if (loginPassword === user.password) {
+          //  console.log("yes we match");
+          getSpouse();
+          $logInScreen.toggleClass("hidden");
+          $index.toggleClass("hidden");
+          //  console.log(currentUserId);
+        } else {
+          alert("incorrect password");
+          localStorage.setItem("loggedIn", "false");
+        }
+      }
+    });
 
+    location.reload();
   });
 
   // new user handler
@@ -119,52 +114,24 @@ $('.log-out').on('click', function(e){
 
   $newSub5.on("click", function(e) {
     e.preventDefault();
-    var grabSpouseId = localStorage.getItem("spouseId");
-
-    var loveLangPriorities = {
-      lovelanguage1: $("#ll0")
-        .find(":selected")
-        .text(),
-      lovelanguage2: $("#ll1")
-        .find(":selected")
-        .text(),
-      lovelanguage3: $("#ll2")
-        .find(":selected")
-        .text(),
-      lovelanguage4: $("#ll3")
-        .find(":selected")
-        .text(),
-      lovelanguage5: $("#ll4")
-        .find(":selected")
-        .text(),
-      spouseId: grabSpouseId
-    };
-    console.log(loveLangPriorities);
-
-    $.post("/api/lovelang/", loveLangPriorities);
-
-     $.get("/api/lovelang/" + grabSpouseId, function(lovedata) {
-      console.log("This is the new love table data: ", lovedata);
-
-      $new5.toggleClass("hidden");
-      $("#index").toggleClass("hidden");
-    });
-  
+    newLoveLang();
+    getLoveLang();
+    $new5.toggleClass("hidden");
+    $("#index").toggleClass("hidden");
   });
+});
 
+// Handler for new spouse blanks
 
-  // Handler for new spouse blanks
+var $addSpouse = $("#add-spouse");
+var $spouseForm = $("#spouse-form");
+// setting up new spouse blank as a variable so any formatting changes will apply
+var newSpouseEntry =
+  '<input placeholder="Spouse Name" id= "new-spouse" class="form-control"></input>';
 
-  var $addSpouse = $("#add-spouse");
-  var $spouseForm = $("#spouse-form");
-  // setting up new spouse blank as a variable so any formatting changes will apply
-  var newSpouseEntry =
-    '<input placeholder="Spouse Name" id= "new-spouse" class="form-control"></input>';
-
-  $addSpouse.on("click", function(e) {
-    e.preventDefault();
-    $spouseForm.prepend(newSpouseEntry);
-  });
+$addSpouse.on("click", function(e) {
+  e.preventDefault();
+  $spouseForm.prepend(newSpouseEntry);
 });
 
 function addNewSpouse() {
@@ -181,22 +148,19 @@ function addNewSpouse() {
 
 var currentSpouseId;
 
-function getSpouse(){
-
+function getSpouse() {
   var loggedInSpouse = localStorage.getItem("currentUser");
   $.get("/api/spouse/" + loggedInSpouse, function(data) {
-  
     console.log("current user's spouses: ", data);
 
-      currentSpouseId = data[0].id;
-      
-      localStorage.setItem("spouseId", JSON.parse(currentSpouseId));
+    currentSpouseId = data[0].id;
 
-      // var spouseId = localStorage.getItem("spouseId");
-      // console.log(spouseId);
+    localStorage.setItem("spouseId", JSON.parse(currentSpouseId));
+
+    // var spouseId = localStorage.getItem("spouseId");
+    // console.log(spouseId);
     //currently set to get the user's 1st entered spouse
-  })
-
+  });
 }
 
 //Handler for new date blanks
@@ -250,7 +214,6 @@ $addFavorite.on("click", function(e) {
 //Add love language drop down selections
 
 for (var i = 0; i < 5; i++) {
-
   $("#lovelang-form").append(`
   <br>
   <select id='ll${i}'>
@@ -279,6 +242,41 @@ for (var i = 0; i < 5; i++) {
   `);
 }
 
+function newLoveLang() {
+  var grabSpouseId = localStorage.getItem("spouseId");
+
+  var loveLangPriorities = {
+    lovelanguage1: $("#ll0")
+      .find(":selected")
+      .text(),
+    lovelanguage2: $("#ll1")
+      .find(":selected")
+      .text(),
+    lovelanguage3: $("#ll2")
+      .find(":selected")
+      .text(),
+    lovelanguage4: $("#ll3")
+      .find(":selected")
+      .text(),
+    lovelanguage5: $("#ll4")
+      .find(":selected")
+      .text(),
+    spouseId: grabSpouseId
+  };
+  console.log(loveLangPriorities);
+
+  $.post("/api/lovelang/", loveLangPriorities);
+  // console.log(grabSpouseId);
+}
+
+function getLoveLang() {
+  var grabSpouse = localStorage.getItem("spouseId");
+  console.log("This is the current spouseId", grabSpouse);
+  $.get("/api/lovelang/" + grabSpouse, function(lovedata) {
+    console.log("This is the new love table data: ", lovedata);
+  });
+}
+
 //Click handler to take new user to spouse entry form
 $("#add-spouse").on("click", function(e) {
   e.preventDefault();
@@ -296,33 +294,6 @@ $("#new-user").on("click", function(e) {
   e.preventDefault();
   $("#log-in-screen").toggleClass("hidden");
   $("#new-user-screen").toggleClass("hidden");
-})
-
-//new user button on new user screen
-$('#new-user-submit').on('click', function(e){
-e.preventDefault();
-var newUserName = $addNewUserName.val().trim();
-var newPassword = $addNewPassword.val().trim();
-var newHint = $addNewHint.val().trim();
-
-// console.log(newUserName, newPassword, newHint);
-
-if (newUserName === "" || newPassword === ""){
-  alert("Please enter a valid username and password");
-}else {
-  var newUser = {
-    userName: newUserName,
-    password: newPassword,
-    hint: newHint
-  };
-  // console.log(newUser);
-
-  //sending new user information to user table in database
-  $.post("/api/user", newUser);
-  $("#new-user-screen").toggleClass("hidden");
-  $("#log-in-screen").toggleClass("hidden");
-}
-
 });
 
 //new user button on new user screen
@@ -332,6 +303,31 @@ $("#new-user-submit").on("click", function(e) {
   var newPassword = $addNewPassword.val().trim();
   var newHint = $addNewHint.val().trim();
 
+  // console.log(newUserName, newPassword, newHint);
+
+  if (newUserName === "" || newPassword === "") {
+    alert("Please enter a valid username and password");
+  } else {
+    var newUser = {
+      userName: newUserName,
+      password: newPassword,
+      hint: newHint
+    };
+    // console.log(newUser);
+
+    //sending new user information to user table in database
+    $.post("/api/user", newUser);
+    $("#new-user-screen").toggleClass("hidden");
+    $("#log-in-screen").toggleClass("hidden");
+  }
+});
+
+//new user button on new user screen
+$("#new-user-submit").on("click", function(e) {
+  e.preventDefault();
+  var newUserName = $addNewUserName.val().trim();
+  var newPassword = $addNewPassword.val().trim();
+  var newHint = $addNewHint.val().trim();
 
   console.log(newUserName, newPassword, newHint);
 
@@ -349,8 +345,5 @@ $("#new-user-submit").on("click", function(e) {
     $.post("/api/user", newUser);
     $("#new-user-screen").toggleClass("hidden");
     $("#index").toggleClass("hidden");
-
   }
-
 });
-
