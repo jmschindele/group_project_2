@@ -5,22 +5,19 @@
 
 var db = require("../models");
 
-module.exports = function (app) {
-
+module.exports = function(app) {
   // -----------------------------------
-  // Get all love languages for a spouse 
+  // Get all love languages for a spouse
   // -----------------------------------
 
-  app.get("/api/lovelang/:spouseid", function (req, res) {
+  app.get("/api/lovelang/:spouseid", function(req, res) {
     db.Lovelang.findAll({
       where: {
         SpouseId: req.params.spouseid
       }
-    }).then(function (Lovelangs) {
-      console.log("Lovelangs is", Lovelangs)
+    }).then(function(Lovelangs) {
+      console.log("Lovelangs is", Lovelangs);
       res.json(Lovelangs);
     });
-
   });
-
 };
