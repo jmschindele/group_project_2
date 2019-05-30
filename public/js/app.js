@@ -11,7 +11,7 @@ $(document).ready(function() {
     $("#index").toggleClass("hidden");
     console.log(currentUserId);
     // console.log(currentUserSpouse);
-  } else {
+  } else { 
     console.log("logged out");
   }
 
