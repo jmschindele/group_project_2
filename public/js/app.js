@@ -378,3 +378,5 @@ $("#new-user-submit").on("click", function(e) {
     $("#index").toggleClass("hidden");
   }
 });
+
+
