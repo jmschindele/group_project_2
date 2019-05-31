@@ -370,7 +370,7 @@ $("#new-user-submit").on("click", function(e) {
       password: newPassword,
       hint: newHint
     };
-    console.log(newUser);
+    // console.log(newUser);
     loggedIn = localStorage.setItem("loggedIn", "true");
     //sending new user information to user table in database
     $.post("/api/user", newUser);
