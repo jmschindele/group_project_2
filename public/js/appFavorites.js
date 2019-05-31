@@ -5,7 +5,8 @@ $(document).ready(function() {
   if (loggedInCurrentUser === "false") {
     console.log("Not logged in yet cannot grab spouseId and date table data");
   } else if (loggedInCurrentUser === "true") {
-    var getSpouse = localStorage.getItem("spouseId");
+    // var getSpouse = localStorage.getItem("spouseId");
+    var getSpouse = 1;
     console.log("This is the current spouseId: ", getSpouse);
     console.log("made it this far");
 
