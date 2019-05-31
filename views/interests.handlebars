@@ -1,45 +1,55 @@
-    <div class="container bg-2">
+<div class="container bg-2">
+  <div class="row">
+    <div class="col-10"></div>
+    <div class="col-2">
+      <a href="/">
+        <h2><i class="fas fa-home bg-2"></i></h2>
+      </a>
+    </div>
+  </div>
+
+  <div class="row" id="logo-row">
+    <div class="col-12 mx-auto">
+      <img src="./images/logo2.png" id="round-photo" />
+    </div>
+  </div>
+  <div class="row bg-2 text-4">
+    <div class="col-12">
+
       <div class="row">
-        <div class="col-10"></div>
-        <div class="col-2">
-          <a href="/"
-            ><h2><i class="fas fa-home bg-2"></i></h2
-          ></a>
+        <div class="col-1"></div>
+        <div class="col-10">
+          <h3>Likes</h3>
+
+
+
+          <form id='like'>
+
+          </form>
+  <button class='add-btn add-btn-like hidden' id="add-interest">+</button>
+
+          <h3>Dislikes</h3>
+          <form id='dislike'>
+          </form>
+    <button class='add-btn add-btn-dislike hidden' id="add-interest">+</button>      
+          <form id='additional-interests'>
+
+          </form>
+          {{!-- <button class='add-btn hidden' id="add-interest">+</button> --}}
+          <button id='edit-interest'>Edit</button>
+
+          <button id='delete-interest'>Delete</button>
+
+          </ul>
         </div>
-      </div>
-
-      <div class="row" id="logo-row">
-        <div class="col-12 mx-auto">
-          <img src="./images/logo2.png" id="round-photo" />
-        </div>
-      </div>
-      <div class="row bg-2 text-4">
-        <div class="col-12">
-          <button id='click'></button>
-
-<h3>Likes</h3>
-
-<ul id='like'>
-
-</ul>
-
-<h3>Dislikes</h3>
-
-<ul id='dislike'>
-
-</ul>
-</div>
-</div>
-
-<ul>
-    {{#each Interests}}
-        {{#ifnot type}}
-            {{> interests/interests-block type=false}}
-        {{/ifnot}}
-     {{/each}}
-</ul>
-
-
-        </div>
+        <div class="col-1"></div>
       </div>
     </div>
+  </div>
+
+
+
+
+</div>
+</div>
+</div>
