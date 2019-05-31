@@ -34,7 +34,7 @@ module.exports = function (app) {
     db.Dates.create({
       date: req.body.date,
       event: req.body.event,
-      SpouseId: req.body.spouseid
+      SpouseId: req.body.spouseId
     }).then(function (AddedEvent) {
       // We have the new event inside of the callback function
       //console.log("AddedEvent was ", AddedEvent)
