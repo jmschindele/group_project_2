@@ -96,6 +96,9 @@ $(document).ready(function() {
 
   $newSub2.on("click", function(e) {
     e.preventDefault();
+
+    addNewDate();
+
     $new2.toggleClass("hidden");
     $new3.toggleClass("hidden");
   });
@@ -146,20 +149,17 @@ function addNewSpouse() {
   $.post("/api/spouse/", newSpouse);
 }
 
-var currentSpouseId;
+// var currentSpouseId;
 
 function getSpouse() {
   var loggedInSpouse = localStorage.getItem("currentUser");
   $.get("/api/spouse/" + loggedInSpouse, function(data) {
     console.log("current user's spouses: ", data);
 
-    currentSpouseId = data[0].id;
+    var currentSpouseId = data[0].id;
 
     localStorage.setItem("spouseId", JSON.parse(currentSpouseId));
-
-    // var spouseId = localStorage.getItem("spouseId");
-    // console.log(spouseId);
-    //currently set to get the user's 1st entered spouse
+    location.reload;
   });
 }
 
@@ -169,8 +169,8 @@ var $dateForm = $("#date-form");
 //store empty blanks in a variable for future updates
 var newDateEntry = `
 <br>
-<input placeholder="Event" class="form-control">
-<input placeholder="Date" type='date' class="form-control">
+<input placeholder="Event" type='text' id= "eventInput" class="form-control">
+<input placeholder="Date" type='text' id= "dateInput" class="form-control">
 `;
 
 $addDate.on("click", function(e) {
@@ -181,8 +181,26 @@ $addDate.on("click", function(e) {
 var $addInterest = $("#add-interest");
 var $interestForm = $("#interest-form");
 
+
 //bug fix; without the count variable, the radio buttons will only work in one location regardless of amount of rows
 var count = 0;
+
+function addNewDate(){
+  var addEvent = $("#eventInput").val();
+  var addDate = $("#dateInput").val();
+
+  var grabCurrentSpouse = localStorage.getItem("spouseId");
+
+  var newDate = {
+    date: addDate,
+    event: addEvent,
+    spouseId: grabCurrentSpouse
+  }
+
+  console.log(newDate);
+
+  $.post("/api/dates/", newDate);
+};
 
 $addInterest.on("click", function(e) {
   e.preventDefault();
