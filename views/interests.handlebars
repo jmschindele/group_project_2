@@ -16,50 +16,18 @@
       <div class="row bg-2 text-4">
         <div class="col-12">
           <button id='click'></button>
-          {{!-- <h3>Name for Likes</h3>
-          <!-- Maybe we can find an api to do a search on these likes on click??? -->
-          <ul>
-            <li>
-              spaghetti
-            </li>
-
-            <li>
-              meatballs
-            </li>
-
-            <li>
-              garlic bread
-            </li>
-          </ul>
-
-          <h3>Name for Dislikes</h3>
-          <!-- Maybe we can find an api to do a search on these likes on click??? -->
-          <ul>
-            <li>
-              Long walks on short trails
-            </li>
-
-            <li>
-              Naked grandma
-            </li>
-
-            <li>
-              The movie 'Castaway'
-            </li>
-          </ul> --}}
 
 <h3>Likes</h3>
 
-<ul>
-    {{#each Interests}}
-    
-          {{> Interests/interests-block 
-          }}
-      
-    {{/each}}
+<ul id='like'>
+
 </ul>
 
 <h3>Dislikes</h3>
+
+<ul id='dislike'>
+
+</ul>
 </div>
 </div>
 
