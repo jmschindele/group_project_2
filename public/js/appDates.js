@@ -21,18 +21,18 @@
 </div> */
 // }
 
-// $(document).ready(function() {
-//   var loggedInCurrentUser = localStorage.getItem("loggedIn");
-//   console.log(loggedInCurrentUser);
+$(document).ready(function() {
+  var loggedInCurrentUser = localStorage.getItem("loggedIn");
+  console.log(loggedInCurrentUser);
 
-//   if (loggedInCurrentUser === "false") {
-//     console.log("Not logged in yet cannot grab spouseId and date table data");
-//   } else if (loggedInCurrentUser === "true") {
-//     var getSpouse = localStorage.getItem("spouseId");
-//     console.log("This is the current spouseId: ", getSpouse);
+  if (loggedInCurrentUser === "false") {
+    console.log("Not logged in yet cannot grab spouseId and date table data");
+  } else if (loggedInCurrentUser === "true") {
+    var getSpouse = localStorage.getItem("spouseId");
+    console.log("This is the current spouseId: ", getSpouse);
 
-//     $.get("/api/dates/" + getSpouse, function(datedata) {
-//       console.log("This is the love table data: ", datedata);
-//     });
-//   }
-// });
+    $.get("/api/dates/" + getSpouse, function(datedata) {
+      console.log("This is the date table data: ", datedata);
+    });
+  }
+});
