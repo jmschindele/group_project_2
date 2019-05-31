@@ -12,7 +12,7 @@ $(document).ready(function() {
 
     $.get("/api/lovelang/" + getCurrentSpouse, function(lovedata) {
       console.log("This is the love table data: ", lovedata);
-      console.log(lovedata[0].length);
+      
       // console.log(lovedata[0].LoveLanguage1);
       if (lovedata.length > 0) {
         if (

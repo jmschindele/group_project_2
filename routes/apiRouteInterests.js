@@ -38,4 +38,19 @@ module.exports = function (app) {
     });
   });
 
+
+    app.delete("/api/interest/", function(req, res) {
+
+      //console.log('req.body in post is', req.body)
+
+      db.Interests.delete({
+        id: req.body.id,
+        type: req.body.type,
+        note: req.body.note,
+        spouseId: req.body.spouseId
+      }).then(function (deletedInterest) {
+        res.json(deletedInterest)
+        location.reload();
+      })
+    })
 };
