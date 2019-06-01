@@ -1,17 +1,17 @@
 $(document).ready(function() {
-  console.log("asdokljn");
+  //console.log("asdokljn");
   var loggedInCurrentUser = localStorage.getItem("loggedIn");
 
   if (loggedInCurrentUser === "false") {
-    console.log("Not logged in yet cannot grab spouseId and date table data");
+    //console.log("Not logged in yet cannot grab spouseId and date table data");
   } else if (loggedInCurrentUser === "true") {
-    // var getSpouse = localStorage.getItem("spouseId");
-    var getSpouse = 1;
-    console.log("This is the current spouseId: ", getSpouse);
-    console.log("made it this far");
+    var getSpouse = localStorage.getItem("spouseId");
+    //var getSpouse = 1;
+    //console.log("This is the current spouseId: ", getSpouse);
+    //console.log("made it this far");
 
     $.get("/api/favorites/" + getSpouse, function(response) {
-      console.log(response);
+      //console.log(response);
 
       var garment = response[0].Article;
       var size = response[0].size;
@@ -21,7 +21,7 @@ $(document).ready(function() {
         var garment = response[i].Article;
         var size = response[i].size;
         var note = response[i].note;
-        console.log("garment: ", garment, "size: ", size, "Notes: ", note);
+        //console.log("garment: ", garment, "size: ", size, "Notes: ", note);
 
         $("#accordion").append(
           `

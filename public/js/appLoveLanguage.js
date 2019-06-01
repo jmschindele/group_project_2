@@ -1,20 +1,20 @@
 $(document).ready(function() {
   var loggedInUser = localStorage.getItem("loggedIn");
-  console.log(loggedInUser);
+  //console.log(loggedInUser);
 
   if (loggedInUser === "false") {
-    console.log("Not logged in yet cannot grab spouseId and table data");
+    //console.log("Not logged in yet cannot grab spouseId and table data");
   } else if (loggedInUser === "true") {
-    // var getCurrentSpouse = localStorage.getItem("spouseId");
-    var getCurrentSpouse = 1;
-    console.log("This is the current spouseId: ", getCurrentSpouse);
+    var getCurrentSpouse = localStorage.getItem("spouseId");
+    //var getCurrentSpouse = 1;
+    //console.log("This is the current spouseId: ", getCurrentSpouse);
 
     var langDef = "";
 
     $.get("/api/lovelang/" + getCurrentSpouse, function(lovedata) {
-      console.log("This is the love table data: ", lovedata);
+      //console.log("This is the love table data: ", lovedata);
 
-      // console.log(lovedata[0].LoveLanguage1);
+      // //console.log(lovedata[0].LoveLanguage1);
       if (lovedata.length > 0) {
         if (
           `${lovedata[0].LoveLanguage1}` !== "Please Select" &&

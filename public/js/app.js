@@ -1,18 +1,18 @@
 $(document).ready(function() {
   var loggedIn = localStorage.getItem("loggedIn");
-  console.log(loggedIn);
+  //console.log(loggedIn);
 
   var currentUserId = localStorage.getItem("currentUser");
-  // var currentUserSpouse = localStorage.getItem('spouseId');
+  var currentUserSpouse = localStorage.getItem("spouseId");
 
   //log in functionality
   if (loggedIn === "true") {
     $("#log-in-screen").attr("class", "hidden");
     $("#index").toggleClass("hidden");
-    console.log(currentUserId);
-    // console.log(currentUserSpouse);
-  } else { 
-    console.log("logged out");
+    //console.log(currentUserId);
+    //console.log(currentUserSpouse);
+  } else {
+    //console.log("logged out");
   }
 
   //log out functionality
@@ -20,7 +20,7 @@ $(document).ready(function() {
     e.preventDefault();
     localStorage.setItem("loggedIn", "false");
     localStorage.removeItem("spouseId");
-    console.log("successfully logged out");
+    //console.log("successfully logged out");
     location.reload();
   });
 
@@ -36,31 +36,28 @@ $(document).ready(function() {
     e.preventDefault();
     loggedIn = localStorage.getItem("loggedIn");
     localStorage.setItem("loggedIn", "true");
-    console.log(loggedIn);
+    //console.log(loggedIn);
     var loginName = $userName.val().trim();
     var loginPassword = $userPassword.val().trim();
     var user;
 
-    // return loggedIn;
-    // console.log(loginName, loginPassword)
-
     // retrieve specific user information along with their spouses
     $.get("/api/user/" + loginName, function(data) {
-      //  console.log(data);
+      //  //console.log(data);
       user = data;
       if (user === null) {
         alert("No matching username. Please try again or create an account");
       } else {
         loggedInUserId = user.id;
         localStorage.setItem("currentUser", loggedInUserId);
-        // console.log(loggedInUserId);
-        //  console.log(user.password);
+        // //console.log(loggedInUserId);
+        //  //console.log(user.password);
         if (loginPassword === user.password) {
-          //  console.log("yes we match");
+          //  //console.log("yes we match");
           getSpouse();
           $logInScreen.toggleClass("hidden");
           $index.toggleClass("hidden");
-          //  console.log(currentUserId);
+          //  //console.log(currentUserId);
         } else {
           alert("incorrect password");
           localStorage.setItem("loggedIn", "false");
@@ -106,12 +103,20 @@ $(document).ready(function() {
 
   $newSub3.on("click", function(e) {
     e.preventDefault();
+
+    addNewInterest();
+    getInterest();  
+
     $new3.toggleClass("hidden");
     $new4.toggleClass("hidden");
   });
 
   $newSub4.on("click", function(e) {
     e.preventDefault();
+
+    addNewFavorite();
+    getFavorite();
+
     $new4.toggleClass("hidden");
     $new5.toggleClass("hidden");
   });
@@ -131,7 +136,7 @@ var $addSpouse = $("#add-spouse");
 var $spouseForm = $("#spouse-form");
 // setting up new spouse blank as a variable so any formatting changes will apply
 var newSpouseEntry =
-  '<input placeholder="Spouse Name" id= "new-spouse" class="form-control"></input>';
+  '<input placeholder="Spouse Name" id="new-spouse" class="form-control"></input>';
 
 $addSpouse.on("click", function(e) {
   e.preventDefault();
@@ -146,22 +151,21 @@ function addNewSpouse() {
       .trim(),
     UserId: loggedInId
   };
-  console.log(newSpouse);
+  //console.log(newSpouse);
   $.post("/api/spouse/", newSpouse);
   location.reload;
 }
 
-// var currentSpouseId;
+var currentSpouseId;
 
 function getSpouse() {
   var loggedInSpouse = localStorage.getItem("currentUser");
   $.get("/api/spouse/" + loggedInSpouse, function(data) {
-    console.log("current user's spouses: ", data);
+    //console.log("current user's spouses: ", data);
 
     var currentSpouseId = data[0].id;
 
     localStorage.setItem("spouseId", JSON.parse(currentSpouseId));
-    
   });
 }
 
@@ -183,11 +187,10 @@ $addDate.on("click", function(e) {
 var $addInterest = $("#add-interest");
 var $interestForm = $("#interest-form");
 
-
 //bug fix; without the count variable, the radio buttons will only work in one location regardless of amount of rows
 var count = 0;
 
-function addNewDate(){
+function addNewDate() {
   var addEvent = $("#eventInput").val();
   var addDate = $("#dateInput").val();
 
@@ -197,20 +200,20 @@ function addNewDate(){
     date: addDate,
     event: addEvent,
     spouseId: grabCurrentSpouse
-  }
+  };
 
-  console.log(newDate);
+  //console.log(newDate);
 
   $.post("/api/dates/", newDate);
-};
+}
 
 function getDates() {
   var grabSpouseCurrent = localStorage.getItem("spouseId");
-  console.log(grabSpouseCurrent);
-  console.log("This is the current spouseId", grabSpouseCurrent);
+  //console.log(grabSpouseCurrent);
+  //console.log("This is the current spouseId", grabSpouseCurrent);
 
   $.get("/api/dates/" + grabSpouseCurrent, function(datedata) {
-    console.log("This is the new date table data: ", datedata);
+    //console.log("This is the new date table data: ", datedata);
   });
 }
 
@@ -219,9 +222,9 @@ $addInterest.on("click", function(e) {
   count++;
   $interestForm.prepend(`
 <br>
-<input type='text' class='form-control' placeholder='Description'>
-<input type='radio' name="isLike${count}" value='like'> Like</input>
-<input type='radio' name='isLike${count}' value='dislike'> Dislike <br></input>
+<input type='text' class='form-control' id='addInt' placeholder='Description'>
+<input type='radio' id='true-check' name="isLike${count}" value='like'> Like</input>
+<input type='radio' id='false-check' name='isLike${count}' value='dislike'> Dislike <br></input>
   `);
   return count;
 });
@@ -231,9 +234,9 @@ var $favoriteForm = $("#favorite-form");
 
 var newFavoriteEntry = `
 <br>
-<input placeholder='article' class='form-control'>
-<input placeholder='Size' class='form-control'>
-<input placeholder='Notes' class='form-control'>
+<input placeholder='article' id='favArticle' class='form-control'>
+<input placeholder='Size' id='favSize' class='form-control'>
+<input placeholder='Notes' id='favNote' class='form-control'>
 `;
 
 $addFavorite.on("click", function(e) {
@@ -293,17 +296,17 @@ function newLoveLang() {
       .text(),
     spouseId: grabSpouseId
   };
-  console.log(loveLangPriorities);
+  //console.log(loveLangPriorities);
 
   $.post("/api/lovelang/", loveLangPriorities);
-  // console.log(grabSpouseId);
+  // //console.log(grabSpouseId);
 }
 
 function getLoveLang() {
   var grabSpouse = localStorage.getItem("spouseId");
-  console.log("This is the current spouseId", grabSpouse);
+  //console.log("This is the current spouseId", grabSpouse);
   $.get("/api/lovelang/" + grabSpouse, function(lovedata) {
-    console.log("This is the new love table data: ", lovedata);
+    //console.log("This is the new love table data: ", lovedata);
     location.reload;
   });
 }
@@ -334,7 +337,7 @@ $("#new-user-submit").on("click", function(e) {
   var newPassword = $addNewPassword.val().trim();
   var newHint = $addNewHint.val().trim();
 
-  // console.log(newUserName, newPassword, newHint);
+  // //console.log(newUserName, newPassword, newHint);
 
   if (newUserName === "" || newPassword === "") {
     alert("Please enter a valid username and password");
@@ -344,7 +347,7 @@ $("#new-user-submit").on("click", function(e) {
       password: newPassword,
       hint: newHint
     };
-    // console.log(newUser);
+    // //console.log(newUser);
 
     //sending new user information to user table in database
     $.post("/api/user", newUser);
@@ -360,7 +363,7 @@ $("#new-user-submit").on("click", function(e) {
   var newPassword = $addNewPassword.val().trim();
   var newHint = $addNewHint.val().trim();
 
-  // console.log(newUserName, newPassword, newHint);
+  // //console.log(newUserName, newPassword, newHint);
 
   if (newUserName === "" || newPassword === "") {
     alert("Please enter a valid username and password");
@@ -370,7 +373,7 @@ $("#new-user-submit").on("click", function(e) {
       password: newPassword,
       hint: newHint
     };
-    console.log(newUser);
+    //console.log(newUser);
     loggedIn = localStorage.setItem("loggedIn", "true");
     //sending new user information to user table in database
     $.post("/api/user", newUser);
@@ -379,4 +382,86 @@ $("#new-user-submit").on("click", function(e) {
   }
 });
 
+// new favorites post
 
+function addNewFavorite() {
+  var addArticle = $("#favArticle")
+    .val()
+    .trim();
+  var addSize = $("#favSize")
+    .val()
+    .trim();
+  var addNote = $("#favNote")
+    .val()
+    .trim();
+
+  var grabCurrentSpouse = localStorage.getItem("spouseId");
+
+  var newFavorite = {
+    Article: addArticle,
+    size: addSize,
+    note: addNote,
+    spouseId: grabCurrentSpouse
+  };
+
+  //console.log(newFavorite);
+
+  $.post("/api/favorites/", newFavorite);
+}
+
+//get favorites
+
+function getFavorite() {
+  var grabSpouseCurrent = localStorage.getItem("spouseId");
+  //console.log(grabSpouseCurrent);
+  //console.log("This is the current spouseId", grabSpouseCurrent);
+
+  $.get("/api/favorites/" + grabSpouseCurrent, function(response) {
+    //console.log("This is the new date table data: ", response);
+  });
+}
+
+// new Interests post
+
+function addNewInterest() {
+  var intId =
+    $("#addInt")
+      .val()
+      .trim() || "";
+  var intType = function() {
+if (document.getElementById('true-check').checked) {
+  // //console.log('is true')
+  return true;
+} else if (document.getElementById('false-check').checked) {
+  // //console.log('is false')
+  return false;
+}
+  };
+  var intNote = $('#addInt').val().trim();
+
+  var grabCurrentSpouse = localStorage.getItem("spouseId");
+
+  var newInterest = {
+    id: intId,
+    type: intType(),
+    note: intNote,
+    SpouseId: grabCurrentSpouse
+  };
+
+  //console.log(newInterest);
+
+  $.post("/api/interest/", newInterest);
+}
+
+//get Interests
+
+function getInterest() {
+  //console.log('get interest called')
+  var grabSpouseCurrent = localStorage.getItem("spouseId");
+  //console.log(grabSpouseCurrent);
+  //console.log("This is the current spouseId", grabSpouseCurrent);
+
+  $.get("/api/interest/" + grabSpouseCurrent, function(response) {
+    //console.log("This is the new date table data: ", response);
+  });
+}

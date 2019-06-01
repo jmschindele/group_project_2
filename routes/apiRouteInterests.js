@@ -28,9 +28,10 @@ module.exports = function (app) {
 
     //console.log("req.body in post is", req.body)
     db.Interests.create({
+      id: req.body.id,
       type: req.body.type,
       note: req.body.note,
-      SpouseId: req.body.spouseid
+      SpouseId: req.body.SpouseId
     }).then(function (AddedInterest) {
       // We have the new interest inside of the callback function
       //console.log("AddedInterest was ", AddedInterest)
@@ -47,7 +48,7 @@ module.exports = function (app) {
         id: req.body.id,
         type: req.body.type,
         note: req.body.note,
-        spouseId: req.body.spouseId
+        SpouseId: req.body.SpouseId
       }).then(function (deletedInterest) {
         res.json(deletedInterest)
         location.reload();
