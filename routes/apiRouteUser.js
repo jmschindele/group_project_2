@@ -43,7 +43,7 @@ module.exports = function (app) {
   app.post("/api/user", function (req, res) {
     // create takes an argument of an object describing 
     // the item we want to insert into our table. 
-    console.log("req.body is", req.body)
+    //console.log("req.body is", req.body)
     db.User.create({
       userName: req.body.userName,
       password: req.body.password,

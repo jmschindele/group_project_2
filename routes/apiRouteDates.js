@@ -19,7 +19,7 @@ module.exports = function (app) {
       ],
       attributes: ['id', 'date', 'event']
     }).then(function (DatesToRemember) {
-      console.log ("DatesToRemember is ", DatesToRemember)
+      //console.log ("DatesToRemember is ", DatesToRemember)
       res.json(DatesToRemember);
     });
 
@@ -30,14 +30,14 @@ module.exports = function (app) {
   // -----------------------------------------
   app.post("/api/dates/", function (req, res) {
 
-    //console.log("req.body in post is", req.body)
+    ////console.log("req.body in post is", req.body)
     db.Dates.create({
       date: req.body.date,
       event: req.body.event,
       SpouseId: req.body.spouseId
     }).then(function (AddedEvent) {
       // We have the new event inside of the callback function
-      //console.log("AddedEvent was ", AddedEvent)
+      ////console.log("AddedEvent was ", AddedEvent)
       res.json(AddedEvent);
     });
   });

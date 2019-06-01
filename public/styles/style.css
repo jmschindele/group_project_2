@@ -7,8 +7,27 @@
 
  */
 
+ .btn-link {
+     color: #FFB228;
+     font-size: 1.5em;
+ }
 
+ .btn-link:hover {
+     color: #FFB228;
+     text-decoration: none;
+ }
 
+ .btn-link:active {
+     text-decoration: none;
+ }
+
+ .btn-link:focus {
+     text-decoration: none;
+ }
+
+ .fav-card-text {
+     font-size: 1.5em;
+ }
 #phonetop {
     border: solid 3px black;
     border-top-right-radius: 40px;
@@ -189,4 +208,8 @@ body {
 
 ::-webkit-scrollbar { 
     display: none; 
+}
+
+#accordion a {
+    
 }
