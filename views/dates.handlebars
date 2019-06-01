@@ -1,70 +1,34 @@
-    <div class="container  bg-2 text-4">
-      <div class="row" id="logo-row">
-        <div class="col-10"></div>
-        <div class="col-2">
-          <a href="/"
-            ><h2><i class="fas fa-home"></i></h2
-          ></a>
-        </div>
-
-        <div class="col-12 mx-auto">
-          <img src="./images/logo2.png" id="round-photo" />
-        </div>
-      </div>
-      <div class="row" id="card-row">
-        <div class="col-12">
-          <h1>Important Dates</h1>
-          <!-- countdown until the next event  -->
-          <br>
-          <h2>Next Big Thing</h2>
-
-          <h3 id="countDown"> </h3>           
-          <hr>
-
-          <p>event (click to drop down date)</p>
-          <hr class='bg-3'>
-          <p><u>Anniversary</u></p>
-
-            <p>May 30th - 6 days away</p>
-          <hr>
-
-          <p>Birthday</p>
-          <hr class='bg-3'>
-          <p>Turtle's Birthday</p>
-          <hr class='bg-3'>
-          <p>Sister's Wedding</p>
-          <hr class='bg-3'>
-          <p>Cat's half birthday</p>
-          <hr class='bg-3'>
-          <p>event (click to drop down date)</p>
-          <hr class='bg-3'>
-          
-        </div>
-      </div>
+<div class="container  bg-2 text-4">
+  <div class="row" id="logo-row">
+    <div class="col-10"></div>
+    <div class="col-2">
+      <a href="/">
+        <h2><i class="fas fa-home"></i></h2>
+      </a>
     </div>
-    <script>
-            var countDownDate = new Date("may 30, 2019 00:00:00").getTime();
-            // have to figure out how to pull the different dates from database
-            var x = setInterval(function() {
+
+    <div class="col-12 mx-auto">
+      <img src="./images/logo2.png" id="round-photo" />
+    </div>
+  </div>
+  <div class="row" id="card-row">
+    <div class="col-12">
+      <h1>Important Dates</h1>
+      <!-- countdown until the next event  -->
+      <br>
+      <h2 id='next-event'>Next Big Thing</h2>
+
+      <h3 id="countDown"> </h3>
+      <hr>
+
+      <ul id='date-list'>
 
 
-            var now = new Date().getTime();
-    
-            var distance = countDownDate - now;
-    
-            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-              
-            document.getElementById("countDown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-  
-            // this is where we could get it to loop and pull the new date v
-            if (distance < 0) {
-              clearInterval(x);
-              document.getElementById("countDown").innerHTML = "EXPIRED";
-            }
-            }, 1000); 
-      </script>
-  <script src=".models/dates.js"> </script>
+      </ul>
+      {{!-- to be replaced with accordion style collapsables(see bootstrap docs) --}}
+
+
+    </div>
+  </div>
+</div>
 

@@ -1,9 +1,9 @@
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("User", {
     userName: {
-    type: DataTypes.STRING, 
-    allowNull: false
-    }, 
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     password: {
       type: DataTypes.STRING,
       allowNull: false
@@ -11,7 +11,7 @@ module.exports = function(sequelize, DataTypes) {
     hint: DataTypes.STRING
   });
 
-  User.associate = function(models){
+  User.associate = function(models) {
     User.hasMany(models.Spouse, {});
   };
 
