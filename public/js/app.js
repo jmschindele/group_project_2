@@ -9,7 +9,7 @@ $(document).ready(function() {
   if (loggedIn === "true") {
     $("#log-in-screen").attr("class", "hidden");
     $("#index").toggleClass("hidden");
-    //console.log(currentUserId);
+    console.log(currentUserId);
     //console.log(currentUserSpouse);
   } else {
     //console.log("logged out");
@@ -53,19 +53,18 @@ $(document).ready(function() {
         // //console.log(loggedInUserId);
         //  //console.log(user.password);
         if (loginPassword === user.password) {
-          //  //console.log("yes we match");
+          console.log("password matches you may enter");
           getSpouse();
           $logInScreen.toggleClass("hidden");
           $index.toggleClass("hidden");
-          //  //console.log(currentUserId);
+          //console.log(currentUserId);
         } else {
-          alert("incorrect password");
+          console.log("incorrect password");
           localStorage.setItem("loggedIn", "false");
         }
       }
+      location.reload();
     });
-
-    location.reload();
   });
 
   // new user handler
@@ -151,21 +150,44 @@ function addNewSpouse() {
       .trim(),
     UserId: loggedInId
   };
-  //console.log(newSpouse);
+  console.log(newSpouse);
   $.post("/api/spouse/", newSpouse);
-  location.reload;
+  // location.reload;
 }
 
 var currentSpouseId;
 
 function getSpouse() {
-  var loggedInSpouse = localStorage.getItem("currentUser");
-  $.get("/api/spouse/" + loggedInSpouse, function(data) {
-    //console.log("current user's spouses: ", data);
+  var loggedInUserId = 'ERROR';
+  loggedInUserId = localStorage.getItem("currentUser");
+  if (loggedInUserId === 'ERROR') {
+    console.log('Error, no user retrieved from local storage: ', loggedInUserId);
+  } else {
+    console.log("user should be equal to local storage: " , loggedInUserId);
+    console.log('In function getSpouse, logginedInSpouse from local storage was', loggedInUserId);
+  }
 
+  $.get("/api/spouse/" + loggedInUserId, function(data) {
+    console.log("current user's spouses: ", data);
+
+    if (data.length === 0){
+      alert("ERROR: In the getSpouse() data is empty no spouse is retrieved");
+    }
     var currentSpouseId = data[0].id;
+    console.log("In getSpouse(), the current spouse (from data[0]) Id was: " , currentSpouseId);
 
     localStorage.setItem("spouseId", JSON.parse(currentSpouseId));
+    
+  var localStoredSpouse = "ERROR";
+  localStoredSpouse = localStorage.getItem("spouseId");
+  if (localStoredSpouse === "ERROR") {
+    console.log("Error, no spouse retrieved from local storage");
+  } else {
+    console.log(
+      "In function getSpouse, logginedInSpouse from local storage was",
+      localStoredSpouse
+    );
+  }
   });
 }
 
@@ -202,7 +224,7 @@ function addNewDate() {
     spouseId: grabCurrentSpouse
   };
 
-  //console.log(newDate);
+  console.log(newDate);
 
   $.post("/api/dates/", newDate);
 }
@@ -210,10 +232,10 @@ function addNewDate() {
 function getDates() {
   var grabSpouseCurrent = localStorage.getItem("spouseId");
   //console.log(grabSpouseCurrent);
-  //console.log("This is the current spouseId", grabSpouseCurrent);
+  console.log("This is the current spouseId", grabSpouseCurrent);
 
   $.get("/api/dates/" + grabSpouseCurrent, function(datedata) {
-    //console.log("This is the new date table data: ", datedata);
+    console.log("This is the new date table data: ", datedata);
   });
 }
 
@@ -356,32 +378,6 @@ $("#new-user-submit").on("click", function(e) {
   }
 });
 
-//new user button on new user screen
-$("#new-user-submit").on("click", function(e) {
-  e.preventDefault();
-  var newUserName = $addNewUserName.val().trim();
-  var newPassword = $addNewPassword.val().trim();
-  var newHint = $addNewHint.val().trim();
-
-  // //console.log(newUserName, newPassword, newHint);
-
-  if (newUserName === "" || newPassword === "") {
-    alert("Please enter a valid username and password");
-  } else {
-    var newUser = {
-      userName: newUserName,
-      password: newPassword,
-      hint: newHint
-    };
-    //console.log(newUser);
-    loggedIn = localStorage.setItem("loggedIn", "true");
-    //sending new user information to user table in database
-    $.post("/api/user", newUser);
-    $("#new-user-screen").toggleClass("hidden");
-    $("#index").toggleClass("hidden");
-  }
-});
-
 // new favorites post
 
 function addNewFavorite() {
@@ -444,7 +440,7 @@ function addNewInterest() {
   var grabCurrentSpouse = localStorage.getItem("spouseId");
 
   var newInterest = {
-    // id: intId,
+    id: intId,
     type: intType(),
     note: intNote,
     SpouseId: grabCurrentSpouse
