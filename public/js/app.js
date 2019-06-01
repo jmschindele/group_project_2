@@ -98,6 +98,7 @@ $(document).ready(function() {
     e.preventDefault();
 
     addNewDate();
+    getDates();
 
     $new2.toggleClass("hidden");
     $new3.toggleClass("hidden");
@@ -147,6 +148,7 @@ function addNewSpouse() {
   };
   console.log(newSpouse);
   $.post("/api/spouse/", newSpouse);
+  location.reload;
 }
 
 // var currentSpouseId;
@@ -159,7 +161,7 @@ function getSpouse() {
     var currentSpouseId = data[0].id;
 
     localStorage.setItem("spouseId", JSON.parse(currentSpouseId));
-    location.reload;
+    
   });
 }
 
@@ -201,6 +203,16 @@ function addNewDate(){
 
   $.post("/api/dates/", newDate);
 };
+
+function getDates() {
+  var grabSpouseCurrent = localStorage.getItem("spouseId");
+  console.log(grabSpouseCurrent);
+  console.log("This is the current spouseId", grabSpouseCurrent);
+
+  $.get("/api/dates/" + grabSpouseCurrent, function(datedata) {
+    console.log("This is the new date table data: ", datedata);
+  });
+}
 
 $addInterest.on("click", function(e) {
   e.preventDefault();
@@ -292,6 +304,7 @@ function getLoveLang() {
   console.log("This is the current spouseId", grabSpouse);
   $.get("/api/lovelang/" + grabSpouse, function(lovedata) {
     console.log("This is the new love table data: ", lovedata);
+    location.reload;
   });
 }
 
@@ -347,7 +360,7 @@ $("#new-user-submit").on("click", function(e) {
   var newPassword = $addNewPassword.val().trim();
   var newHint = $addNewHint.val().trim();
 
-  console.log(newUserName, newPassword, newHint);
+  // console.log(newUserName, newPassword, newHint);
 
   if (newUserName === "" || newPassword === "") {
     alert("Please enter a valid username and password");
@@ -357,7 +370,7 @@ $("#new-user-submit").on("click", function(e) {
       password: newPassword,
       hint: newHint
     };
-    console.log(newUser);
+    // console.log(newUser);
     loggedIn = localStorage.setItem("loggedIn", "true");
     //sending new user information to user table in database
     $.post("/api/user", newUser);
@@ -365,3 +378,5 @@ $("#new-user-submit").on("click", function(e) {
     $("#index").toggleClass("hidden");
   }
 });
+
+

@@ -20,4 +20,37 @@ module.exports = function (app) {
 
   });
 
+  // ------------------------------------
+  // POST route for saving a new interest
+  // added 5/30/2019 by Robin HC
+  // ------------------------------------
+  app.post("/api/interest/", function (req, res) {
+
+    //console.log("req.body in post is", req.body)
+    db.Interests.create({
+      type: req.body.type,
+      note: req.body.note,
+      SpouseId: req.body.spouseid
+    }).then(function (AddedInterest) {
+      // We have the new interest inside of the callback function
+      //console.log("AddedInterest was ", AddedInterest)
+      res.json(AddedInterest);
+    });
+  });
+
+
+    app.delete("/api/interest/", function(req, res) {
+
+      //console.log('req.body in post is', req.body)
+
+      db.Interests.delete({
+        id: req.body.id,
+        type: req.body.type,
+        note: req.body.note,
+        spouseId: req.body.spouseId
+      }).then(function (deletedInterest) {
+        res.json(deletedInterest)
+        location.reload();
+      })
+    })
 };
