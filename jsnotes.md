@@ -4,7 +4,7 @@
 
 3. when a new user is made, it throws several errors and you have to circle back a few times to add a spouse. we should add a default spouse OR get rid of having multiple spouses, or whatever the backend team wants to do....
 
-4. not sure where we are with the dates. Need to help spear head this and work out the formatting.
+4. work with dates
 
 5. What are we going to use for the new library/technology? Materialize? May have negative impacts on the layout.
 
