@@ -26,13 +26,12 @@ app.set("view engine", "handlebars");
 require("./routes/apiRouteLovelang")(app);
 require("./routes/apiRouteSpouse")(app);
 require("./routes/apiRouteUser")(app);
-require('./routes/apiRouteInterests')(app);
+require("./routes/apiRouteInterests")(app);
 require("./routes/apiRouteFavorites")(app);
 require("./routes/apiRouteDates")(app);
 require("./routes/htmlRoutes")(app);
 
 // Starting the server, syncing our models ------------------------------------/
-
 
 // CHANGE FORCE BACK TO FALSE!!!!!!!!!!!!!!!!!!!!!!!
 db.sequelize.sync({ force: false }).then(function() {

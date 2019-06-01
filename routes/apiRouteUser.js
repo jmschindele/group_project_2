@@ -5,15 +5,14 @@
 
 var db = require("../models");
 
-//                                           _              
-//    _   _ ___  ___ _ __    _ __ ___  _   _| |_ ___  ___   
-//   | | | / __|/ _ \ '__|  | '__/ _ \| | | | __/ _ \/ __|  
-//   | |_| \__ \  __/ |     | | | (_) | |_| | ||  __/\__ \  
-//    \__,_|___/\___|_|     |_|  \___/ \__,_|\__\___||___/  
-//                                                          
+//                                           _
+//    _   _ ___  ___ _ __    _ __ ___  _   _| |_ ___  ___
+//   | | | / __|/ _ \ '__|  | '__/ _ \| | | | __/ _ \/ __|
+//   | |_| \__ \  __/ |     | | | (_) | |_| | ||  __/\__ \
+//    \__,_|___/\___|_|     |_|  \___/ \__,_|\__\___||___/
+//
 
-module.exports = function (app) {
-
+module.exports = function(app) {
   // app.get("/api/user", function(req, res) {
   //   db.User.findAll({
   //     include: [db.Spouse]
@@ -25,39 +24,34 @@ module.exports = function (app) {
   // -------------------------------
   // Get user with matching userName
   // -------------------------------
-  app.get("/api/user/:username", function (req, res) {
+  app.get("/api/user/:username", function(req, res) {
     db.User.findOne({
       where: {
         userName: req.params.username
       },
       include: [db.Spouse]
-    }).then(function (dbUsers) {
+    }).then(function(dbUsers) {
       res.json(dbUsers);
     });
   });
 
-
   // --------------------------------------------------
   // POST route for saving a new User - added 20MAY2019
   // --------------------------------------------------
-  app.post("/api/user", function (req, res) {
-    // create takes an argument of an object describing 
-    // the item we want to insert into our table. 
+  app.post("/api/user", function(req, res) {
+    // create takes an argument of an object describing
+    // the item we want to insert into our table.
     //console.log("req.body is", req.body)
     db.User.create({
       userName: req.body.userName,
       password: req.body.password,
       hint: req.body.hint
-    }).then(function (dbUser) {
-      // We have the new user as an argument 
+    }).then(function(dbUser) {
+      // We have the new user as an argument
       res.json(dbUser);
     });
   });
-
 };
-
-
-
 
 //   // Delete an example by id
 //   app.delete("/api/examples/:id", function (req, res) {
@@ -70,6 +64,3 @@ module.exports = function (app) {
 //     });
 //   });
 // };
-
-
- 
