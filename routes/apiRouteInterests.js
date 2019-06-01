@@ -21,7 +21,7 @@ module.exports = function(app) {
   app.post("/api/interest/", function(req, res) {
     //console.log("req.body in post is", req.body)
     db.Interests.create({
-      id: req.body.id,
+      // id: req.body.id,
       type: req.body.type,
       note: req.body.note,
       SpouseId: req.body.SpouseId
@@ -32,17 +32,20 @@ module.exports = function(app) {
     });
   });
 
-  app.delete("/api/interest/", function(req, res) {
+  app.delete("/api/interest/:id", function(req, res) {
     //console.log('req.body in post is', req.body)
+    console.log(req.params.id)
+    db.Interests.destroy({
+      where: {
+      Id: req.params.id }
 
-    db.Interests.delete({
-      id: req.body.id,
-      type: req.body.type,
-      note: req.body.note,
-      SpouseId: req.body.SpouseId
-    }).then(function(deletedInterest) {
-      res.json(deletedInterest);
-      location.reload();
+      // type: req.body.type,
+      // note: req.body.note,
+      // SpouseId: req.body.SpouseId
+    }).then(function(response) {
+      console.log('deleted ',response)
+      res.json(response);
+    
     });
   });
 };
