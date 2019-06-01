@@ -32,7 +32,10 @@ $(document).ready(function() {
 
       for (var i = 0; i < isTrue.length; i++) {
         $("#like").append(
-          `<input id='delete' class='hidden delete-btn' type='checkbox'></input><span id='${
+          `<input id='delete' class='hidden delete-btn' data-id='${
+            isTrueId[i]
+          }'
+          type='checkbox'></input><span id='${
             isTrueId[i]
           }' class='interest-item'>${
             isTrue[i]
@@ -43,7 +46,7 @@ $(document).ready(function() {
       }
       for (var i = 0; i < isFalse.length; i++) {
         $("#dislike").append(
-          `<input id='delete' class='hidden delete-btn' type='checkbox'></input><span id='${
+          `<input id='delete' class='hidden delete-btn' data-id='${isFalseId}' type='checkbox'></input><span id='${
             isFalseId[i]
           }' class='interest-item'>${
             isFalse[i]
@@ -82,13 +85,25 @@ $("body").on("click", "#delete-confirm", function(e) {
   $("#delete-confirm").attr("id", "delete-interest");
   $(".delete-btn").toggleClass("hidden");
 
-  // $.ajax({
-  //   url: '/api/interest/', //api delete route
-  //   type: 'DELETE',
-  // }).then(function(e){
-  //   console.log(this.id + 'deleted')
-  // })
+  var id;
+
+  if (document.getElementById('delete').checked = true) {
+    id = $('#delete').attr('data-id');
+    console.log(id)
+  }
+  
+  console.log('up a scope id =', id)
+
+  $.ajax({
+    url: 'api/interest/'+id , //api delete route
+    type: 'DELETE'
+  }).then(function(response){
+    console.log('deleted', response)
+  })
+
+
   canEdit = true;
+ location.reload();
 });
 
 //

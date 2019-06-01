@@ -444,7 +444,7 @@ function addNewInterest() {
   var grabCurrentSpouse = localStorage.getItem("spouseId");
 
   var newInterest = {
-    id: intId,
+    // id: intId,
     type: intType(),
     note: intNote,
     SpouseId: grabCurrentSpouse
