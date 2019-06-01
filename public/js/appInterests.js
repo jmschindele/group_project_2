@@ -5,11 +5,11 @@ $(document).ready(function() {
   if (loggedInUser === "false") {
     console.log("Not logged in yet cannot grab spouseId and table data");
   } else if (loggedInUser === "true") {
-    var getCurrentSpouse = localStorage.getItem("spouseId");
-    // var getCurrentSpouse = 1;
-    console.log("This is the current spouseId: ", getCurrentSpouse);
+    var getSpouseCurrent = localStorage.getItem("spouseId");
+    // var getSpouseCurrent = 1;
+    console.log("This is the current spouseId: ", getSpouseCurrent);
 
-    $.ajax("api/interest/" + getCurrentSpouse, {
+    $.ajax("api/interest/" + getSpouseCurrent, {
       type: "GET"
     }).then(function(response) {
       var isFalse = [];
