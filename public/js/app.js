@@ -52,23 +52,41 @@ var newFavoriteEntry = `
 <input placeholder='article' class='form-control'>
 <input placeholder='Size' class='form-control'>
 <input placeholder='Notes' class='form-control'>
-`
+`;
+
+var newSpouseEntry =
+  '<input placeholder="Spouse Name" id= "new-spouse" class="form-control"></input>';
 // --------------------------------------
 // Add love language drop down selections
 // --------------------------------------
 
 for (var i = 0; i < 5; i++) {
-  $('#lovelang-form').prepend(`
-  <select>
+  $("#lovelang-form").append(`
+  <br>
+  <select id='ll${i}'>
     <option selected>Please Select</option>
-    <option value='affirmation' >Words of Affirmation</option>
-    <option value='service' >Acts of Service</option>
-    <option value='gifts' >Receiving Gifts</option>
-    <option value='quality-time'>Quality Time</option>
-    <option value='physical-touch'>Physical Touch</option>
-    <option value='na'>Not Sure</option>
+    <option value='<h4>Words of Affirmation</h4>
+    <p>This love language expresses love with words that build up your partner. Verbal compliments don’t have to be complicated; the shortest and simplest words of affirmation can be the most effective.</p>
+'>Words of Affirmation</option>
+
+    <option value='<h4>Acts of Service</h4>
+    <p>This love language expresses itself by doing things that you know your spouse would like. Cooking a meal, doing the laundry, and picking up a prescription are all acts of service. They require some thought, time, and effort.</p>' >Acts of Service</option>
+    
+    <option value='<h4>Receiving Gifts</h4>
+    <p>This love language isn’t necessarily materialistic. It just means that a meaningful or thoughtful gift makes them feel appreciated and loved. Something as simple as picking up a pint of their favorite ice cream after a long work week can make an impact on this love language.</p>            
+    ' >Receiving Gifts</option>
+
+    <option value='<h4>Quality Time</h4>
+    <p>This love language is all about undivided attention. No televisions, no smartphones, or any other distractions. They think talk is cheap and the type of action they want is to be your main focus.</p>
+    '>Quality Time</option>
+
+    <option value='<h4>Physical Touch</h4>
+<p>To this love language, nothing is more impactful than the physical touch of their partner. They aren’t necessarily into over-the-top PDA, but they do feel more connected and safe in a relationship by holding hands, kissing, hugging, etc.</p>
+'>Physical Touch</option>
+
+    <option value=''>Not Sure</option>
 </select>
-  `)
+  `);
 }
 
 //        _                                       _                         _       
@@ -89,7 +107,6 @@ $(document).ready(function () {
 
   if (loggedIn === "true") {
     var currentUserId = localStorage.getItem('currentUser');
-    var currentUserSpouse = localStorage.getItem('spouseId');
     // if user is already logged in, hide the log in div
     $('#log-in-screen').attr('class', 'hidden');
     $('#index').toggleClass('hidden');
@@ -168,12 +185,14 @@ $('#new-user').on('click', function (e) {
 //   | (_) | | | | (__| | | (__|   <    |_      _| | | |  __/\ V  V /_____| |_| \__ \  __/ | |_____\__ \ |_| | |_) | | | | | | | |_ 
 //    \___/|_| |_|\___|_|_|\___|_|\_\     |_||_| |_| |_|\___| \_/\_/       \__,_|___/\___|_|       |___/\__,_|_.__/|_| |_| |_|_|\__|
 //                                                                                                                                  
-$('#new-user-submit').on('click', function (e) {
+$("#new-user-submit").on("click", function(e) {
   e.preventDefault();
-  //new user button on new user screen
   var newUserName = $addNewUserName.val().trim();
   var newPassword = $addNewPassword.val().trim();
   var newHint = $addNewHint.val().trim();
+  var newUserLoggedIn;
+
+  // //console.log(newUserName, newPassword, newHint);
 
   if (newUserName === "" || newPassword === "") {
     alert("Please enter a valid username and password");
@@ -183,16 +202,25 @@ $('#new-user-submit').on('click', function (e) {
       password: newPassword,
       hint: newHint
     };
-    console.log("In app.js, onclick #new-user-submit, newUser.newUserName =", newUser.newUserName);
-    console.log("In app.js, onclick #new-user-submit, newUser.newPassword =", newUser.newPassword);
-    console.log("In app.js, onclick #new-user-submit, newUser.newHint =", newUser.newHint);
+    // //console.log(newUser);
 
     //sending new user information to user table in database
-    $.post("/api/user", newUser);
-    $("#new-user-screen").toggleClass("hidden");
-    $("#log-in-screen").toggleClass("hidden");
-  }
+    $.post("/api/user", newUser, function(data) {
+      localStorage.setItem("loggedIn", "true");
 
+      $.get("/api/user/" + newUserName, function(data) {
+        console.log("This is the get for new user data: ", data);
+        newUserLoggedIn = data.id;
+        localStorage.setItem("currentUser", newUserLoggedIn);
+        console.log(newUserLoggedIn);
+        getSpouse();
+        // location.reload();
+        $("#new-user-screen").toggleClass("hidden");
+        $("#new1").toggleClass("hidden");
+        $spouseForm.prepend(newSpouseEntry);
+      });
+    });
+  }
 });
 
 //                     _ _      _         _  _             _       
@@ -212,7 +240,7 @@ $login.on("click", function (e) {
   var loginPassword = $userPassword.val().trim();
   var user;
   // return loggedIn;
-  console.log(loginName, loginPassword)
+  // console.log(loginName, loginPassword)
 
   // retrieve specific user information along with their spouses
   $.get("/api/user/" + loginName, function (data) {
@@ -223,24 +251,24 @@ $login.on("click", function (e) {
     } else {
       loggedInUserId = user.id;
       localStorage.setItem("currentUser", loggedInUserId);
-      console.log(loggedInUserId);
-      console.log(user.password);
+      // console.log(loggedInUserId);
+      // console.log(user.password);
       if (loginPassword === user.password) {
-        console.log("yes we match");
+        console.log("password matches you may enter");
         getSpouse();
         $logInScreen.toggleClass("hidden");
         $index.toggleClass("hidden");
-        console.log(currentUserId);
-
+        location.reload;
+        // console.log(currentUserId);
       } else {
-        alert("incorrect password");
+        console.log("incorrect password");
         localStorage.setItem("loggedIn", "false");
       }
     }
 
   });
 
-  location.reload();
+  // location.reload();
 });
 
 
@@ -275,42 +303,36 @@ $newSub1.on("click", function (e) {
 
 $newSub2.on("click", function (e) {
   e.preventDefault();
+   addNewDate();
+   getDates();
   $new2.toggleClass("hidden");
   $new3.toggleClass("hidden");
 });
 
 $newSub3.on("click", function (e) {
   e.preventDefault();
+  addNewInterest();
+  getInterest();
   $new3.toggleClass("hidden");
   $new4.toggleClass("hidden");
 });
 
 $newSub4.on("click", function (e) {
   e.preventDefault();
+  addNewFavorite();
+  getFavorite();
   $new4.toggleClass("hidden");
   $new5.toggleClass("hidden");
 });
 
 $newSub5.on('click', function (e) {
   e.preventDefault();
+  newLoveLang();
+  getLoveLang();
   $new5.toggleClass('hidden');
   $('#index').toggleClass('hidden');
 })
-
-//                       _ _      _                 _     _                                   
-//     ___  _ __     ___| (_) ___| | __    __ _  __| | __| |   ___ _ __   ___  _   _ ___  ___ 
-//    / _ \| '_ \   / __| | |/ __| |/ /   / _` |/ _` |/ _` |  / __| '_ \ / _ \| | | / __|/ _ \
-//   | (_) | | | | | (__| | | (__|   <   | (_| | (_| | (_| |  \__ \ |_) | (_) | |_| \__ \  __/
-//    \___/|_| |_|  \___|_|_|\___|_|\_\   \__,_|\__,_|\__,_|  |___/ .__/ \___/ \__,_|___/\___|
-//                                                                |_|                         
-
-$addSpouse.on("click", function (e) {
-  e.preventDefault();
-  // setting up new spouse blank as a variable so any formatting changes will apply
-  var newSpouseEntry =
-    '<input placeholder="Spouse Name" id= "new-spouse" class="form-control"></input>';
-  $spouseForm.prepend(newSpouseEntry);
-});
+                              
 
 //              _     _ _   _                ____                                __  __  
 //     __ _  __| | __| | \ | | _____      __/ ___| _ __   ___  _   _ ___  ___   / /  \ \ 
@@ -356,12 +378,13 @@ function getSpouse() {
     console.log("current user's spouses: ", data);
 
     if (data.length === 0) {
-      alert("ERROR: In the getSpouse() data is empty no spouse is retrieved");
+      console.log("ERROR: In the getSpouse() data is empty no spouse is retrieved");
     }
     var currentSpouseId = data[0].id;
     console.log("In getSpouse(), the current spouse (from data[0]) Id was: ", currentSpouseId);
 
     localStorage.setItem("spouseId", JSON.parse(currentSpouseId));
+    location.reload;
 
     var localStoredSpouse = "ERROR";
     localStoredSpouse = localStorage.getItem("spouseId");
