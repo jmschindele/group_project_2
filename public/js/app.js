@@ -105,7 +105,7 @@ $(document).ready(function() {
     e.preventDefault();
 
     addNewInterest();
-    getInterest();  
+    getInterest();
 
     $new3.toggleClass("hidden");
     $new4.toggleClass("hidden");
@@ -429,15 +429,17 @@ function addNewInterest() {
       .val()
       .trim() || "";
   var intType = function() {
-if (document.getElementById('true-check').checked) {
-  // //console.log('is true')
-  return true;
-} else if (document.getElementById('false-check').checked) {
-  // //console.log('is false')
-  return false;
-}
+    if (document.getElementById("true-check").checked) {
+      // //console.log('is true')
+      return true;
+    } else if (document.getElementById("false-check").checked) {
+      // //console.log('is false')
+      return false;
+    }
   };
-  var intNote = $('#addInt').val().trim();
+  var intNote = $("#addInt")
+    .val()
+    .trim();
 
   var grabCurrentSpouse = localStorage.getItem("spouseId");
 
