@@ -7,8 +7,27 @@
 
  */
 
+ .btn-link {
+     color: #FFB228;
+     font-size: 1.5em;
+ }
 
+ .btn-link:hover {
+     color: #FFB228;
+     text-decoration: none;
+ }
 
+ .btn-link:active {
+     text-decoration: none;
+ }
+
+ .btn-link:focus {
+     text-decoration: none;
+ }
+
+ .fav-card-text {
+     font-size: 1.5em;
+ }
 #phonetop {
     border: solid 3px black;
     border-top-right-radius: 40px;
@@ -35,8 +54,10 @@
     border: solid 3px black;
     width: 385px;
     overflow-x: hidden;
+    overflow-y: visible;
     margin: 0 auto;
     height: 600px;
+    
 }
 #phonebottom {
     border: solid 3px black;
@@ -149,7 +170,7 @@ body {
 .container {
     width: 375px;
     border: solid 1px black;
-    overflow: auto;
+    overflow-y: visible;
 }
 
 .hidden {
@@ -181,4 +202,14 @@ body {
     color: darkgreen;
     border-radius: 100%;
     background: lightgreen;
+}
+
+
+
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+#accordion a {
+    
 }
