@@ -99,11 +99,12 @@ $("body").on("click", "#delete-confirm", function(e) {
     type: 'DELETE'
   }).then(function(response){
     console.log('deleted', response)
+    canEdit = true;
+ location.reload();
   })
 
 
-  canEdit = true;
- location.reload();
+  
 });
 
 //
