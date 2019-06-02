@@ -3,7 +3,7 @@ $(document).ready(function() {
   //console.log(loggedIn);
 
   var currentUserId = localStorage.getItem("currentUser");
-  var currentUserSpouse = localStorage.getItem("spouseId");
+  // var currentUserSpouse = localStorage.getItem("spouseId");
 
   //log in functionality
   if (loggedIn === "true") {
@@ -55,9 +55,9 @@ $(document).ready(function() {
         if (loginPassword === user.password) {
           console.log("password matches you may enter");
           getSpouse();
-          $logInScreen.toggleClass("hidden");
-          $index.toggleClass("hidden");
-          location.reload();
+          // $logInScreen.toggleClass("hidden");
+          // $index.toggleClass("hidden");
+          // location.reload();
           //console.log(currentUserId);
         } else {
           console.log("incorrect password");
@@ -150,7 +150,6 @@ $(document).ready(function() {
     // location.reload;
   }
 
-  var currentSpouseId;
 
   function getSpouse() {
     var loggedInUserId = "ERROR";
@@ -166,36 +165,37 @@ $(document).ready(function() {
         "In function getSpouse, logginedInSpouse from local storage was",
         loggedInUserId
       );
+
+      $.get("/api/spouse/" + loggedInUserId, function(data) {
+        console.log("current user's spouses: ", data);
+  
+        if (data.length === 0) {
+          console.log(
+            "ERROR: In the getSpouse() data is empty no spouse is retrieved"
+          );
+        }
+        var currentSpouseId = data[0].id;
+        console.log(
+          "In getSpouse(), the current spouse (from data[0]) Id was: ",
+          currentSpouseId
+        );
+  
+        localStorage.setItem("spouseId", currentSpouseId);
+        // location.reload;
+  
+        var localStoredSpouse = "ERROR";
+        localStoredSpouse = localStorage.getItem("spouseId");
+        if (localStoredSpouse === "ERROR") {
+          console.log("Error, no spouse retrieved from local storage");
+        } else {
+          console.log(
+            "In function getSpouse, logginedInSpouse from local storage was",
+            localStoredSpouse
+          );
+        }
+      });
     }
 
-    $.get("/api/spouse/" + loggedInUserId, function(data) {
-      console.log("current user's spouses: ", data);
-
-      if (data.length === 0) {
-        console.log(
-          "ERROR: In the getSpouse() data is empty no spouse is retrieved"
-        );
-      }
-      var currentSpouseId = data[0].id;
-      console.log(
-        "In getSpouse(), the current spouse (from data[0]) Id was: ",
-        currentSpouseId
-      );
-
-      localStorage.setItem("spouseId", JSON.parse(currentSpouseId));
-      location.reload;
-
-      var localStoredSpouse = "ERROR";
-      localStoredSpouse = localStorage.getItem("spouseId");
-      if (localStoredSpouse === "ERROR") {
-        console.log("Error, no spouse retrieved from local storage");
-      } else {
-        console.log(
-          "In function getSpouse, logginedInSpouse from local storage was",
-          localStoredSpouse
-        );
-      }
-    });
   }
 
   //Handler for new date blanks
