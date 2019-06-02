@@ -6,15 +6,26 @@ $(document).ready(function() {
     //console.log("Not logged in yet cannot grab spouseId and date table data");
   } else if (loggedInCurrentUser === "true") {
     var getSpouse = localStorage.getItem("spouseId");
-    // var getSpouse = 1;
+    // var getSpouse = 11;
 
     //console.log("This is the current spouseId: ", getSpouse);
     var datesArr = [];
     $.get("/api/dates/" + getSpouse, function(res) {
       for (var i = 0; i < res.length; i++) {
+
+
+        var formatted = new Date(res[i].date);
+        var dd = String(formatted.getDate()).padStart(2, '0');
+        var mm = String(formatted.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = formatted.getFullYear();
+
+        formatted = mm + '/' + dd + '/' + yyyy;
+
+
+
         $("#date-list").append(`
         <p>${res[i].event}</p>
-        <p>${res[i].date}</p>
+        <p>${formatted}</p>
         <hr class='bg-3'>
         `);
 

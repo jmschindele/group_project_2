@@ -38,10 +38,6 @@ module.exports = function(app) {
     db.Interests.destroy({
       where: {
       Id: req.params.id }
-
-      // type: req.body.type,
-      // note: req.body.note,
-      // SpouseId: req.body.SpouseId
     }).then(function(response) {
       console.log('deleted ',response)
       res.json(response);
