@@ -57,7 +57,7 @@ $(document).ready(function() {
           getSpouse();
           // $logInScreen.toggleClass("hidden");
           // $index.toggleClass("hidden");
-          // location.reload();
+          location.reload();
           //console.log(currentUserId);
         } else {
           console.log("incorrect password");
@@ -130,7 +130,7 @@ $(document).ready(function() {
 
   // Handler for new spouse blanks
 
-  var $addSpouse = $("#add-spouse");
+  // var $addSpouse = $("#add-spouse");
   var $spouseForm = $("#spouse-form");
   // setting up new spouse blank as a variable so any formatting changes will apply
   var newSpouseEntry =
@@ -340,13 +340,6 @@ $(document).ready(function() {
     });
   }
 
-  // //Click handler to take new user to spouse entry form
-  // $("#add-spouse").on("click", function(e) {
-  //   e.preventDefault();
-  //   $("#index").toggleClass("hidden");
-  //   $("#new1").toggleClass("hidden");
-  // });
-
   //new user submit click handler
   var $addNewUserName = $("#new-username");
   var $addNewPassword = $("#new-password");
@@ -388,7 +381,6 @@ $(document).ready(function() {
           newUserLoggedIn = data.id;
           localStorage.setItem("currentUser", newUserLoggedIn);
           console.log(newUserLoggedIn);
-          getSpouse();
           // location.reload();
           $("#new-user-screen").toggleClass("hidden");
           $("#new1").toggleClass("hidden");
