@@ -63,6 +63,8 @@ $(document).ready(function() {
 
 var canEdit = true;
 var canDelete = true;
+var likeOrDislike;
+var interestNote;
 
 //handler for interests editing
 
@@ -118,11 +120,36 @@ $("body").on("click", "#edit-interest", function(e) {
     $("#edit-interest").text("Save");
     $("#edit-interest").attr("id", "confirm-interest-edit");
     $(".add-btn").toggleClass("hidden");
+    setTimeout(function(){
+      $(".add-btn").toggleClass('animated infinite pulse')
+    },100)
   }
 });
 
 $("body").on("click", "#confirm-interest-edit", function(e) {
   e.preventDefault();
+
+   if(likeOrDislike === true) {
+      interestNote = $("#newLike").val();
+      // console.log("interest is like and this is the value: ", interestNote);
+   } else if(likeOrDislike === false) {
+     interestNote = $("#newDislike").val();
+    // console.log("interest is dislike and this is the value: ", interestNote);
+   }
+
+   console.log("This is the value of interestNote: ", interestNote);
+
+   var grabCurrentSpouse = localStorage.getItem("spouseId");
+
+   var newInterest = {
+     type: likeOrDislike,
+     note: interestNote,
+     SpouseId: grabCurrentSpouse
+   };
+
+   console.log(newInterest);
+
+   $.post("/api/interest/", newInterest);
   $("#confirm-interest-edit").text("Edit");
   // var count = 0;
   $(".add-btn").toggleClass("hidden");
@@ -145,20 +172,22 @@ $("body").on("click", "#confirm-interest-edit", function(e) {
 
 $(".add-btn-like").on("click", function(e) {
   e.preventDefault();
-  count++;
+  likeOrDislike = true;
+  // count++;
   $("#like").append(`
 
-<input type='text' class='form-control' data-type='true' placeholder='Description'>
+<input type='text' class='form-control' id="newLike" data-type='true' placeholder='Description'>
 <br>
   `);
 });
 
 $(".add-btn-dislike").on("click", function(e) {
   e.preventDefault();
-  count++;
+  likeOrDislike = false;
+  // count++;
   $("#dislike").append(`
 
-<input type='text' class='form-control' data-type='false' placeholder='Description'>
+<input type='text' class='form-control' id="newDislike" data-type='false' placeholder='Description'>
 <br>
   `);
 });

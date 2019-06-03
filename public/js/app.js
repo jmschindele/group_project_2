@@ -5,7 +5,21 @@ $(document).ready(function() {
   var currentUserId = localStorage.getItem("currentUser");
   // var currentUserSpouse = localStorage.getItem("spouseId");
 
+
   //log in functionality
+
+//toggle off log in button, show log in forms.
+
+  $('#login-display').on('click', function(e){
+    e.preventDefault();
+    $('#user-email').toggleClass('hidden')
+    $('#user-password').toggleClass('hidden')
+    $('#login-submit').toggleClass('hidden')
+    $('#login-display').toggleClass('hidden')
+  })
+
+
+  
   if (loggedIn === "true") {
     $("#log-in-screen").attr("class", "hidden");
     $("#index").toggleClass("hidden");
@@ -46,7 +60,12 @@ $(document).ready(function() {
       //  //console.log(data);
       user = data;
       if (user === null) {
-        alert("No matching username. Please try again or create an account");
+        $('#log-in-screen').toggleClass('shake fast');
+        $('#user-email').val('');
+        $('#user-password').val('');
+        setTimeout(function(){
+          $('#log-in-screen').toggleClass('shake fast')
+        }, 500)
       } else {
         loggedInUserId = user.id;
         localStorage.setItem("currentUser", loggedInUserId);
@@ -60,6 +79,12 @@ $(document).ready(function() {
           location.reload();
           //console.log(currentUserId);
         } else {
+          $('#log-in-screen').toggleClass('shake fast');
+          $('#user-email').val('');
+          $('#user-password').val('');
+          setTimeout(function(){
+            $('#log-in-screen').toggleClass('shake fast')
+          }, 500)
           console.log("incorrect password");
           localStorage.setItem("loggedIn", "false");
         }
@@ -348,8 +373,15 @@ $(document).ready(function() {
   //changes over to new-user-screen when click new user btn on login-screen
   $("#new-user").on("click", function(e) {
     e.preventDefault();
-    $("#log-in-screen").toggleClass("hidden");
-    $("#new-user-screen").toggleClass("hidden");
+    // $("#log-in-screen").toggleClass("flipOutY faster");
+    // $("#log-in-screen").toggleClass("hidden");
+    // $("#log-in-screen").on('animationend', function(){
+    
+      $("#log-in-screen").toggleClass("hidden");
+          $("#new-user-screen").toggleClass("hidden");
+          //  animated flipInY faster");
+    // })
+
   });
 
   //new user button on new user screen
@@ -432,10 +464,10 @@ $(document).ready(function() {
   // new Interests post
 
   function addNewInterest() {
-    var intId =
-      $("#addInt")
-        .val()
-        .trim() || "";
+    // var intId =
+    //   $("#addInt")
+    //     .val()
+    //     .trim() || "";
     var intType = function() {
       if (document.getElementById("true-check").checked) {
         // //console.log('is true')

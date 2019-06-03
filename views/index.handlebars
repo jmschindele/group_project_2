@@ -3,7 +3,7 @@
   
   <div class="col-10"> --}}
 
-<div class="container bg-2 text-4" id="log-in-screen">
+<div class="container bg-2 text-4 animated" id="log-in-screen">
   <div class="row" id="logo-row">
     <div class="col-12 text-center">
       <img src="./images/logo2.png" id="round-photo">
@@ -11,12 +11,14 @@
   </div>
   <div class="row" id="form-row">
     <div class="col-12 text-center">
-      <form>
-        <br>
-        <input type="text" class="form-control" placeholder="Username" id='user-email'></input><br>
-        <input type="password" class="form-control" placeholder='Password' id='user-password'></input><br>
-        <button class='btn btn-primary' id="login-submit">submit</button>
-        <button class='btn btn-success' id="new-user">New User</button>
+
+      <form class='text-4'>
+        <input type="text" class="form-control hidden" placeholder="Username" id='user-email'></input>
+        <input type="password" class="form-control hidden" placeholder='Password' id='user-password'></input>
+        <button class="btn" id='login-display'>Log In</button>
+        <button class='btn btn-primary hidden' id="login-submit">Enter</button>
+        {{!-- <br> --}}
+        <button class='btn' id="new-user">New here?</button>
       </form>
     </div>
   </div>
@@ -89,18 +91,17 @@
 
 <div class="container hidden bg-2 text-4" id="new-user-screen">
   <div class="row" id="logo-row">
-    <div class="col-12 mx-auto">
+    <div class="col-12 text-center">
       <img src="./images/logo2.png" id="round-photo">
     </div>
   </div>
   <div class="row" id="form-row">
     <div class="col-12 text-center">
       <form>
-        <br>
-        <input type="text" class="form-control" placeholder="Choose Username" id='new-username'></input><br>
-        <input type="password" class="form-control" placeholder='Password' id='new-password'></input><br>
-        <input type="text" class="form-control" placeholder='Hint:' id='new-hint'></input><br>
-        <button class='btn btn-primary' id="new-user-submit">submit</button>
+        <input type="text" class="form-control" placeholder="Choose Username" id='new-username'></input>
+        <input type="password" class="form-control" placeholder='Password' id='new-password'></input>
+        <input type="text" class="form-control" placeholder='Hint:' id='new-hint'></input>
+        <button class='btn btn-primary' id="new-user-submit">Enter</button>
       </form>
     </div>
   </div>
