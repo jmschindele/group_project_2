@@ -432,10 +432,10 @@ $(document).ready(function() {
   // new Interests post
 
   function addNewInterest() {
-    var intId =
-      $("#addInt")
-        .val()
-        .trim() || "";
+    // var intId =
+    //   $("#addInt")
+    //     .val()
+    //     .trim() || "";
     var intType = function() {
       if (document.getElementById("true-check").checked) {
         // //console.log('is true')
