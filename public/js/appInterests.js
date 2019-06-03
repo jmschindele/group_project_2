@@ -120,6 +120,9 @@ $("body").on("click", "#edit-interest", function(e) {
     $("#edit-interest").text("Save");
     $("#edit-interest").attr("id", "confirm-interest-edit");
     $(".add-btn").toggleClass("hidden");
+    setTimeout(function(){
+      $(".add-btn").toggleClass('animated infinite pulse')
+    },100)
   }
 });
 
