@@ -46,7 +46,7 @@ $(document).ready(function() {
       }
       for (var i = 0; i < isFalse.length; i++) {
         $("#dislike").append(
-          `<input id='delete' class='hidden delete-btn' data-id='${isFalseId}' type='checkbox'></input><span id='${
+          `<input id='delete' class='hidden delete-btn' data-id='${isFalseId[i]}' type='checkbox'></input><span id='${
             isFalseId[i]
           }' class='interest-item'>${
             isFalse[i]
