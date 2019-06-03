@@ -323,7 +323,7 @@ body {
     background-image: url("../images/zig-zag.png");
 }
 
-@media (max-width: 600px) {
+@media screen and (max-width: 992px) {
   body {
     background: #4c0045;
     border: none;
