@@ -21,237 +21,294 @@
     padding: 0px;
     border: none;
 } */
+ul {
+    list-style: none;
+}
 
+.form-control,
+.form-control:focus,
+.form-control:active {
+  /* background: rgb(87, 9, 79); */
+  background: transparent;
+  color: white;
+  height: 3rem;
+  font-size: 1.5rem;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: solid 1px #ffb228;
+  /* box-shadow: 0px 5px 25px 1px black, inset 0px 0px 5px 1px #6f0765; */
+  border-radius: 0px;
+  box-shadow: none;
+  margin-bottom: 25px;
+}
 
- .btn-link {
-     color: #FFB228;
-     font-size: 1.5em;
- }
+.btn-link {
+  color: #ffb228;
+  font-size: 1.5em;
+}
 
- .btn-link:hover {
-     color: #FFB228;
-     text-decoration: none;
- }
+.btn-link:hover {
+  color: #ffb228;
+  text-decoration: none;
+}
 
- .btn-link:active {
-     text-decoration: none;
- }
+.btn-link:active {
+  text-decoration: none;
+}
 
- .btn-link:focus {
-     text-decoration: none;
- }
+.btn-link:focus {
+  text-decoration: none;
+}
 
- .fav-card-text {
-     font-size: 1.5em;
- }
+.fav-card-text {
+  font-size: 1.5em;
+}
 #phonetop {
-    border: solid 3px black;
-    border-top-right-radius: 40px;
-    border-top-left-radius: 40px;
-    width: 385px;
-    height: 60px;
-    margin: 40px auto 0px auto;
-    background: darkslategray;
+  border: solid 3px black;
+  border-top-right-radius: 40px;
+  border-top-left-radius: 40px;
+  width: 385px;
+  height: 60px;
+  margin: 40px auto 0px auto;
+  background: darkslategray;
 }
 
 #phonespeaker {
-    
-    border: solid 2px white;
-    border-top-right-radius: 8px;
-    border-top-left-radius: 8px;
-    border-bottom-right-radius: 8px;
-    border-bottom-left-radius: 8px;
-    height: 15px;
-    width: 80px;
-    margin: auto;
-}
-
-#phonemid{
-    border: solid 3px black;
-    width: 385px;
-    overflow-x: hidden;
-    overflow-y: visible;
-    margin: 0 auto;
-    height: 600px;
-    background: #4C0045;
-    
-}
-#phonebottom {
-    border: solid 3px black;
-    border-bottom-right-radius: 40px;
-    border-bottom-left-radius: 40px;
-    margin: 0 auto;
-    width: 385px;
-    height: 60px;
-    background: darkslategray;
-}
-#phonebutton {
-    border: solid 2px white;
-    border-radius: 100%;
-    height: 50px;
-    width: 50px;
-    margin: auto;
-}
-#phonebuttoninner {
-    border: solid 2px white;
-    margin: 8px auto;
-    height: 30px;
-    width: 30px;
-}
-
-body {
-    background: black;
-    background-image: url('../images/grey_wash_wall.png');
-}
-
-#card-row {
-    border-top: solid 15px #4C0045;
-    border-bottom: solid 30px #4C0045;
-    margin: 0px auto;
-}
-
-
-#card-row a {
-    color: black;
-}
-
-#card-row a:hover {
-    text-decoration: none;
-}
-
-#form-row {
-    width: 90%;
-    margin: 0 auto;
-}
-
-#round-photo {
-    border-radius: 100%;
-    border: 3px solid #FFB228;
-    box-shadow: 0px 0px 35px 25px #6F0765;
-    margin: 50px auto;
-    height: 250px;
-    width: 250px;
-}
-
-.bg-1 {
-    background: #6F0765;
-}
-
-.bg-2 {
-   background: #4C0045;
-}
-
-.bg-3 {
-   background: #BD512F;
-}
-
-.bg-4{
-   background: #FFB228;
-}
-
-.card {
-    padding: 0px;
-    margin: 0px;
-}
-
-.card-body {
-    padding: 0px;
-}
-
-.card-border {
-
-    margin: 0 auto;
-    border: 3px solid #FFB228;
-}
-
-
-.card-text {
-    height: 50px;
-    width: 100%;
-    margin: 0;
-    border-top: solid 3px #FFB228;
-    text-align: right;
-    bottom: 0;
-    font-size: 1.5em;
-    padding-right: 15px;
-    padding-top: 7px;
-    text-shadow: 0px 0px 5px black;
-    /* box-shadow: inset 0px 0px 10px 1px #6F0765; */
-    background-image: url('../images/zig-zag.png');
-}
-
-
-.container {
-    width: 100%;
-    border: solid 1px black;
-    overflow-y: visible;
-    margin: 0px;
-
-}
-
-.hidden {
-    display: none;
-}
-
-.text-1 {
-    color: #6F0765;
-    font-family: 'Marck Script', cursive;
-}
-
-.text-2 {
-    color: #4C0045;
-    font-family: 'Marck Script', cursive;
-}
-
-.text-3 {
-    color: #BD512F;
-    font-family: 'Marck Script', cursive;
-}
-
-.text-4 {
-    color: #FFB228;
-    font-family: 'Old Standard TT', serif;
-}
-
-.add-btn {
-    border: solid 1px green;
-    color: darkgreen;
-    border-radius: 100%;
-    background: lightgreen;
-}
-
-
-
-::-webkit-scrollbar { 
-    display: none; 
-}
-
-@media (max-width: 600px) {
-
-body {
-    background: #4C0045;
-}
-
-#phonetop,#phonespeaker, #phonebottom, #phonebutton, #phonebuttoninner {
-    display: none;
+  border: solid 2px white;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  height: 15px;
+  width: 80px;
+  margin: auto;
 }
 
 #phonemid {
-    border: none;
-    height: 100%;
-    width: 100%;
-
+  border: solid 3px black;
+  width: 385px;
+  overflow-x: hidden;
+  overflow-y: visible;
+  margin: 0 auto;
+  height: 600px;
+  background: #4c0045;
+}
+#phonebottom {
+  border: solid 3px black;
+  border-bottom-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+  margin: 0 auto;
+  width: 385px;
+  height: 60px;
+  background: darkslategray;
+}
+#phonebutton {
+  border: solid 2px white;
+  border-radius: 100%;
+  height: 50px;
+  width: 50px;
+  margin: auto;
+}
+#phonebuttoninner {
+  border: solid 2px white;
+  margin: 8px auto;
+  height: 30px;
+  width: 30px;
 }
 
-.container {
-    border: none;
-    width: 100%;
+body {
+  background: black;
+  background-image: url("../images/grey_wash_wall.png");
+}
+
+#card-row {
+  border-top: solid 15px #4c0045;
+  border-bottom: solid 30px #4c0045;
+  margin: 0px auto;
+}
+
+#card-row a {
+  color: black;
+}
+
+#card-row a:hover {
+  text-decoration: none;
+}
+
+#form-row {
+  width: 90%;
+  margin: 0 auto;
 }
 
 #round-photo {
-    height: auto;
-    width: 75%;
+  border-radius: 100%;
+  border: 3px solid #ffb228;
+  box-shadow: 0px 0px 70px 20px #6f0765;
+  margin: 50px auto;
+  height: 250px;
+  width: 250px;
+}
+
+.bg-1 {
+  background: #6f0765;
+}
+
+.bg-2 {
+  background: #4c0045;
+}
+
+.bg-3 {
+  background: #bd512f;
+}
+
+.bg-4 {
+  background: #ffb228;
+}
+
+.card {
+  padding: 0px;
+  margin: 0px;
+}
+
+.card-body {
+  padding: 0px;
+}
+
+.card-border {
+  margin: 0 auto;
+  border: 3px solid #ffb228;
+}
+
+.card-text {
+  height: 50px;
+  width: 100%;
+  margin: 0;
+  border-top: solid 3px #ffb228;
+  text-align: right;
+  bottom: 0;
+  font-size: 1.5em;
+  padding-right: 15px;
+  padding-top: 7px;
+  text-shadow: 0px 0px 5px black;
+  /* box-shadow: inset 0px 0px 10px 1px #6F0765; */
+  background-image: url("../images/zig-zag.png");
+}
+
+.container {
+  width: 100%;
+  border: solid 1px black;
+  overflow-y: visible;
+  margin: 0px;
+}
+
+.hidden {
+  display: none;
+}
+
+.text-1 {
+  color: #6f0765;
+  font-family: "Marck Script", cursive;
+}
+
+.text-2 {
+  color: #4c0045;
+  font-family: "Marck Script", cursive;
+}
+
+.text-3 {
+  color: #bd512f;
+  font-family: "Marck Script", cursive;
+}
+
+.text-4 {
+  color: #ffb228;
+  font-family: "Old Standard TT", serif;
+}
+
+.add-btn {
+  border: solid 1px green;
+  color: darkgreen;
+  border-radius: 100%;
+  background: lightgreen;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+#login-display {
+  width: 17rem;
+  height: 7rem;
+  margin-top: 25px;
+  margin-bottom: 20px;
+  border: 3px solid #ffb228;
+  box-shadow: 0px 0px 35px 5px #6f0765;
+  background: transparent;
+  color: #ffb228;
+  font-size: 1.5em;
+  border-radius: 15px;
+  background-image: url("../images/zig-zag.png");
 }
 
 
+
+#new-user {
+  width: 17rem;
+  background: transparent;
+  text-decoration: underline;
+  color: grey;
+}
+
+#new-user-submit,
+ #login-submit,
+ #new-user-submit:focus,
+ #new-user-submit:active,
+ #login-submit:focus,
+ #login-submit:active {
+    background: rgb(87, 9, 79);
+    width: 17rem;
+    color: white;
+    height: 4rem;
+    font-size: 1.5rem;
+    border: solid 2px #ffb228;
+    box-shadow: none;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    background-image: url("../images/zig-zag.png");
+}
+
+@media (max-width: 600px) {
+  body {
+    background: #4c0045;
+    border: none;
+  }
+
+  #phonetop,
+  #phonespeaker,
+  #phonebottom,
+  #phonebutton,
+  #phonebuttoninner {
+    display: none;
+  }
+
+  #phonemid {
+    border: none;
+    height: 100%;
+    width: 100%;
+  }
+
+  .container {
+    border: none;
+    width: 100%;
+  }
+
+  #round-photo {
+    height: auto;
+    width: 70%;
+  }
+
+  #login-display {
+    width: 85%;
+  }
 }
