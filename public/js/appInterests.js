@@ -39,7 +39,7 @@ $(document).ready(function() {
             isTrue[i]
           }</span><input type='text' class='form-control edit-line hidden' value="${
             isTrue[i]
-          }"><br>`
+          }"><hr class='likeDislike-sep'>`
         );
       }
       for (var i = 0; i < isFalse.length; i++) {
@@ -51,7 +51,7 @@ $(document).ready(function() {
           }</span>
           <input type='text' class='form-control edit-line hidden' value="${
             isFalse[i]
-          }"><br>
+          }"><hr class='likeDislike-sep'>
           `
         );
       }
@@ -151,7 +151,7 @@ $("body").on("click", "#confirm-interest-edit", function(e) {
   console.log(newInterest);
 
   $.post("/api/interest/", newInterest);
-  $("#confirm-interest-edit").text("Edit");
+  $("#confirm-interest-edit").text("Add");
   // var count = 0;
   $(".add-btn").toggleClass("hidden");
   location.reload();
