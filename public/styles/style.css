@@ -6,12 +6,35 @@
 #FFB228 orange-yellow
 
  */
+.intro1, .intro3, .intro5 {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  font-size: 3rem;
+}
 
+.intro6, .intro7{
+  font-size: 1.5rem;
+}
+#like-tag, #dislike-tag{
+  font-size: 2rem;
+  vertical-align: middle;
+}
+#true-check, #false-check{
+  margin: .5em;
+}
+.intro2, .intro4 {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  font-size: 2rem;
+}
+ .no-border {
+   border: none !important;
+ }
 .next-btn {
 
     width: 17rem;
     height: 4rem;
-    margin-top: 25px;
+    margin-top: 0px;
     margin-bottom: 20px;
     border: 3px solid #ffb228;
     box-shadow: 0px 0px 35px 5px #6f0765;
