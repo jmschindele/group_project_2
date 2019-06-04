@@ -230,6 +230,7 @@ $(".intro5").on("animationend",function(){
   $('.intro6').on('animationend',function(){
   $('.intro7').toggleClass('hidden fadeIn slow')})
   $('.intro7').on('animationend', function(){
+    
 $('#ll0').toggleClass('hidden fadeIn')});
 
 $('body').on('input','#ll0',function(){
@@ -638,3 +639,8 @@ $('body').on('input','#ll4',function(){
     });
   }
 });
+
+
+
+
+
