@@ -1,7 +1,7 @@
 {{!-- log in section  --}}
 
 
-<div class="container bg-2 text-4 mx-auto" id="log-in-screen">
+<div class="container bg-2 text-4 mx-auto animated no-border" id="log-in-screen">
   <div class="row" id="logo-row">
     <div class="col-12 text-center">
       <img src="./images/logo2.png" id="round-photo">
@@ -25,7 +25,7 @@
 {{!-- main page section  --}}
 
 
-<div class="container bg-2 hidden spacer mx-auto" id="index">
+<div class="container bg-2 hidden spacer mx-auto no-border animated" id="index">
   <div class="row bg-2" id="logo-row">
     <div class="col-12 mx-auto text-center">
       <img src="./images/logo2.png" id="round-photo" />
@@ -83,7 +83,7 @@
 
 {{!-- New User Section --}}
 {{!-- changed --}}
-<div class="container bg-2 text-4 mx-auto" id="new-user-screen">
+<div class="container bg-2 text-4 mx-auto hidden no-border animated" id="new-user-screen">
   <div class="row" id="logo-row">
     <div class="col-12 text-center">
       <img src="./images/logo2.png" id="round-photo">
@@ -92,8 +92,8 @@
   <div class="row" id="form-row">
     <div class="col-12 text-center">
       <form>
-        <input type="text" class="form-control" placeholder="Choose Username" id='new-username'></input>
-        <input type="password" class="form-control" placeholder='Password' id='new-password'></input>
+        <input type="text" class="form-control" placeholder="Choose Username" id='new-username' ></input>
+        <input type="password" class="form-control" placeholder='Password' id='new-password' ></input>
         <input type="text" class="form-control" placeholder='Hint:' id='new-hint'></input>
         <button class='btn btn-primary' id="new-user-submit">Enter</button>
       </form>
@@ -104,12 +104,12 @@
 
 {{!-- new spouse section --}}
 {{!-- changed --}}
-<div class="container bg-2 text-4 text-center" id="new1">
+<div class="container bg-2 text-4 text-center mx-auto hidden no-border animated" id="new1">
   <div class="row">
     <div class="col-12">
-      <h2>Click Below to add a Spouse</h2>
-      <form id="spouse-form">
-        <button id='newsub1' class='next-btn'> Next </button>
+      <h2 class='intro intro1 animated hidden shadow-seperator'>First, Let's Add Your Spouse Below</h2>
+      <form id="spouse-form" class='animated hidden'>
+        <button id='newsub1' class='animated next-btn hidden'> Next </button>
       </form>
     </div>
   </div>
@@ -118,15 +118,15 @@
 
 {{!-- page 2 of questions --}}
 {{!-- changed --}}
-<div class="container bg-2 text-4 text-center" id="new2">
+<div class="container bg-2 text-4 text-center mx-auto hidden no-border animated" id="new2">
   <div class="row">
     <div class="col-12">
-      <h3>Add important dates!</h3>
-      <form id='date-form'>
-        <br>
-        <button class='add-btn2 animated pulse infinite' id="add-date">+</button><br>
+      <h3 class='intro intro2 hidden shadow-seperator'>Next, Let's Add An Important Date. Don't Worry, You Can Add More Later</h3>
+      <form id='date-form' class="animated">
+        
+        <button class='add-btn2 animated pulse slow infinite hidden' id="add-date">+</button><br>
         {{!-- <a class="btn-floating btn-large pulse"><i class="material-icons">edit</i></a> --}}
-        <input type='submit' value='Next' class='next-btn' id="newsub2">
+        <input type='submit' value='Next' class='next-btn hidden animated' id="newsub2">
       </form>
     </div>
   </div>
@@ -134,14 +134,14 @@
 
 {{!-- page 3 of questions --}}
 {{!-- changed --}}
-<div class="container bg-2 text-4 text-center" id="new3">
+<div class="container bg-2 text-4 text-center mx-auto hidden no-border animated" id="new3">
   <div class="row">
     <div class="col-12">
-      <h3>Add some likes and dislikes below</h3>
+      <h3 class='intro3 hidden animated shadow-seperator'>Great. Now let's add either a like or dislike. You decide.</h3>
       <form id='interest-form'>
-        <br>
-        <button class='add-btn2 animated pulse infinite' id="add-interest">+</button><br>
-        <input type='submit' value='Next' class='next-btn' id='newsub3'>
+        
+        <button class='add-btn2 animated pulse infinite hidden' id="add-interest">+</button><br>
+        <input type='submit' value='Next' class='next-btn hidden animated' id='newsub3'>
       </form>
     </div>
   </div>
@@ -149,14 +149,14 @@
 
 {{!-- page 4 of questions --}}
 {{!-- changed --}}
-<div class="container bg-2 text-4 text-center   " id="new4">
+<div class="container bg-2 text-4 text-center mx-auto hidden no-border animated" id="new4">
   <div class="row">
     <div class="col-12">
-      <h3>Add some Clothing and sizes here</h3>
+      <h3 class='intro4 hidden shadow-seperator'>Let's Also Add a Type of Clothing and Size</h3>
       <form id='favorite-form'>
-        <br>
-        <button class='add-btn2 animated pulse infinite' id="add-favorite">+</button><br>
-        <input type='submit' value='Next' class='next-btn' id='newsub4'>
+        
+        <button class='add-btn2 animated pulse infinite hidden' id="add-favorite">+</button><br>
+        <input type='submit' value='Next' class='next-btn hidden' id='newsub4'>
       </form>
     </div>
   </div>
@@ -164,21 +164,21 @@
 
 {{!-- last page of questions  --}}
 {{!-- changed --}}
-<div class="container bg-2 text-4 text-center" id="new5">
+<div class="container bg-2 text-4 text-center mx-auto hidden no-border animated" id="new5">
   <div class="row">
     <div class="col-12">
-      <h2>Love Languages</h2>
-      <p>Try to include at least the top 2.</p>
-      <p>Not sure?
+      <h2 class='intro5 animated hidden shadow-seperator'>Last, Let's Choose Love Languages.</h2>
+      <p class='intro6 animated hidden'>Try to include at least their top 2.</p>
+      <p class='intro7 animated hidden'>If you aren't sure, here is the quiz
         <a href='https://www.5lovelanguages.com/profile/couples/' target="_blank">
           Take the quiz now</a></p>
 
       <form id='lovelang-form'>
-        <br>
+        
 
       </form>
       <form>
-        <input type='submit' value='Submit' class='next-btn' id='newsub5'>
+        <input type='submit' value='Submit' class='next-btn hidden animated' id='newsub5'>
       </form>
     </div>
   </div>
