@@ -59,7 +59,7 @@ If you would like to download and use this code you will need to:
   
   ![duetlogin](https://user-images.githubusercontent.com/46547100/58845197-47b01480-8648-11e9-8a18-3543610b1b0d.PNG)
   
-  ![duetnewusersignup](https://user-images.githubusercontent.com/46547100/58845203-4848ab00-8648-11e9-9dd6-8a39554172da.PNG)
+  ![duetnewusersignup](https://user-images.githubusercontent.com/46547100/58845478-4f23ed80-8649-11e9-952a-53afcd524655.PNG)
 
   New User Categories Form/Questions:
   
