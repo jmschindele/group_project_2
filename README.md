@@ -54,27 +54,28 @@ If you would like to download and use this code you will need to:
   
   ## Demos
   Login and New User Login Pages: 
-  ![duetHome](https://user-images.githubusercontent.com/46547100/58844750-95c41880-8646-11e9-89ba-e68e8a65e468.PNG)
   
-  ![duetlogin](https://user-images.githubusercontent.com/46547100/58844752-95c41880-8646-11e9-944b-984b81cb3eb1.PNG)
-
-  ![duetnewusersignup](https://user-images.githubusercontent.com/46547100/58844757-96f54580-8646-11e9-80ed-d4c65816f721.PNG)
+  ![duetHome](https://user-images.githubusercontent.com/46547100/58845196-47b01480-8648-11e9-9da0-376953e9a43e.PNG)
+  
+  ![duetlogin](https://user-images.githubusercontent.com/46547100/58845197-47b01480-8648-11e9-8a18-3543610b1b0d.PNG)
+  
+  ![duetnewusersignup](https://user-images.githubusercontent.com/46547100/58845203-4848ab00-8648-11e9-9dd6-8a39554172da.PNG)
 
   New User Categories Form/Questions:
   
-  ![duetaddSpouse](https://user-images.githubusercontent.com/46547100/58844748-95c41880-8646-11e9-8ec2-2f0acdbf5bca.PNG)
+  ![duetaddSpouse](https://user-images.githubusercontent.com/46547100/58845194-47177e00-8648-11e9-9588-b1c655865b1b.PNG)
 
-  ![duetnewDates](https://user-images.githubusercontent.com/46547100/58844754-965caf00-8646-11e9-945d-5861dbc17b7e.PNG)
- 
-  ![duetaddInterests](https://user-images.githubusercontent.com/46547100/58844746-95c41880-8646-11e9-8710-39d07fe55bb3.PNG)
+  ![duetnewDates](https://user-images.githubusercontent.com/46547100/58845199-47b01480-8648-11e9-9e6e-a5c9a2a101b2.PNG)
+  
+  ![duetnewInterests](https://user-images.githubusercontent.com/46547100/58845201-47b01480-8648-11e9-85e8-7d6456b7d153.PNG)
 
-  ![duetnewFavorites](https://user-images.githubusercontent.com/46547100/58844755-965caf00-8646-11e9-8c06-720fd519916b.PNG)
+  ![duetnewFavorites](https://user-images.githubusercontent.com/46547100/58845200-47b01480-8648-11e9-88ef-00c6f3dc6539.PNG)
 
-  ![duetnewLL](https://user-images.githubusercontent.com/46547100/58844756-965caf00-8646-11e9-9b28-dab38f992d46.PNG)
+  ![duetnewLL](https://user-images.githubusercontent.com/46547100/58845202-4848ab00-8648-11e9-80ac-661b0296bcf8.PNG)
   
   Main Screen:
   
-  ![duetmainpage](https://user-images.githubusercontent.com/46547100/58844753-95c41880-8646-11e9-8870-0ad5edc8fb7f.PNG)
+  ![duetmainpage](https://user-images.githubusercontent.com/46547100/58845198-47b01480-8648-11e9-8c74-2e66d7d8de15.PNG)
   
   Dates Category:
   
