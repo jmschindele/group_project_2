@@ -20,7 +20,8 @@ If you would like to download and use this code you will need to:
   2. New User
   
   ### Returning User
-  * Upon opening the application you will be automatically navigated to the login screen.
+  * Upon opening the application you will be automatically navigated to a screen that has a login button.
+  * Click this button to enter the login portal.
   * Enter your chosen username and password.
   * Once verified you will be navigated to the main screen where you will see 4 categories, each containing the saved information for your spouse/significant other.
     * The Dates category shows the list of dates entered and a countdown clock to the next date.
@@ -33,7 +34,8 @@ If you would like to download and use this code you will need to:
   * When finished with the application you may navigate to the main page and log out.
   
   ### New User
-  * Upon opening the application you will see the login screen.
+  * Upon opening the application you will be automatically navigated to a screen that has a login button.
+  * Click this button to enter the login portal.
   * Click on the New User button which will navigate you to the new user creation screen.
   * Enter the username and password you would like to use. 
   * Once sumbit is struck the new account is saved and the you will be taken to the information form.
@@ -52,10 +54,29 @@ If you would like to download and use this code you will need to:
   
   ## Demos
   Login and New User Login Pages: 
+  ![duetHome](https://user-images.githubusercontent.com/46547100/58844750-95c41880-8646-11e9-89ba-e68e8a65e468.PNG)
   
+  ![duetlogin](https://user-images.githubusercontent.com/46547100/58844752-95c41880-8646-11e9-944b-984b81cb3eb1.PNG)
+
+  ![duetnewusersignup](https://user-images.githubusercontent.com/46547100/58844757-96f54580-8646-11e9-80ed-d4c65816f721.PNG)
+
   New User Categories Form/Questions:
+  
+  ![duetaddSpouse](https://user-images.githubusercontent.com/46547100/58844748-95c41880-8646-11e9-8ec2-2f0acdbf5bca.PNG)
+
+  ![duetnewDates](https://user-images.githubusercontent.com/46547100/58844754-965caf00-8646-11e9-945d-5861dbc17b7e.PNG)
+ 
+  ![duetaddInterests](https://user-images.githubusercontent.com/46547100/58844746-95c41880-8646-11e9-8710-39d07fe55bb3.PNG)
+
+  ![duetnewFavorites](https://user-images.githubusercontent.com/46547100/58844755-965caf00-8646-11e9-8c06-720fd519916b.PNG)
+
+  ![duetnewLL](https://user-images.githubusercontent.com/46547100/58844756-965caf00-8646-11e9-9b28-dab38f992d46.PNG)
   
   Main Screen:
   
-  Dates and Interests Categories:
+  ![duetmainpage](https://user-images.githubusercontent.com/46547100/58844753-95c41880-8646-11e9-8870-0ad5edc8fb7f.PNG)
+  
+  Dates Category:
+  
+  ![duetDates](https://user-images.githubusercontent.com/46547100/58844749-95c41880-8646-11e9-96d8-c8db136fe8c8.PNG)
    
