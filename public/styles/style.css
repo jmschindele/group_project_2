@@ -472,7 +472,7 @@ body {
   background-image: url("../images/zig-zag.png");
 }
 
-@media screen and (max-width: 900px)
+@media screen and (max-width: 992px)
  {
   body {
     background: #4c0045;
