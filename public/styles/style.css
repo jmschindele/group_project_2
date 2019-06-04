@@ -22,6 +22,9 @@
     border: none;
 } */
 
+.interest-btn {
+  
+}
 .shadow-seperator {
   margin-top: 2rem;
   box-shadow: 0px 0px 20px 5px #6f0765;
@@ -32,10 +35,21 @@
   margin-bottom: 1rem;
 }
 
-ul {
-    list-style: none;
+.likeDislike {
+  font-size: 2rem;
+}
+.likeDislike-title{
+  font-size: 3rem;
 }
 
+
+ul {
+    list-style: table-row;
+}
+.likes-content {
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
 .date-header{
   border-bottom: solid 1px currentColor;
   line-height:  0.7;
@@ -272,10 +286,25 @@ body {
 }
 
 .add-btn {
-  border: solid 1px green;
+  border: none;
   color: darkgreen;
   border-radius: 100%;
+  box-shadow: inset 0px 0px 5px 3px green;
   background: lightgreen;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bolder;
+  font-size: .5em;
+  padding: .2em .3em;
+  vertical-align: middle;
+  /* margin-bottom: 1em; */
+  /* margin-top: 1em; */
+  margin-left: 1em;
+}
+
+.add-btn:hover {
+  cursor:  pointer;
+  background: whitesmoke;
+  box-shadow: 0px 0px 10px 3px lightgreen;
 }
 
 ::-webkit-scrollbar {

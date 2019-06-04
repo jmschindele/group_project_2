@@ -35,7 +35,7 @@ $(document).ready(function() {
           `<input id='delete' class='hidden delete-btn' data-id='${isTrueId[i]}'
           type='checkbox'></input><span id='${
             isTrueId[i]
-          }' class='interest-item'>${
+          }' class='interest-item likeDislike text-3'>${
             isTrue[i]
           }</span><input type='text' class='form-control edit-line hidden' value="${
             isTrue[i]
@@ -46,11 +46,13 @@ $(document).ready(function() {
         $("#dislike").append(
           `<input id='delete' class='hidden delete-btn' data-id='${isFalseId[i]}' type='checkbox'></input><span id='${
             isFalseId[i]
-          }' class='interest-item'>${
+          }' class='interest-item likeDislike text-3'>${
             isFalse[i]
-          }</span><input type='text' class='form-control edit-line hidden' value="${
+          }</span>
+          <input type='text' class='form-control edit-line hidden' value="${
             isFalse[i]
-          }"><br>`
+          }"><br>
+          `
         );
       }
     });
@@ -81,7 +83,7 @@ $("body").on("click", "#delete-interest", function(e) {
 //Add Delete Request here
 $("body").on("click", "#delete-confirm", function(e) {
   e.preventDefault();
-  $("#delete-confirm").text("Delete");
+  $("#delete-confirm").text("Remove");
   $("#delete-confirm").attr("id", "delete-interest");
   $(".delete-btn").toggleClass("hidden");
 
@@ -114,8 +116,8 @@ $("body").on("click", "#edit-interest", function(e) {
   if (canEdit === true) {
     canDelete = false;
     e.preventDefault();
-    $(".interest-item").toggleClass("hidden");
-    $(".edit-line").toggleClass("hidden");
+    // $(".interest-item").toggleClass("hidden");
+    // $(".edit-line").toggleClass("hidden");
     $("#edit-interest").text("Save");
     $("#edit-interest").attr("id", "confirm-interest-edit");
     $(".add-btn").toggleClass("hidden");
