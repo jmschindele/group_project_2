@@ -7,22 +7,9 @@
 
  */
 
-/* .img-left {
-    background-image: url('../images/sprinkles.png');
-    width: 100%;
-    margin: 0px;
-    padding: 0px;
-    border: none;
+.max-width {
+  width: 100%;
 }
-.img-right {
-    background-image: url('../images/sprinkles.png');
-    width: 100%;
-    margin: 0px;
-    padding: 0px;
-    border: none;
-} */
-
-
 .interests-h1 {
   font-size: 4rem;
   border-bottom: solid 1px currentColor;
@@ -192,6 +179,7 @@ ul {
 
 .fav-card-text {
   font-size: 1.5em;
+  width: 85%;
 }
 #phonetop {
   border: solid 3px black;
@@ -293,6 +281,10 @@ body {
 
 .bg-4 {
   background: #ffb228;
+}
+
+.bg-5 {
+  background: transparent;
 }
 
 .card {
