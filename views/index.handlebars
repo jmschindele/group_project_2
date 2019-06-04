@@ -1,7 +1,5 @@
 {{!-- log in section  --}}
-{{!-- <div class="row"><div class="col-1 img-left"></div>
-  
-  <div class="col-10"> --}}
+
 
 <div class="container bg-2 text-4 mx-auto" id="log-in-screen">
   <div class="row" id="logo-row">
@@ -22,10 +20,7 @@
     </div>
   </div>
 </div>
-{{!-- </div> --}}
-{{!-- side img test --}}
 
-{{!-- <div class="col-1 img-right"></div> --}} 
 
 {{!-- main page section  --}}
 
@@ -87,8 +82,8 @@
 </div>
 
 {{!-- New User Section --}}
-
-<div class="container hidden bg-2 text-4 mx-auto" id="new-user-screen">
+{{!-- changed --}}
+<div class="container bg-2 text-4 mx-auto" id="new-user-screen">
   <div class="row" id="logo-row">
     <div class="col-12 text-center">
       <img src="./images/logo2.png" id="round-photo">
@@ -108,13 +103,13 @@
 
 
 {{!-- new spouse section --}}
-
-<div class="container hidden bg-2 text-4" id="new1">
+{{!-- changed --}}
+<div class="container bg-2 text-4 text-center" id="new1">
   <div class="row">
     <div class="col-12">
       <h2>Click Below to add a Spouse</h2>
       <form id="spouse-form">
-        <button id='newsub1'> Next </button>
+        <button id='newsub1' class='next-btn'> Next </button>
       </form>
     </div>
   </div>
@@ -122,52 +117,54 @@
 </div>
 
 {{!-- page 2 of questions --}}
-
-<div class="container hidden bg-2 text-4" id="new2">
+{{!-- changed --}}
+<div class="container bg-2 text-4 text-center" id="new2">
   <div class="row">
     <div class="col-12">
       <h3>Add important dates!</h3>
       <form id='date-form'>
         <br>
-        <button class='add-btn' id="add-date">+</button>
-        <a class="btn-floating btn-large pulse"><i class="material-icons">edit</i></a>
-        <input type='submit' value='next' id="newsub2">
+        <button class='add-btn2 animated pulse infinite' id="add-date">+</button><br>
+        {{!-- <a class="btn-floating btn-large pulse"><i class="material-icons">edit</i></a> --}}
+        <input type='submit' value='Next' class='next-btn' id="newsub2">
       </form>
     </div>
   </div>
 </div>
 
 {{!-- page 3 of questions --}}
-
-<div class="container hidden bg-2 text-4" id="new3">
+{{!-- changed --}}
+<div class="container bg-2 text-4 text-center" id="new3">
   <div class="row">
     <div class="col-12">
       <h3>Add some likes and dislikes below</h3>
       <form id='interest-form'>
         <br>
-        <button class='add-btn' id="add-interest">+</button>
-        <input type='submit' value='next' id='newsub3'>
+        <button class='add-btn2 animated pulse infinite' id="add-interest">+</button><br>
+        <input type='submit' value='Next' class='next-btn' id='newsub3'>
       </form>
     </div>
   </div>
 </div>
 
 {{!-- page 4 of questions --}}
-<div class="container hidden bg-2 text-4" id="new4">
+{{!-- changed --}}
+<div class="container bg-2 text-4 text-center   " id="new4">
   <div class="row">
     <div class="col-12">
       <h3>Add some Clothing and sizes here</h3>
       <form id='favorite-form'>
         <br>
-        <button class='add-btn' id="add-favorite">+</button>
-        <input type='submit' value='next' id='newsub4'>
+        <button class='add-btn2 animated pulse infinite' id="add-favorite">+</button><br>
+        <input type='submit' value='Next' class='next-btn' id='newsub4'>
       </form>
     </div>
   </div>
 </div>
 
 {{!-- last page of questions  --}}
-<div class="container hidden bg-2 text-4" id="new5">
+{{!-- changed --}}
+<div class="container bg-2 text-4 text-center" id="new5">
   <div class="row">
     <div class="col-12">
       <h2>Love Languages</h2>
@@ -181,7 +178,7 @@
 
       </form>
       <form>
-        <input type='submit' value='Submit' id='newsub5'>
+        <input type='submit' value='Submit' class='next-btn' id='newsub5'>
       </form>
     </div>
   </div>
