@@ -32,27 +32,27 @@ $(document).ready(function() {
 
       for (var i = 0; i < isTrue.length; i++) {
         $("#like").append(
-          `<input id='delete' class='hidden delete-btn' data-id='${
-            isTrueId[i]
-          }'
+          `<input id='delete' class='hidden delete-btn' data-id='${isTrueId[i]}'
           type='checkbox'></input><span id='${
             isTrueId[i]
-          }' class='interest-item'>${
+          }' class='interest-item likeDislike text-3'>${
             isTrue[i]
           }</span><input type='text' class='form-control edit-line hidden' value="${
             isTrue[i]
-          }"><br>`
+          }"><hr class='likeDislike-sep'>`
         );
       }
       for (var i = 0; i < isFalse.length; i++) {
         $("#dislike").append(
           `<input id='delete' class='hidden delete-btn' data-id='${isFalseId[i]}' type='checkbox'></input><span id='${
             isFalseId[i]
-          }' class='interest-item'>${
+          }' class='interest-item likeDislike text-3'>${
             isFalse[i]
-          }</span><input type='text' class='form-control edit-line hidden' value="${
+          }</span>
+          <input type='text' class='form-control edit-line hidden' value="${
             isFalse[i]
-          }"><br>`
+          }"><hr class='likeDislike-sep'>
+          `
         );
       }
     });
@@ -83,30 +83,31 @@ $("body").on("click", "#delete-interest", function(e) {
 //Add Delete Request here
 $("body").on("click", "#delete-confirm", function(e) {
   e.preventDefault();
-  $("#delete-confirm").text("Delete");
+  $("#delete-confirm").text("Remove");
   $("#delete-confirm").attr("id", "delete-interest");
   $(".delete-btn").toggleClass("hidden");
 
   var id;
 
-  if (document.getElementById('delete').checked = true) {
-    id = $('#delete').attr('data-id');
-    console.log(id)
+
+console.log('preloop id ',id)
+  var deleteThese = document.getElementsByClassName("delete-btn");
+  console.log("delete these ", deleteThese);
+  for (var i = 0; i < deleteThese.length; i++) {
+    if (deleteThese[i].checked === true) {
+      id = deleteThese[i].getAttribute("data-id");
+      console.log("true ", id);
+
+      $.ajax({
+        url: "api/interest/" + id, //api delete route
+        type: "DELETE"
+      }).then(function(response) {
+        console.log("deleted", response);
+        canEdit = true;
+      });
+      location.reload();
+    }
   }
-  
-  console.log('up a scope id =', id)
-
-  $.ajax({
-    url: 'api/interest/'+id , //api delete route
-    type: 'DELETE'
-  }).then(function(response){
-    console.log('deleted', response)
-    canEdit = true;
- location.reload();
-  })
-
-
-  
 });
 
 //
@@ -115,42 +116,42 @@ $("body").on("click", "#edit-interest", function(e) {
   if (canEdit === true) {
     canDelete = false;
     e.preventDefault();
-    $(".interest-item").toggleClass("hidden");
-    $(".edit-line").toggleClass("hidden");
+    // $(".interest-item").toggleClass("hidden");
+    // $(".edit-line").toggleClass("hidden");
     $("#edit-interest").text("Save");
     $("#edit-interest").attr("id", "confirm-interest-edit");
     $(".add-btn").toggleClass("hidden");
-    setTimeout(function(){
-      $(".add-btn").toggleClass('animated infinite pulse')
-    },100)
+    setTimeout(function() {
+      $(".add-btn").toggleClass("animated infinite pulse");
+    }, 100);
   }
 });
 
 $("body").on("click", "#confirm-interest-edit", function(e) {
   e.preventDefault();
 
-   if(likeOrDislike === true) {
-      interestNote = $("#newLike").val();
-      // console.log("interest is like and this is the value: ", interestNote);
-   } else if(likeOrDislike === false) {
-     interestNote = $("#newDislike").val();
+  if (likeOrDislike === true) {
+    interestNote = $("#newLike").val();
+    // console.log("interest is like and this is the value: ", interestNote);
+  } else if (likeOrDislike === false) {
+    interestNote = $("#newDislike").val();
     // console.log("interest is dislike and this is the value: ", interestNote);
-   }
+  }
 
-   console.log("This is the value of interestNote: ", interestNote);
+  console.log("This is the value of interestNote: ", interestNote);
 
-   var grabCurrentSpouse = localStorage.getItem("spouseId");
+  var grabCurrentSpouse = localStorage.getItem("spouseId");
 
-   var newInterest = {
-     type: likeOrDislike,
-     note: interestNote,
-     SpouseId: grabCurrentSpouse
-   };
+  var newInterest = {
+    type: likeOrDislike,
+    note: interestNote,
+    SpouseId: grabCurrentSpouse
+  };
 
-   console.log(newInterest);
+  console.log(newInterest);
 
-   $.post("/api/interest/", newInterest);
-  $("#confirm-interest-edit").text("Edit");
+  $.post("/api/interest/", newInterest);
+  $("#confirm-interest-edit").text("Add");
   // var count = 0;
   $(".add-btn").toggleClass("hidden");
   location.reload();
@@ -159,23 +160,11 @@ $("body").on("click", "#confirm-interest-edit", function(e) {
   canDelete = true;
 });
 
-// $('.add-btn').on('click', function(e){
-//   e.preventDefault();
-//   count++;
-//   $('#additional-interests').append(`
-// <br>
-// <input type='text' class='form-control' placeholder='Description'>
-// <input type='radio' name="isLike${count}" value='like'> Like</input>
-// <input type='radio' name='isLike${count}' value='dislike'> Dislike <br></input>
-//   `);
-// })
-
 $(".add-btn-like").on("click", function(e) {
   e.preventDefault();
   likeOrDislike = true;
   // count++;
   $("#like").append(`
-
 <input type='text' class='form-control' id="newLike" data-type='true' placeholder='Description'>
 <br>
   `);

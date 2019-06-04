@@ -33,7 +33,7 @@ module.exports = function(app) {
   });
 
   app.delete("/api/interest/:id", function(req, res) {
-    //console.log('req.body in post is', req.body)
+    console.log('req.body in post is', req.body)
     console.log(req.params.id)
     db.Interests.destroy({
       where: {

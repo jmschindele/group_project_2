@@ -25,10 +25,10 @@ $(document).ready(function() {
 
         $("#accordion").append(
           `
-<div class="card bg-2">
+<div class="card bg-5">
 <div class="card-header" id="heading${i}">
   <h5 class="mb-0">
-    <button class="btn btn-link" data-toggle="collapse" data-target="#collapse${i}" aria-expanded="true" aria-controls="collapse${i}">
+    <button class="btn btn-link max-width" data-toggle="collapse" data-target="#collapse${i}" aria-expanded="true" aria-controls="collapse${i}">
       ${garment} 
       <hr class='bg-3'>
     </button>
@@ -36,7 +36,7 @@ $(document).ready(function() {
 </div>
 
 <div id="collapse${i}" class="collapse" aria-labelledby="heading${i}" data-parent="#accordion">
-<div class="card-body fav-card-text">
+<div class="card-body fav-card-text mx-auto">
 Size: ${size} <br><br>
  
 ${note}

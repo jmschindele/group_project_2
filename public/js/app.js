@@ -74,8 +74,6 @@ $(document).ready(function() {
         if (loginPassword === user.password) {
           console.log("password matches you may enter");
           getSpouse();
-          // $logInScreen.toggleClass("hidden");
-          // $index.toggleClass("hidden");
           location.reload();
           //console.log(currentUserId);
         } else {
@@ -160,7 +158,7 @@ $(document).ready(function() {
   // setting up new spouse blank as a variable so any formatting changes will apply
   var newSpouseEntry =
     '<input placeholder="Spouse Name" id="new-spouse" class="form-control"></input>';
-  // $spouseForm.prepend(newSpouseEntry);
+
 
   function addNewSpouse() {
     var loggedInId = localStorage.getItem("currentUser");
@@ -172,7 +170,7 @@ $(document).ready(function() {
     };
     console.log(newSpouse);
     $.post("/api/spouse/", newSpouse);
-    // location.reload;
+
   }
 
 
@@ -206,7 +204,7 @@ $(document).ready(function() {
         );
   
         localStorage.setItem("spouseId", currentSpouseId);
-        // location.reload;
+
   
         var localStoredSpouse = "ERROR";
         localStoredSpouse = localStorage.getItem("spouseId");
@@ -373,14 +371,9 @@ $(document).ready(function() {
   //changes over to new-user-screen when click new user btn on login-screen
   $("#new-user").on("click", function(e) {
     e.preventDefault();
-    // $("#log-in-screen").toggleClass("flipOutY faster");
-    // $("#log-in-screen").toggleClass("hidden");
-    // $("#log-in-screen").on('animationend', function(){
     
       $("#log-in-screen").toggleClass("hidden");
           $("#new-user-screen").toggleClass("hidden");
-          //  animated flipInY faster");
-    // })
 
   });
 
