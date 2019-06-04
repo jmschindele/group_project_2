@@ -35,7 +35,8 @@ $(document).ready(function() {
     localStorage.setItem("loggedIn", "false");
     localStorage.removeItem("spouseId");
     //console.log("successfully logged out");
-    location.reload();
+    // location.reload();
+    window.location.href = '/'
   });
 
   var $login = $("#login-submit");
@@ -60,9 +61,10 @@ $(document).ready(function() {
       //  //console.log(data);
       user = data;
       if (user === null) {
-        $('#log-in-screen').toggleClass('shake fast');
+        
         $('#user-email').val('');
         $('#user-password').val('');
+        $('#log-in-screen').toggleClass('shake fast');
         setTimeout(function(){
           $('#log-in-screen').toggleClass('shake fast')
         }, 500)
@@ -74,8 +76,6 @@ $(document).ready(function() {
         if (loginPassword === user.password) {
           console.log("password matches you may enter");
           getSpouse();
-          // $logInScreen.toggleClass("hidden");
-          // $index.toggleClass("hidden");
           location.reload();
           //console.log(currentUserId);
         } else {
@@ -111,8 +111,27 @@ $(document).ready(function() {
     addNewSpouse();
     getSpouse();
 
-    $new1.toggleClass("hidden");
-    $new2.toggleClass("hidden");
+    // $new1.toggleClass("hidden");
+    // $new2.toggleClass("hidden");
+    $new1.toggleClass("fadeOut")
+          $new1.on('animationend',function(){
+          $new1.toggleClass("hidden");
+          $new2.toggleClass("hidden");
+        })
+    $(".intro2").toggleClass('hidden fadeIn slow')
+    $(".intro2").on("animationend",function(){
+      $('#add-date').toggleClass('hidden fadeIn');
+    })
+    $('body').on('input','#eventInput',function(){
+      if( $('#eventInput').val().length < 2) {
+        $('#dateInput').toggleClass('hidden fadeIn slow')
+      }
+    })
+    $('body').on('input','#dateInput', function(){
+      if( $('#dateInput').val().length < 2) {
+        $('#newsub2').toggleClass('hidden fadeIn slow')
+      }
+    })
   });
 
   $newSub2.on("click", function(e) {
@@ -121,8 +140,35 @@ $(document).ready(function() {
     addNewDate();
     getDates();
 
-    $new2.toggleClass("hidden");
-    $new3.toggleClass("hidden");
+    // $new2.toggleClass("hidden");
+    // $new3.toggleClass("hidden");
+    $new2.toggleClass("fadeOut")
+          $new2.on('animationend',function(){
+          $new2.toggleClass("hidden");
+          $new3.toggleClass("hidden");
+        })
+    $(".intro3").toggleClass('hidden fadeIn slow')
+    $(".intro3").on("animationend",function(){
+      $('#add-interest').toggleClass('hidden fadeIn slow');
+    })
+    $('body').on('input','#addInt',function(){
+      if( $('#addInt').val().length < 2) {
+        $('#like-tag').toggleClass('hidden animated fadeIn slow');
+        $('#true-check').toggleClass('hidden fadeIn slow');
+        $('#dislike-tag').toggleClass('hidden animated fadeIn slow');
+        $('#false-check').toggleClass('hidden fadeIn slow');
+      }
+    })
+    $('body').on('click','#true-check', function(){
+      if( document.getElementById('newsub3').classList.contains('hidden') ) {
+        $('#newsub3').toggleClass('hidden fadeIn slow')
+      }
+    })
+      $('body').on('click','#false-check', function(){
+        if( document.getElementById('newsub3').classList.contains('hidden')) {
+          $('#newsub3').toggleClass('hidden fadeIn slow')
+        }
+    })
   });
 
   $newSub3.on("click", function(e) {
@@ -131,8 +177,37 @@ $(document).ready(function() {
     addNewInterest();
     getInterest();
 
-    $new3.toggleClass("hidden");
-    $new4.toggleClass("hidden");
+    // $new3.toggleClass("hidden");
+    // $new4.toggleClass("hidden");
+
+
+    $new3.toggleClass("fadeOut")
+          $new3.on('animationend',function(){
+          $new3.toggleClass("hidden");
+          $new4.toggleClass("hidden");
+        })
+    $(".intro4").toggleClass('hidden fadeIn slow')
+    $(".intro4").on("animationend",function(){
+      $('#add-favorite').toggleClass('hidden fadeIn');
+    })
+    $('body').on('input','#favArticle',function(){
+      if( $('#favArticle').val().length < 2) {
+        $('#favSize').toggleClass('hidden fadeIn slow')
+      }
+    })
+    $('body').on('input','#favSize', function(){
+      if( $('#favSize').val().length < 2) {
+        $('#favNote').toggleClass('hidden fadeIn slow')
+      }
+    })
+    $('body').on('input','#favNote', function(){
+      if( $('#favNote').val().length < 2) {
+        $('#newsub4').toggleClass('hidden fadeIn slow')
+      }
+    })
+  
+
+  
   });
 
   $newSub4.on("click", function(e) {
@@ -141,18 +216,52 @@ $(document).ready(function() {
     addNewFavorite();
     getFavorite();
 
+    // $new4.toggleClass("hidden");
+    // $new5.toggleClass("hidden");
+
+    $new4.toggleClass("fadeOut")
+    $new4.on('animationend',function(){
     $new4.toggleClass("hidden");
     $new5.toggleClass("hidden");
-  });
+  })
+$(".intro5").toggleClass('hidden fadeIn slow')
+$(".intro5").on("animationend",function(){
+  $('.intro6').toggleClass('hidden fadeIn slow')})
+  $('.intro6').on('animationend',function(){
+  $('.intro7').toggleClass('hidden fadeIn slow')})
+  $('.intro7').on('animationend', function(){
+$('#ll0').toggleClass('hidden fadeIn')});
+
+$('body').on('input','#ll0',function(){
+  $('#ll1').toggleClass('hidden fadeIn slow')
+})
+$('body').on('input','#ll1',function(){
+  $('#ll2').toggleClass('hidden fadeIn slow')
+})
+$('body').on('input','#ll2',function(){
+  $('#ll3').toggleClass('hidden fadeIn slow')
+})
+$('body').on('input','#ll3',function(){
+  $('#ll4').toggleClass('hidden fadeIn slow')
+})
+$('body').on('input','#ll4',function(){
+  $('#newsub5').toggleClass('hidden fadeIn slow')
+})
+  
+
 
   $newSub5.on("click", function(e) {
     e.preventDefault();
     newLoveLang();
     getLoveLang();
-    $new5.toggleClass("hidden");
-    $("#index").toggleClass("hidden");
+    // $new5.toggleClass("hidden");
+    $new5.toggleClass("fadeInDown bounceOut")
+    $new5.on('animationend', function() {
+      $new5.toggleClass('hidden');
+    })
+    $("#index").toggleClass("hidden fadeIn slow");
   });
-
+});
   // Handler for new spouse blanks
 
   // var $addSpouse = $("#add-spouse");
@@ -160,7 +269,7 @@ $(document).ready(function() {
   // setting up new spouse blank as a variable so any formatting changes will apply
   var newSpouseEntry =
     '<input placeholder="Spouse Name" id="new-spouse" class="form-control"></input>';
-  // $spouseForm.prepend(newSpouseEntry);
+
 
   function addNewSpouse() {
     var loggedInId = localStorage.getItem("currentUser");
@@ -172,7 +281,7 @@ $(document).ready(function() {
     };
     console.log(newSpouse);
     $.post("/api/spouse/", newSpouse);
-    // location.reload;
+
   }
 
 
@@ -206,7 +315,7 @@ $(document).ready(function() {
         );
   
         localStorage.setItem("spouseId", currentSpouseId);
-        // location.reload;
+
   
         var localStoredSpouse = "ERROR";
         localStoredSpouse = localStorage.getItem("spouseId");
@@ -229,13 +338,16 @@ $(document).ready(function() {
   //store empty blanks in a variable for future updates
   var newDateEntry = `
 <br>
-<input placeholder="Event" type='text' id= "eventInput" class="form-control">
-<input placeholder="Date" type='text' id= "dateInput" class="form-control">
+<input placeholder="Event" type='text' id="eventInput" class="form-control animated fadeIn slow">
+<input placeholder="Date" type='text' id="dateInput" class="form-control hidden animated">
 `;
 
   $addDate.on("click", function(e) {
     e.preventDefault();
+    
     $dateForm.prepend(newDateEntry);
+    $addDate.toggleClass('hidden');
+    // $('#eventInput').toggleClass('hidden fadeIn slow')
   });
 
   var $addInterest = $("#add-interest");
@@ -276,10 +388,11 @@ $(document).ready(function() {
     count++;
     $interestForm.prepend(`
 <br>
-<input type='text' class='form-control' id='addInt' placeholder='Description'>
-<input type='radio' id='true-check' name="isLike${count}" value='like'> Like</input>
-<input type='radio' id='false-check' name='isLike${count}' value='dislike'> Dislike <br></input>
+<input type='text' class='form-control animated fadeIn slow' id='addInt' placeholder='Description'>
+<input type='radio' class='hidden animated' id='true-check' name="isLike${count}" value='like'> <span id='like-tag' class='hidden'>Like</span></input>
+<input type='radio' class='hidden animated' id='false-check' name='isLike${count}' value='dislike'> <span id='dislike-tag' class='hidden'>Dislike </span><br></input>
   `);
+  $addInterest.toggleClass('hidden')
     return count;
   });
 
@@ -288,12 +401,13 @@ $(document).ready(function() {
 
   var newFavoriteEntry = `
 <br>
-<input placeholder='article' id='favArticle' class='form-control'>
-<input placeholder='Size' id='favSize' class='form-control'>
-<input placeholder='Notes' id='favNote' class='form-control'>
+<input placeholder='Article' id='favArticle' class='form-control animated fadeIn'>
+<input placeholder='Size' id='favSize' class='form-control hidden animated'>
+<input placeholder='Notes' id='favNote' class='form-control hidden animated'>
 `;
 
   $addFavorite.on("click", function(e) {
+    $addFavorite.toggleClass('hidden')
     e.preventDefault();
     $favoriteForm.prepend(newFavoriteEntry);
   });
@@ -303,7 +417,7 @@ $(document).ready(function() {
   for (var i = 0; i < 5; i++) {
     $("#lovelang-form").append(`
   <br>
-  <select id='ll${i}'>
+  <select id='ll${i}' class='hidden animated form-control'>
     <option selected>Please Select</option>
     <option value='<h4>Words of Affirmation</h4>
     <p>This love language expresses love with words that build up your partner. Verbal compliments don’t have to be complicated; the shortest and simplest words of affirmation can be the most effective.</p>
@@ -373,20 +487,16 @@ $(document).ready(function() {
   //changes over to new-user-screen when click new user btn on login-screen
   $("#new-user").on("click", function(e) {
     e.preventDefault();
-    // $("#log-in-screen").toggleClass("flipOutY faster");
-    // $("#log-in-screen").toggleClass("hidden");
-    // $("#log-in-screen").on('animationend', function(){
     
       $("#log-in-screen").toggleClass("hidden");
           $("#new-user-screen").toggleClass("hidden");
-          //  animated flipInY faster");
-    // })
 
   });
 
   //new user button on new user screen
   $("#new-user-submit").on("click", function(e) {
     e.preventDefault();
+
     var newUserName = $addNewUserName.val().trim();
     var newPassword = $addNewPassword.val().trim();
     var newHint = $addNewHint.val().trim();
@@ -395,7 +505,13 @@ $(document).ready(function() {
     // //console.log(newUserName, newPassword, newHint);
 
     if (newUserName === "" || newPassword === "") {
-      alert("Please enter a valid username and password");
+      $("#new-password").val('');
+      $("#new-hint").val('');
+      $('#new-user-screen').toggleClass('shake fast');
+      setTimeout(function(){
+        $('#new-user-screen').toggleClass('shake fast')
+      }, 500)
+      // alert("Please enter a valid username and password");
     } else {
       var newUser = {
         userName: newUserName,
@@ -414,9 +530,23 @@ $(document).ready(function() {
           localStorage.setItem("currentUser", newUserLoggedIn);
           console.log(newUserLoggedIn);
           // location.reload();
+          $("#new-user-screen").toggleClass("fadeOut fast")
+          $('#new-user-screen').on('animationend',function(){
           $("#new-user-screen").toggleClass("hidden");
           $("#new1").toggleClass("hidden");
+          $('.intro1').toggleClass("hidden fadeIn slow");
+          $('.intro1').on('animationend', function(){
+              $('#spouse-form').toggleClass('hidden fadeIn slow')
+          })
+        })
           $spouseForm.prepend(newSpouseEntry);
+          $('#new-spouse').on('input', function(){
+            var inputField = $("#new-spouse").val();
+            console.log('#new spouse', inputField)
+            if ($("#new-spouse").val().length < 2) {
+              $('#newsub1').toggleClass("hidden fadeIn slow")
+            }
+          })
         });
       });
     }

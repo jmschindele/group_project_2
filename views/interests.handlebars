@@ -1,4 +1,4 @@
-<div class="container bg-2">
+<div class="container bg-2 mx-auto">
   <div class="row" id="logo-row">
     <div class="col-12 mx-auto text-center">
       <img src="./images/logo2.png" id="round-photo" />
@@ -8,33 +8,38 @@
     <div class="col-12">
 
       <div class="row">
-        <div class="col-1"></div>
-        <div class="col-10">
-          <h3>Likes</h3>
+       
+        <div class="col-12">
+          <h1 class='text-4 text-center interests-h1'>Interests</h1>
+          <div class="shadow-seperator likes-content">
+          <h3 class="like-title">Likes<button class='add-btn add-btn-like hidden' id="add-interest"> + </button></h3>
 
 
 
-          <form id='like'>
+          <form id='like' >
 
           </form>
-          <button class='add-btn add-btn-like hidden' id="add-interest">+</button>
 
-          <h3>Dislikes</h3>
+
+
+           <h3 class="dislike-title">Dislikes<button class='add-btn add-btn-dislike hidden' id="add-interest">+</button></h3>
+
           <form id='dislike'>
+           
           </form>
-          <button class='add-btn add-btn-dislike hidden' id="add-interest">+</button>
+
           <form id='additional-interests'>
 
           </form>
+          {{!-- <hr class='interest-hr'> --}}
+          <div class='mx-auto text-center add-rem-spacer'>
+          <button id='edit-interest' class='interest-btn'>Add</button>
 
-          <button id='edit-interest'>Edit</button>
-
-          <button id='delete-interest'>Delete</button>
-
-          </ul>
+          <button id='delete-interest' class='interest-btn'>Remove</button>
+  </div>
+          
         </div>
-        <div class="col-1"></div>
-      </div>
+        </div>
     </div>
   </div>
 

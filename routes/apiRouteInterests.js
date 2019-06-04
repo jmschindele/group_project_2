@@ -33,11 +33,11 @@ module.exports = function(app) {
   });
 
   app.delete("/api/interest/:id", function(req, res) {
-    //console.log('req.body in post is', req.body)
+    console.log('req.body in post is', req.body)
     console.log(req.params.id)
     db.Interests.destroy({
       where: {
-      Id: req.params.id }
+      id: req.params.id }
     }).then(function(response) {
       console.log('deleted ',response)
       res.json(response);

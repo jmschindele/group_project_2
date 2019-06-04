@@ -21,14 +21,27 @@ $(document).ready(function() {
 
         formatted = mm + '/' + dd + '/' + yyyy;
 
-
-
-        $("#date-list").append(`
-        <p>${res[i].event}</p>
-        <p>${formatted}</p>
-        <hr class='bg-3'>
-        `);
-
+        $('#date-accordion').append(
+          `
+          <div class="card bg-5">
+          <div class="card-header" id="date-heading${i}">
+            <h5 class="mb-0">
+              <button class="btn btn-link max-width" data-toggle="collapse" data-target="#date-collapse${i}" aria-expanded="true" aria-controls="date-collapse${i}">
+                ${res[i].event} 
+                <hr class='bg-3'>
+              </button>
+            </h5>
+          </div>
+          
+          <div id="date-collapse${i}" class="collapse" aria-labelledby="date-heading${i}" data-parent="#date-accordion">
+          <div class="card-body fav-card-text mx-auto">
+         ${formatted} <br><br>
+           
+          
+          </div>
+          </div>
+          </div>
+          `)
         var dateObj = {
           event: `${res[i].event}`,
           date: `${res[i].date}`
