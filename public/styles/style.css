@@ -58,7 +58,7 @@
   
 }
 
-}
+
 .interest-btn {
   width: 49%;
   background: black;
@@ -128,9 +128,10 @@ ul {
   line-height: 0.7;
   text-shadow: 2px 2px #4c0045, 2px -2px #4c0045, -2px 2px #4c0045,
     -2px -2px #4c0045;
-  width: 13.35rem;
+  width: 20rem;
   padding-top: 1em;
   margin-bottom: 1em;
+  font-size: 2.5rem;
 }
 .next-event-title {
   margin: 0.4em auto;
